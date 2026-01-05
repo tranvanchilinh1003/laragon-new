@@ -1,0 +1,315 @@
+<!-- Left Sidebar - PHP Tutorial Learning Roadmap -->
+<aside class="hidden lg:block w-[288px] flex-shrink-0">
+    <div class="sticky top-24 flex flex-col items-start gap-6 px-6 pt-6 pb-0 w-[288px] max-h-[757px] overflow-y-auto">
+        <h2 class="text-lg font-semibold text-[#595959] leading-[27px]"
+            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            LEARNING ROADMAP
+        </h2>
+        
+        <div class="flex flex-col gap-4 w-full" x-data="{ activePhase: 'phase1' }">
+            <!-- Phase 1: PHP Basics -->
+            <div class="flex flex-col gap-2">
+                <button 
+                    @click="activePhase = activePhase === 'phase1' ? null : 'phase1'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Green Graduation Cap Icon -->
+                    <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#05DF85] flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10V15C22 20 18 22 13 23C12.78 23.05 12.56 23.05 12.34 23C7 22 3 20 3 15V10C3 5 7 3 12 2C17 3 22 5 22 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 18V22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-xs font-semibold text-gray-900 mb-1" style="font-family: 'Space Grotesk', sans-serif;">
+                            PHASE 1: PHP Basics
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-[#05DF85] text-white">NEWBIE</span>
+                            <span class="text-[10px] text-gray-500">1-2 WEEKS</span>
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase1' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Phase 1 Topics -->
+                <div x-show="activePhase === 'phase1'" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 -translate-y-2"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100 translate-y-0"
+                     x-transition:leave-end="opacity-0 -translate-y-2"
+                     class="ml-11 flex flex-col gap-1">
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Installation & Setup</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-sm font-medium text-[#2B8CEE]">Syntax & Variables</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Control Structures</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Arrays & Loops</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Functions</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 2: Advanced PHP -->
+            <div class="flex flex-col gap-2">
+                <button 
+                    @click="activePhase = activePhase === 'phase2' ? null : 'phase2'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Purple Document Icon -->
+                    <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#9333EA] flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 12H16M8 16H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-xs font-semibold text-gray-900 mb-1" style="font-family: 'Space Grotesk', sans-serif;">
+                            PHASE 2: Advanced PHP
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-[#9333EA] text-white">INTERMEDIATE</span>
+                            <span class="text-[10px] text-gray-500">2-3 WEEKS</span>
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase2' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Phase 2 Topics -->
+                <div x-show="activePhase === 'phase2'" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 -translate-y-2"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100 translate-y-0"
+                     x-transition:leave-end="opacity-0 -translate-y-2"
+                     class="ml-11 flex flex-col gap-1">
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">OOP Concepts</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">MVC Pattern</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Database (PDO)</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Security Best Practices</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Composer & Libraries</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 3: Build News Site -->
+            <div class="flex flex-col gap-2">
+                <button 
+                    @click="activePhase = activePhase === 'phase3' ? null : 'phase3'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Orange Database Icon -->
+                    <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#F97316] flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 5C21 6.65685 16.9706 8 12 8C7.02944 8 3 6.65685 3 5M21 5C21 3.34315 16.9706 2 12 2C7.02944 2 3 3.34315 3 5M21 5V19C21 20.6569 16.9706 22 12 22C7.02944 22 3 20.6569 3 19V5M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12" 
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-xs font-semibold text-gray-900 mb-1" style="font-family: 'Space Grotesk', sans-serif;">
+                            Phase 3: Build News Site
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-[#F97316] text-white">PROJECT</span>
+                            <span class="text-[10px] text-gray-500">2 WEEKS</span>
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase3' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Phase 3 Topics -->
+                <div x-show="activePhase === 'phase3'" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 -translate-y-2"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100 translate-y-0"
+                     x-transition:leave-end="opacity-0 -translate-y-2"
+                     class="ml-11 flex flex-col gap-1">
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 1: Database Design</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 2: Frontend & Views</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 3: Admin Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 4: Authentication</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 5: Deployment</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 4: Build E-Commerce -->
+            <div class="flex flex-col gap-2">
+                <button 
+                    @click="activePhase = activePhase === 'phase4' ? null : 'phase4'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Blue Shopping Bag Icon -->
+                    <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2B8CEE] flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" 
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 6H21M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" 
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-xs font-semibold text-gray-900 mb-1" style="font-family: 'Space Grotesk', sans-serif;">
+                            Phase 4: Build E-Commerce
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-[#2B8CEE] text-white">ADVANCED</span>
+                            <span class="text-[10px] text-gray-500">3-4 WEEKS</span>
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase4' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Phase 4 Topics -->
+                <div x-show="activePhase === 'phase4'" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 -translate-y-2"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100 translate-y-0"
+                     x-transition:leave-end="opacity-0 -translate-y-2"
+                     class="ml-11 flex flex-col gap-1">
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 1: Shopping Cart Logic</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 2: Payment Integration</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 3: Order Management</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 4: REST API for Mobile</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#E9F3FD] transition-colors group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#2B8CEE]"/>
+                        </svg>
+                        <span class="text-sm text-gray-700 group-hover:text-[#2B8CEE]">Part 5: Performance & Caching</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

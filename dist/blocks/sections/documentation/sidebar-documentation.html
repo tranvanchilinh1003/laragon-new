@@ -1,0 +1,106 @@
+<!-- Left Sidebar - Documentation Navigation -->
+<aside class="hidden lg:block w-[288px] flex-shrink-0">
+    <div class="sticky top-24 flex flex-col items-start gap-6 px-6 pt-6 pb-0 w-[288px] h-[757px]">
+        <h2 class="text-lg font-semibold text-[#595959] leading-[27px]"
+            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            DOCUMENTATION
+        </h2>
+        <nav class="flex flex-col items-start gap-3 w-full" x-data="{
+            currentPath: '',
+            init() {
+                const path = window.location.pathname;
+                this.currentPath = path;
+            },
+            getLink(href) {
+                const path = this.currentPath;
+                // If in usage-guide subdirectory, use relative paths
+                if (path.includes('/usage-guide/')) {
+                    if (href === 'index.html') {
+                        return '../usage-guide.html'; // Go back to root usage-guide.html
+                    }
+                    return href; // Relative path from subdirectory
+                } else {
+                    // At root level
+                    if (href === 'index.html') {
+                        return 'usage-guide.html'; // Root level file
+                    }
+                    return 'usage-guide/' + href; // Subdirectory file
+                }
+            },
+            isActive(href) {
+                const path = this.currentPath;
+                const currentPage = path.split('/').pop() || '';
+                
+                // For index.html: active if on usage-guide.html (root)
+                if (href === 'index.html') {
+                    return currentPage === 'usage-guide.html' || 
+                           (path.includes('/usage-guide') && !path.includes('installation-guide') && !path.includes('workflows') && !path.includes('troubleshooting'));
+                }
+                
+                // For workflows.html: active if on workflows.html
+                if (href === 'workflows.html') {
+                    return currentPage === 'workflows.html' || path.includes('workflows');
+                }
+                
+                // For troubleshooting.html: active if on troubleshooting.html
+                if (href === 'troubleshooting.html') {
+                    return currentPage === 'troubleshooting.html' || path.includes('troubleshooting');
+                }
+                
+                // For installation-guide.html: active if on installation-guide.html
+                if (href === 'installation-guide.html') {
+                    return currentPage === 'installation-guide.html' || path.includes('installation-guide');
+                }
+                
+                // For other pages: check if current page matches
+                const hrefPage = href.split('/').pop();
+                return currentPage === hrefPage;
+            }
+        }">
+            <a :href="getLink('index.html')"
+                :class="isActive('index.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                        :stroke="isActive('index.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" 
+                        :stroke="isActive('index.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Introduction</span>
+            </a>
+            <a :href="getLink('installation-guide.html')"
+                :class="isActive('installation-guide.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 7V21M12 7C12 5.93913 11.5786 4.92172 10.8284 4.17157C10.0783 3.42143 9.06087 3 8 3H3C2.73478 3 2.48043 3.10536 2.29289 3.29289C2.10536 3.48043 2 3.73478 2 4V17C2 17.2652 2.10536 17.5196 2.29289 17.7071C2.48043 17.8946 2.73478 18 3 18H9C9.79565 18 10.5587 18.3161 11.1213 18.8787C11.6839 19.4413 12 20.2044 12 21M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21" 
+                        :stroke="isActive('installation-guide.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Installation & Setup</span>
+            </a>
+            <a :href="getLink('workflows.html')"
+                :class="isActive('workflows.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9H21M9 21V9M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z" 
+                        :stroke="isActive('workflows.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Real-world Workflows</span>
+            </a>
+            <a :href="getLink('troubleshooting.html')"
+                :class="isActive('troubleshooting.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9999 9.00001V13M11.9999 17H12.0099M21.7299 18L13.7299 4.00001C13.5555 3.69222 13.3025 3.4362 12.9969 3.25808C12.6912 3.07996 12.3437 2.98611 11.9899 2.98611C11.6361 2.98611 11.2887 3.07996 10.983 3.25808C10.6773 3.4362 10.4244 3.69222 10.2499 4.00001L2.24993 18C2.07361 18.3054 1.98116 18.6519 1.98194 19.0045C1.98272 19.3571 2.07671 19.7033 2.25438 20.0078C2.43204 20.3124 2.68708 20.5646 2.99362 20.7388C3.30017 20.9131 3.64734 21.0032 3.99993 21H19.9999C20.3508 20.9997 20.6955 20.907 20.9992 20.7313C21.303 20.5556 21.5551 20.3031 21.7304 19.9991C21.9057 19.6951 21.998 19.3504 21.9979 18.9995C21.9978 18.6486 21.9054 18.3039 21.7299 18Z" 
+                        :stroke="isActive('troubleshooting.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Troubleshooting</span>
+            </a>
+        </nav>
+    </div>
+</aside>
+

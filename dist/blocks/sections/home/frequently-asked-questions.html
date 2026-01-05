@@ -1,0 +1,117 @@
+<section class="py-16 sm:py-20 lg:py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+    <!-- Section Title -->
+    <div class="text-center mb-12 lg:mb-14 px-4">
+      <div
+        class="inline-flex items-center gap-2 bg-[#E9F3FD] text-[#2B8CEE] text-xs sm:text-sm px-4 py-2 rounded-full mb-6">
+        <!-- icon -->
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+          <path
+            d="M9.1 9C9.34 8.34 9.8 7.78 10.41 7.43C11.02 7.08 11.73 6.95 12.43 7.07C13.12 7.19 13.75 7.55 14.21 8.08C14.66 8.62 14.91 9.3 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M20 13C20 18 16.5 20.5 12.34 21.95C12.12 22.02 11.89 22.02 11.67 21.94C7.5 20.5 4 18 4 13V6C4 5.45 4.45 5 5 5C7 5 9.5 3.8 11.24 2.28C11.45 2.1 11.72 2 12 2C12.28 2 12.55 2.1 12.76 2.28C14.51 3.81 17 5 19 5C19.55 5 20 5.45 20 6V13Z"
+            stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="font-medium">FAQ</span>
+      </div>
+
+      <h2
+        class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0"
+        style="font-family: 'Space Grotesk', sans-serif;">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-gray-500 mt-3 text-xs sm:text-sm md:text-base leading-relaxed">
+        Common questions from the community
+      </p>
+    </div>
+
+
+    <div class="max-w-3xl mx-auto space-y-4">
+
+      <div class="border border-gray-200 rounded-2xl overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open"
+          class="faq-btn flex w-full items-center justify-between p-6 text-left font-medium text-gray-900 hover:bg-gray-50 transition-colors">
+          <span>Is Laragon free?</span>
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="transition-transform duration-300 ease-in-out" :class="open ? 'rotate-180' : ''">
+            <path d="M15 19.25L22.5 11.75L20.75 10L15 15.75L9.25 10L7.5 11.75L15 19.25Z" fill="#595959" />
+          </svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-2 max-h-0"
+          x-transition:enter-end="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave-end="opacity-0 -translate-y-2 max-h-0" class="overflow-hidden" style="display: none;">
+          <div class="px-6 pb-6 text-gray-500">
+            Yes, Laragon is free and open-source.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="border border-gray-200 rounded-2xl overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open"
+          class="faq-btn flex w-full items-center justify-between p-6 text-left font-medium text-gray-900 hover:bg-gray-50 transition-colors">
+          <span>Does it support PostgreSQL?</span>
+          <svg class="faq-icon h-5 w-5 transition-transform duration-300 ease-in-out" :class="open ? 'rotate-180' : ''"
+            viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-2 max-h-0"
+          x-transition:enter-end="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave-end="opacity-0 -translate-y-2 max-h-0" class="overflow-hidden" style="display: none;">
+          <div class="px-6 pb-6 text-gray-500">
+            Yes!,Laragon supports MYSQL, MairiaDB, and PostgreSQL.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item -->
+      <div class="border border-gray-200 rounded-2xl overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open"
+          class="faq-btn flex w-full items-center justify-between p-6 text-left font-medium text-gray-900 hover:bg-gray-50 transition-colors">
+          <span>What makes it "Crash-proof"?</span>
+          <svg class="faq-icon h-5 w-5 transition-transform duration-300 ease-in-out" :class="open ? 'rotate-180' : ''"
+            viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-2 max-h-0"
+          x-transition:enter-end="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave-end="opacity-0 -translate-y-2 max-h-0" class="overflow-hidden" style="display: none;">
+          <div class="px-6 pb-6 text-gray-500">
+            Isolated service architecture prevents database corruption.
+          </div>
+        </div>
+      </div>
+
+      <!-- Item -->
+      <div class="border border-gray-200 rounded-2xl overflow-hidden" x-data="{ open: false }">
+        <button @click="open = !open"
+          class="faq-btn flex w-full items-center justify-between p-6 text-left font-medium text-gray-900 hover:bg-gray-50 transition-colors">
+          <span>How to upgrade PHP?</span>
+          <svg class="faq-icon h-5 w-5 transition-transform duration-300 ease-in-out" :class="open ? 'rotate-180' : ''"
+            viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+          </svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 -translate-y-2 max-h-0"
+          x-transition:enter-end="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 translate-y-0 max-h-[200px]"
+          x-transition:leave-end="opacity-0 -translate-y-2 max-h-0" class="overflow-hidden" style="display: none;">
+          <div class="px-6 pb-6 text-gray-500">
+            Download binary zip, extract to laragon/bin/php, and select in menu.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

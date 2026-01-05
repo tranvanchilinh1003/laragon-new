@@ -1,0 +1,562 @@
+<section class="py-20 container">
+  <!-- Title -->
+  <div class=" mx-auto px-6">
+    <!-- Section Header -->
+    <h2 class="w-full text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-4 flex-none order-0 self-stretch flex-grow-0 px-4" style="font-family: 'Space Grotesk', sans-serif;">Loved by Developers</h2>
+    <div class="text-center mb-12 text-[#595959] text-xs sm:text-sm md:text-[14px] max-w-3xl mx-auto px-4 leading-relaxed">
+      Join thousands of happy developers who switched from XAMPP/WAMP
+    </div>
+
+
+  <!-- Slider -->
+  <div class="relative">
+
+    <!-- VIEWPORT -->
+    <!-- Mobile: Scrollable với scroll-snap (chỉ mobile) -->
+    <div class="relative sm:hidden">
+      <div id="slider-mobile" class="overflow-x-auto snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+        <style>
+          #slider-mobile::-webkit-scrollbar { display: none; }
+        </style>
+        <div class="flex">
+        <!-- Mobile: Mỗi card là một slide riêng -->
+        <!-- Card 1 -->
+        <div class="min-w-full snap-start px-2">
+          <div class="group rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:p-[1px] hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] w-full">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0" src="/assets/images/user1.png" alt="Daniel Bachmann" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">Daniel Bachmann</p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">Sales Leader for Token</p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg width="290" height="40" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full h-auto">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpV8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">I am soon back to Wordpress to code and spin up a blog and tested Laragon and love it. It's easy to use, highly flexible and by far the fastest local dev environment.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="min-w-full snap-start px-2">
+          <div class="group rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:p-[1px] hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] w-full">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0" src="/assets/images/user2.png" alt="bastien" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">bastien</p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">Tweet about webmarketing</p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_2)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_2" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_2" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpV8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">Laragon is really an awesome local server. You must try it for your local dev. A big thank you @leovn</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="min-w-full snap-start px-2">
+          <div class="group rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:p-[1px] hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] w-full">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0" src="/assets/images/user3.png" alt="Phrank'o" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">Phrank'o</p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1"></p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_3)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_3" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_3" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpV8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">Hey @leovn , thank you very much for Laragon, I just convinced some hard core Linux fans to take a look and they were extremely impressed! Keep up the great job you're doing.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation: Nút và Dots nằm ngang -->
+    <div class="flex items-center justify-center gap-4 mt-6 sm:hidden">
+      <button onclick="prevMobile()" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
+        <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.2 24L29.2 36L32 33.2L22.8 24L32 14.8L29.2 12L17.2 24Z" fill="#595959" />
+        </svg>
+      </button>
+      <div class="flex gap-2">
+        <button onclick="goToMobile(0)" class="dot-mobile w-2 h-2 rounded-full bg-blue-500 transition-colors"></button>
+        <button onclick="goToMobile(1)" class="dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+        <button onclick="goToMobile(2)" class="dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+      </div>
+      <button onclick="nextMobile()" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
+        <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.8 24L18.8 36L16 33.2L25.2 24L16 14.8L18.8 12L30.8 24Z" fill="#595959" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Tablet & Desktop: Slider với transform -->
+    <div class="hidden sm:block overflow-hidden">
+      <div id="slider" class="flex transition-transform duration-500">
+        <!-- SLIDER 1 -->
+        <div class="min-w-full flex flex-row justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 px-2 sm:px-0">
+          <!-- VIEWPER1 -->
+          <div class="group rounded-xl transition-all duration-300
+                 border border-gray-200 hover:border-transparent
+                 hover:p-[1px] hover:bg-gradient-to-r
+                 hover:from-[#05DF85]
+                 hover:to-[#2B8CEE]
+                 w-full sm:max-w-[calc(50%-0.5rem)] md:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5
+                   transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user1.png" alt="Daniel Bachmann" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Daniel Bachmann
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Sales Leader for Token
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg width="290" height="40" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full h-auto">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                I am soon back to Wordpress to code and spin up a blog and tested
+                Laragon and love it. It's easy to use, highly flexible and by far
+                the fastest local dev environment.
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER2 -->
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user2.png" alt="bastien" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    bastien
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Tweet about webmarketing
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_2)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_2" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_2" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Laragon is really an awesome local server. You must try it for your local dev. A big thank you @leovn
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER3 -->
+
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user3.png" alt="Phrank'o" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Phrank'o
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_3)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_3" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_3" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Hey @leovn , thank you very much for Laragon, I just convinced some hard core Linux fans to take a look
+                and they were extremely impressed! Keep up the great job you're doing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDER 2 -->
+        <div class="min-w-full flex flex-row justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 px-2 sm:px-0">
+          <!-- VIEWPER1 -->
+          <div class="group rounded-xl transition-all duration-300
+                 border border-gray-200 hover:border-transparent
+                 hover:p-[1px] hover:bg-gradient-to-r
+                 hover:from-[#05DF85]
+                 hover:to-[#2B8CEE]
+                 w-full sm:max-w-[calc(50%-0.5rem)] md:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5
+                   transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user1.png" alt="Daniel Bachmann" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Daniel Bachmann
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Sales Leader for Token
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg width="290" height="40" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full h-auto">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                I am soon back to Wordpress to code and spin up a blog and tested
+                Laragon and love it. It's easy to use, highly flexible and by far
+                the fastest local dev environment.
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER2 -->
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user2.png" alt="bastien" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    bastien
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Tweet about webmarketing
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_2)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_2" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_2" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Laragon is really an awesome local server. You must try it for your local dev. A big thank you @leovn
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER3 -->
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user3.png" alt="Phrank'o" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Phrank'o
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_3)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_3" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_3" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Hey @leovn , thank you very much for Laragon, I just convinced some hard core Linux fans to take a look
+                and they were extremely impressed! Keep up the great job you're doing.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- SLIDER 3 -->
+        <div class="min-w-full flex flex-row justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 px-2 sm:px-0">
+          <!-- VIEWPER1 -->
+          <div class="group rounded-xl transition-all duration-300
+                 border border-gray-200 hover:border-transparent
+                 hover:p-[1px] hover:bg-gradient-to-r
+                 hover:from-[#05DF85]
+                 hover:to-[#2B8CEE]
+                 w-full sm:max-w-[calc(50%-0.5rem)] md:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5
+                   transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user1.png" alt="Daniel Bachmann" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Daniel Bachmann
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Sales Leader for Token
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg width="290" height="40" viewBox="0 0 290 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" class="w-full h-auto">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                I am soon back to Wordpress to code and spin up a blog and tested
+                Laragon and love it. It's easy to use, highly flexible and by far
+                the fastest local dev environment.
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER2 -->
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user2.png" alt="bastien" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    bastien
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+                    Tweet about webmarketing
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_2)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_2" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_2" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_2" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Laragon is really an awesome local server. You must try it for your local dev. A big thank you @leovn
+              </p>
+            </div>
+          </div>
+
+          <!-- VIEWPER3 -->
+
+          <div class="group rounded-xl transition-all duration-300
+          border border-gray-200 hover:border-transparent
+          hover:p-[1px] hover:bg-gradient-to-r
+          hover:from-[#05DF85]
+          hover:to-[#2B8CEE]
+          w-full sm:max-w-sm">
+            <div class="bg-white rounded-xl p-4 sm:p-4 md:p-5 
+            transition w-full h-full">
+              <div class="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-3 sm:mb-3 md:mb-4">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[80px] lg:h-[80px] rounded-full flex-shrink-0"
+                  src="/assets/images/user3.png" alt="Phrank'o" />
+                <div class="min-w-0">
+                  <p class="font-medium bg-[#E9F3FD] rounded-md py-1.5 sm:py-1.5 md:py-2 px-2 sm:px-2.5 md:px-3 text-xs sm:text-xs md:text-sm">
+                    Phrank'o
+                  </p>
+                  <p class="text-xs sm:text-xs md:text-sm text-gray-500 mt-1">
+
+                  </p>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-2.5 md:mb-3">
+                <svg class="w-full h-auto max-w-full" viewBox="0 0 290 40" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  preserveAspectRatio="xMidYMid meet">
+                  <rect width="40" height="40" fill="url(#pattern0_407_231_3)" />
+                  <line x1="53" y1="19" x2="289" y2="19" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <pattern id="pattern0_407_231_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image0_407_231_3" transform="scale(0.01)" />
+                    </pattern>
+                    <image id="image0_407_231_3" width="100" height="100" preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEB0lEQVR4nO3dS6hXVRTH8e8tJR9QFpImFYWJSJOEIhAxI02LMsxE0IEDc+ArGgQ6EK2GRRJogmhQhA6yQY0iCKQgUMwiTAQRAxNFC/KdPW47NuxBO+J69r7nnLWWrQ+csb/ff92/573/4JxzzjnnnHPOOeeccz26GZgPvAnsBj5seXsHWAHc3kH2O4AX07/Rdu7d6TOZB9xETx4BvgdCD9t5YE2L2V8CLvSU/TDwMB2bDVztqVD4x/ZGC9nfEsgdP6vH6Mg44JxAqZC2BcPIvlAw91ngNjqwSbBUAL4bRvbDwtk30oFvhUsFYHJF7ikKch/qYB5cVlBsfkXupxXkvtTBPMRLBWBxRe7FCnLHrXXShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJCddKPhActKFgg8kJ10o+EBy0oWCDyQnXSj4QHLShYIPJPeX0YEsulEH8pPRgcy+UQfyqdGBjAN+V5C9dUuMDiT6SEH21g0A+4wOZEqP7xb2NpBoPHDQ4ECiOcJD6czo9Hrbz8YGEj0A7BXap/Tyrnp87fe59EGVbmcrSj3fUvb4/vusytwbKnIPYsCpimLzpEMDMypyX8SAmlesZ0qHrjyvOYMB5yuKTZcODTxZkfs4BtSsCHG/dGjgmYrc8chUvT8LS/0BjJQOnQ4sSgcSj+xUu7Wi1A/osEJorZZOTa4otQ8d1ldkX41yNYeOb6PDFqNHh62vzrMMHfZU7PvGoNwrPS0804X9hbm/wYDtFSdWA9g8od2KAZ8VlnoXu0eHT2HAycJSL6DDo4W5r6Sr46pNKCz1a/rL1GBNYfaPMaD00sMe9HivMHs8mlTv1cJSc9GjZHnceAPvFgz4vKDUiT4XJG5w+3qwIHtcUFm9scC1glJr0WNpQe54i/heDHi28Cs/Fj3eL8ge9zUmbCsotR49BtLJadNLJVMxYARwumGpU8qu/zxe8IcUr0KYsKCg1HJ0+aBh7vjc10SM+KRhqS8VXbcirdt+pWH2dRhxV/q/tclZ+TR0Wd1wGAfSs2omNL2pswpdRqYnRposJW5iRx5NaviEyV70afrtiOcoZuxoUOh4V7+xMQyjgB8bZI8/nWTGfQ0ebI6PWT6EPi83GMZXaXBmvH6dQr8BT6DT0etkP5J+YMyUXUMUGkxvZWl1YYjs8QbbPRi0cohvhuZhDHWb+ZiSR1qrDxu/+I99RnybSbsHgV/+lf1r4E6MG5F+yHEn8BpwN3ZMAjan7Cut3HByzjnnnHPOOeecc87x//M3gbACcetr2BAAAAAASUVORK5CYII=" />
+                  </defs>
+                </svg>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-sm md:text-base">
+                Hey @leovn , thank you very much for Laragon, I just convinced some hard core Linux fans to take a look
+                and they were extremely impressed! Keep up the great job you're doing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LEFT -->
+    <button onclick="prev()"
+      class="hidden sm:flex absolute left-[-0px] md:left-[-10px] lg:left-[-40px] top-1/2 -translate-y-1/2 z-[1000] w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
+      <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-12 lg:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.2 24L29.2 36L32 33.2L22.8 24L32 14.8L29.2 12L17.2 24Z" fill="#595959" />
+      </svg>
+    </button>
+
+    <!-- RIGHT -->
+    <button onclick="next()"
+      class="hidden sm:flex absolute right-[-40px] md:right-[-50px] lg:right-[-40px] top-1/2 -translate-y-1/2 z-[1000] w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 items-center justify-center hover:bg-gray-100 rounded-full transition-colors">
+      <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-12 lg:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30.8 24L18.8 36L16 33.2L25.2 24L16 14.8L18.8 12L30.8 24Z" fill="#595959" />
+      </svg>
+    </button>
+
+  </div>
+
+
+  <!-- Dots - Desktop only -->
+  <div class="hidden sm:flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 lg:mt-10">
+    <button onclick="goTo(0)" class="dot w-2 h-2 rounded-full bg-blue-500 transition-colors"></button>
+    <button onclick="goTo(1)" class="dot w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+    <button onclick="goTo(2)" class="dot w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+  </div>
+</section>
+

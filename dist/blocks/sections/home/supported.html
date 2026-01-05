@@ -1,0 +1,356 @@
+<!-- SUPPORTED & POPULAR STACKS SECTION -->
+<section class="bg-white py-20 container">
+  <div class=" mx-auto px-6">
+    <!-- Section Header -->
+    <h2
+      class="w-full text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0 px-4"
+      style="font-family: 'Space Grotesk', sans-serif;">Supported & Popular Stacks</h2>
+    <p class="text-center mb-12 text-[#595959] text-xs sm:text-sm md:text-[14px] max-w-3xl mx-auto px-4 leading-relaxed">
+      Discover the leading platforms trusted by the community.
+    </p>
+
+    <!-- Tabs Container -->
+    <div x-data="{ activeTab: 'top-used' }" class="tabs">
+      <!-- Tab Menus -->
+      <div class="tabs-menus mb-8">
+        <button @click="activeTab = 'high-speed'" :class="activeTab === 'high-speed' ? 'tab-menu active' : 'tab-menu'"
+          class="px-6 py-3 text-sm font-medium">
+          High Speed
+        </button>
+        <button @click="activeTab = 'top-used'" :class="activeTab === 'top-used' ? 'tab-menu active' : 'tab-menu'"
+          class="px-6 py-3 text-sm font-medium">
+          Top Used
+        </button>
+        <button @click="activeTab = 'top-frameworks'"
+          :class="activeTab === 'top-frameworks' ? 'tab-menu active' : 'tab-menu'"
+          class="px-6 py-3 text-sm font-medium">
+          Top Frameworks
+        </button>
+      </div>
+
+      <!-- Tab Content: Top Used (Default) -->
+      <div x-show="activeTab === 'top-used'" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0" class="tab-content">
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <!-- Table Header -->
+          <div class="bg-gray-50 border-b border-gray-200 px-2 sm:px-4 lg:px-6 py-2 sm:py-4">
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">#</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">NAME</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TYPE</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TREND</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700 text-right">SCORE</div>
+            </div>
+          </div>
+
+          <!-- Table Body -->
+          <div class="divide-y divide-gray-200">
+            <!-- Row 1: Laravel -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">1</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-blue-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  La</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Laravel</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">CMS</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px] font-bold"
+                  viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">990</div>
+            </div>
+
+            <!-- Row 2: Astro -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">2</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-purple-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  As</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Astro</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSG</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">985</div>
+            </div>
+
+            <!-- Row 3: Gatsby -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">3</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-pink-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Ga</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Gatsby</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSG</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 5L15 15L25 10L35 17L45 12L55 18" stroke="#EF4444" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 10L9 6H3L6 10Z" fill="#EF4444" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">940</div>
+            </div>
+
+            <!-- Row 4: Jekyll -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">4</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-red-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Je</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Jekyll</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSG</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10L15 10L25 10L35 10L45 10L55 10" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="2" y1="6" x2="10" y2="6" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">928</div>
+            </div>
+
+            <!-- Row 5: Eleventy -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">5</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-yellow-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  El</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Eleventy</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSG</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">915</div>
+            </div>
+
+            <!-- Row 6: Next.js -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">6</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-black rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Ne</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Next.js</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSR</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">910</div>
+            </div>
+
+            <!-- Row 7: Nuxt -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">7</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-green-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Nu</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Nuxt</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSR</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10L15 10L25 10L35 10L45 10L55 10" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="2" y1="6" x2="10" y2="6" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">890</div>
+            </div>
+
+            <!-- Row 8: SvelteKit -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">8</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-orange-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Sv</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">SvelteKit</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSR</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">885</div>
+            </div>
+
+            <!-- Row 9: Remix -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">9</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-indigo-500 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Re</div>
+                <span class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 truncate">Remix</span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">SSR</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">878</div>
+            </div>
+
+            <!-- Row 10: RocketCMS -->
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 hover:bg-gray-50 transition-colors">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900">10</div>
+              <div class="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                <div
+                  class="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-blue-600 rounded flex items-center justify-center text-white text-[8px] sm:text-[10px] lg:text-xs font-bold flex-shrink-0">
+                  Ro</div>
+                <span
+                  class="text-[10px] sm:text-xs lg:text-sm font-medium text-gray-900 flex items-center gap-1 sm:gap-2">
+                  <span class="truncate">RocketCMS</span>
+                  <svg width="8" height="8" class="sm:w-[12px] sm:h-[12px] lg:w-[14px] lg:h-[14px] flex-shrink-0"
+                    viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 0L8.5 5H13L9 8L10.5 13L7 10L3.5 13L5 8L1 5H5.5L7 0Z" fill="#FCD34D" />
+                  </svg>
+                </span>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm text-gray-600">Hybrid</div>
+              <div class="flex items-center gap-1 sm:gap-2">
+                <svg width="35" height="12" class="sm:w-[50px] sm:h-[16px] lg:w-[60px] lg:h-[20px]" viewBox="0 0 60 20"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 15L15 5L25 10L35 3L45 8L55 2" stroke="#10B981" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+                <svg width="7" height="7" class="sm:w-[10px] sm:h-[10px] lg:w-[12px] lg:h-[12px]" viewBox="0 0 12 12"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 2L9 6H3L6 2Z" fill="#10B981" />
+                </svg>
+              </div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-900 text-right">865</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: High Speed -->
+      <div x-show="activeTab === 'high-speed'" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0" class="tab-content" style="display: none;">
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-2 sm:px-4 lg:px-6 py-2 sm:py-4">
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">#</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">NAME</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TYPE</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TREND</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700 text-right">SCORE</div>
+            </div>
+          </div>
+          <div class="p-12 text-center text-gray-500">
+            High Speed stacks content coming soon...
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Top Frameworks -->
+      <div x-show="activeTab === 'top-frameworks'" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0" class="tab-content" style="display: none;">
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-2 sm:px-4 lg:px-6 py-2 sm:py-4">
+            <div
+              class="grid grid-cols-[30px_1.2fr_0.7fr_1fr_60px] sm:grid-cols-[40px_2fr_1fr_1.5fr_90px] lg:grid-cols-[50px_2fr_1fr_1.5fr_100px] gap-1.5 sm:gap-3 lg:gap-4 items-center">
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">#</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">NAME</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TYPE</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700">TREND</div>
+              <div class="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-700 text-right">SCORE</div>
+            </div>
+          </div>
+          <div class="p-12 text-center text-gray-500">
+            Top Frameworks content coming soon...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

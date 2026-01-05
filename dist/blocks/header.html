@@ -1,0 +1,684 @@
+<header class="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50" x-data="headerComponent()">
+  <!-- Top Bar -->
+  <!-- <div class="bg-gradient-to-r from-emerald-500 to-green-600 text-white py-2">
+    <div class="container">
+      <div class="flex-between text-sm">
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="shield-check" class="size-4"></i>
+            <span>Bảo hành 12 tháng</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-2">
+            <i data-lucide="truck" class="size-4"></i>
+            <span>Giao hàng tức thì</span>
+          </div>
+          <div class="hidden lg:flex items-center space-x-2">
+            <i data-lucide="headphones" class="size-4"></i>
+            <span>Hỗ trợ 24/7</span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="hidden sm:flex items-center space-x-2">
+            <i data-lucide="flame" class="size-4"></i>
+            <span>Flash Sale - Giảm đến 70%</span>
+          </div>
+          <a href="/support" class="hover:text-emerald-200 transition-colors">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+</div> -->
+  <script src="/assets/js/swiper-bundle.min.js"></script>
+  <!-- Main Header -->
+  <div class="container">
+    <div class="flex items-center justify-between h-20">
+      <!-- Mobile Hamburger Menu Button -->
+      <button 
+        @click="openMobileMenu()"
+        class="lg:hidden p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label="Open menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Logo -->
+      <div class="flex-1 flex justify-center lg:justify-start lg:flex-none">
+        <a href="/index.html"><svg width="171" height="48" viewBox="0 0 171 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.48897 15.0485C4.57002 14.8042 8.00262 3.03027 21.5983 2.8658C21.5983 2.8658 27.2991 -3.58225 35.0665 2.8658C35.0665 2.8658 37.1737 4.59759 38.3299 8.19348C38.3299 8.19348 48.5287 9.74053 50.1795 18.1695C50.1795 18.1695 53.6198 32.0488 41.9693 41.8002C41.9693 41.8002 40.3286 43.113 39.2357 43.7233C39.2357 43.7233 36.8126 43.7268 36.312 43.7233C35.2453 43.7149 34.5719 43.7233 33.6023 43.7233C33.6023 43.7233 32.1125 43.1905 32.0511 41.4885C32.0511 41.4885 31.9259 35.5685 31.9593 34.5458C31.9593 34.5458 31.9891 33.5882 30.5946 33.6477C30.5946 33.6477 29.2639 33.4946 29.075 34.6388C29.075 34.6388 29.0434 40.7454 29.0136 41.8282C29.0136 41.8282 28.92 43.6297 26.9057 43.7173C26.9057 43.7173 19.6854 43.9354 18.7259 43.5939C18.7259 43.5939 17.0531 43.284 16.928 41.703C16.928 41.703 15.5633 33.646 15.3172 31.1389C15.3172 31.1389 10.7302 28.596 9.80056 27.9148C9.80056 27.9148 10.1104 36.1251 12.9608 39.597C12.9608 39.597 13.4578 40.032 12.4644 40.65C12.4644 40.65 12.0931 40.9599 11.7195 40.7769C11.7195 40.7769 -0.507368 33.9475 3.99613 16.5163" fill="url(#paint0_linear_104_3928)"/>
+    <path d="M18.1753 26.2802C18.1753 26.2802 28.8426 32.3605 35.2966 22.5991C35.2966 22.5991 40.5229 15.7738 38.4413 8.49323C38.4413 8.49323 42.1063 14.6117 35.0147 24.105C35.0165 24.1068 29.0017 32.5691 18.1753 26.2802Z" fill="#006699"/>
+    <path d="M13.9543 24.8457C13.9543 24.8457 14.7153 28.3677 12.3751 29.4762C12.3751 29.4762 7.05159 27.2831 7.58973 23.2325C7.58973 23.2325 7.75659 22.2218 8.74763 22.8416C8.74763 22.8416 11.104 24.1229 12.9633 24.4923C12.9609 24.4923 13.9067 24.5793 13.9543 24.8457Z" fill="#CEE6FF"/>
+    <path d="M12.4763 18.8923C12.4763 18.8923 13.279 15.4615 16.3082 15.6784C16.3082 15.6784 18.8826 15.7476 18.9738 19.2874C18.9738 19.2898 16.9458 13.9937 12.4763 18.8923Z" fill="#006699"/>
+    <path d="M60.1272 31.2232V11H63.941V27.7559H73.1864V31.2232H60.1285H60.1272Z" fill="black"/>
+    <path d="M80.3503 31.627C79.3287 31.627 78.4141 31.4487 77.6052 31.092C76.7964 30.7353 76.1556 30.2156 75.6843 29.5316C75.2117 28.8475 74.9761 28.0144 74.9761 27.0323C74.9761 26.0502 75.2117 25.2273 75.6843 24.5624C76.1556 23.8974 76.8117 23.3968 77.6486 23.0605C78.4867 22.7243 79.4446 22.5548 80.5236 22.5548H84.452V21.746C84.452 21.0721 84.2393 20.518 83.8164 20.0849C83.3922 19.6518 82.7184 19.4352 81.7936 19.4352C80.8688 19.4352 80.214 19.6429 79.7707 20.0569C79.3274 20.4709 79.0383 21.0059 78.9045 21.6606L75.5531 20.5333C75.7837 19.8021 76.1544 19.1321 76.6652 18.5257C77.1747 17.9194 77.8587 17.4277 78.716 17.0519C79.5733 16.6761 80.6178 16.4889 81.8509 16.4889C83.7387 16.4889 85.2316 16.9615 86.3284 17.9041C87.4264 18.848 87.9754 20.2148 87.9754 22.0071V27.352C87.9754 27.9304 88.2455 28.2183 88.7843 28.2183H89.9397V31.2232H87.513C86.7997 31.2232 86.2125 31.05 85.7513 30.7035C85.2889 30.357 85.0584 29.8946 85.0584 29.3163V29.287H84.5094C84.4317 29.5175 84.2584 29.822 83.9896 30.1965C83.7196 30.5723 83.2967 30.9047 82.7184 31.1939C82.14 31.4831 81.3503 31.627 80.3491 31.627H80.3503ZM80.986 28.6807C82.0063 28.6807 82.8394 28.3966 83.4852 27.8285C84.1298 27.2603 84.4533 26.505 84.4533 25.5611V25.2719H80.7847C80.1109 25.2719 79.5809 25.4158 79.1962 25.705C78.8103 25.9942 78.6179 26.398 78.6179 26.919C78.6179 27.4399 78.8205 27.8629 79.2243 28.1902C79.6293 28.5176 80.2166 28.6819 80.986 28.6819V28.6807Z" fill="black"/>
+    <path d="M92.5994 31.2231V16.8939H96.1814V18.5117H96.7011C96.9126 17.9333 97.2642 17.5104 97.7559 17.2404C98.2475 16.9703 98.8195 16.8353 99.4742 16.8353H101.208V20.0708H99.4169C98.4921 20.0708 97.7316 20.3167 97.1342 20.8071C96.5368 21.2988 96.2387 22.0542 96.2387 23.0745V31.2219H92.5981L92.5994 31.2231Z" fill="black"/>
+    <path d="M108.143 31.627C107.121 31.627 106.207 31.4487 105.398 31.092C104.589 30.7353 103.948 30.2156 103.477 29.5316C103.004 28.8475 102.769 28.0144 102.769 27.0323C102.769 26.0502 103.004 25.2273 103.477 24.5624C103.948 23.8974 104.604 23.3968 105.441 23.0605C106.279 22.7243 107.237 22.5548 108.316 22.5548H112.245V21.746C112.245 21.0721 112.032 20.518 111.609 20.0849C111.185 19.6518 110.511 19.4352 109.586 19.4352C108.661 19.4352 108.007 19.6429 107.563 20.0569C107.12 20.4709 106.831 21.0059 106.697 21.6606L103.346 20.5333C103.576 19.8021 103.947 19.1321 104.458 18.5257C104.967 17.9194 105.651 17.4277 106.508 17.0519C107.366 16.6761 108.41 16.4889 109.643 16.4889C111.531 16.4889 113.024 16.9615 114.121 17.9041C115.219 18.848 115.768 20.2148 115.768 22.0071V27.352C115.768 27.9304 116.038 28.2183 116.577 28.2183H117.732V31.2232H115.306C114.592 31.2232 114.005 31.05 113.544 30.7035C113.083 30.357 112.851 29.8946 112.851 29.3163V29.287H112.302C112.224 29.5175 112.051 29.822 111.782 30.1965C111.512 30.5723 111.089 30.9047 110.511 31.1939C109.933 31.4831 109.143 31.627 108.142 31.627H108.143ZM108.778 28.6807C109.799 28.6807 110.632 28.3966 111.278 27.8285C111.922 27.2603 112.246 26.505 112.246 25.5611V25.2719H108.577C107.903 25.2719 107.373 25.4158 106.989 25.705C106.603 25.9942 106.41 26.398 106.41 26.919C106.41 27.4399 106.613 27.8629 107.017 28.1902C107.421 28.5176 108.009 28.6819 108.778 28.6819V28.6807Z" fill="black"/>
+    <path d="M119.41 24.1165V23.6541C119.41 22.1523 119.708 20.8657 120.305 19.797C120.901 18.7283 121.696 17.9092 122.688 17.3411C123.681 16.773 124.764 16.4889 125.938 16.4889C127.247 16.4889 128.24 16.7195 128.914 17.1818C129.588 17.6442 130.079 18.1258 130.387 18.6264H130.907V16.8927H134.489V33.7645C134.489 34.7466 134.2 35.5313 133.623 36.1185C133.045 36.7057 132.275 37 131.312 37H121.72V33.8218H130.041C130.58 33.8218 130.85 33.5326 130.85 32.9556V29.2284H130.33C130.138 29.5367 129.868 29.85 129.521 30.1672C129.175 30.4857 128.712 30.7506 128.134 30.9621C127.556 31.1748 126.825 31.2792 125.938 31.2792C124.764 31.2792 123.68 30.9952 122.688 30.4271C121.696 29.8589 120.901 29.0399 120.305 27.9711C119.708 26.9024 119.41 25.6171 119.41 24.114V24.1165ZM126.979 28.1023C128.096 28.1023 129.03 27.7457 129.781 27.0336C130.533 26.3215 130.907 25.319 130.907 24.0286V23.7395C130.907 22.43 130.537 21.4237 129.795 20.7205C129.054 20.0174 128.115 19.6658 126.979 19.6658C125.842 19.6658 124.928 20.0174 124.176 20.7205C123.425 21.4237 123.05 22.43 123.05 23.7395V24.0286C123.05 25.319 123.426 26.3203 124.176 27.0336C124.928 27.7469 125.862 28.1023 126.979 28.1023Z" fill="black"/>
+    <path d="M145.352 31.627C143.927 31.627 142.646 31.3379 141.511 30.7608C140.374 30.1825 139.479 29.3456 138.824 28.2476C138.169 27.1495 137.842 25.8311 137.842 24.2898V23.8274C137.842 22.2873 138.169 20.9677 138.824 19.8696C139.479 18.7716 140.374 17.9334 141.511 17.3564C142.647 16.7781 143.927 16.4902 145.352 16.4902C146.778 16.4902 148.058 16.7793 149.194 17.3564C150.331 17.9347 151.226 18.7716 151.881 19.8696C152.536 20.9677 152.863 22.2873 152.863 23.8274V24.2898C152.863 25.8311 152.536 27.1495 151.881 28.2476C151.226 29.3456 150.331 30.1838 149.194 30.7608C148.058 31.3391 146.777 31.627 145.352 31.627ZM145.352 28.3915C146.47 28.3915 147.393 28.031 148.126 27.3087C148.857 26.5865 149.224 25.5509 149.224 24.2032V23.914C149.224 22.5663 148.863 21.5307 148.141 20.8084C147.419 20.0862 146.489 19.7257 145.352 19.7257C144.216 19.7257 143.311 20.0862 142.579 20.8084C141.847 21.5307 141.481 22.5663 141.481 23.914V24.2032C141.481 25.5509 141.847 26.5865 142.579 27.3087C143.311 28.031 144.235 28.3915 145.352 28.3915Z" fill="black"/>
+    <path d="M156.214 31.2232V16.8939H159.796V18.7716H160.316C160.546 18.2709 160.981 17.7945 161.616 17.3411C162.252 16.8888 163.215 16.6621 164.505 16.6621C165.623 16.6621 166.6 16.9181 167.438 17.4277C168.276 17.9385 168.926 18.6416 169.388 19.5371C169.85 20.4326 170.081 21.4772 170.081 22.672V31.2232H166.44V22.9612C166.44 21.8822 166.175 21.0734 165.646 20.5345C165.116 19.9957 164.36 19.7257 163.378 19.7257C162.261 19.7257 161.394 20.0963 160.778 20.8377C160.162 21.5791 159.853 22.6147 159.853 23.9433V31.2232H156.213H156.214Z" fill="black"/>
+    <defs>
+    <linearGradient id="paint0_linear_104_3928" x1="26.8275" y1="1.31773" x2="26.8275" y2="42.5987" gradientUnits="userSpaceOnUse">
+    <stop offset="0.018" stop-color="#3BB6FF"/>
+    <stop offset="0.302" stop-color="#39AFFF"/>
+    <stop offset="0.552" stop-color="#36A3FF"/>
+    <stop offset="0.717" stop-color="#359FFF"/>
+    <stop offset="0.832" stop-color="#3398FF"/>
+    <stop offset="0.964" stop-color="#3297FF"/>
+    </linearGradient>
+    </defs>
+    </svg>
+    </a>
+      </div>
+      
+      <!-- Mobile Language Selector -->
+      <div x-data="{ open: false, lang: 'EN' }" 
+           @click.outside="open = false"
+           class="lg:hidden relative">
+        <button
+          @click="open = !open"
+          class="flex items-center gap-2 px-3 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z" fill="#595959"/>
+            <path d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z" fill="#595959"/>
+            <path d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z" fill="#595959"/>
+            <path d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z" fill="#595959"/>
+            <path d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z" fill="#595959"/>
+            <path d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z" fill="#595959"/>
+          </svg>
+          <span class="text-sm font-medium text-gray-700" x-text="lang"></span>
+          <svg width="10" height="6" viewBox="0 0 10 6">
+            <path
+              d="M1 1L5 5L9 1"
+              stroke="#9CA3AF"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div
+          x-show="open"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-95"
+          class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50"
+          style="display: none;"
+        >
+          <button
+            @click="lang = 'EN'; open = false"
+            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+          >
+            English
+          </button>
+          <button
+            @click="lang = 'VI'; open = false"
+            class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+          >
+            Vietnamese
+          </button>
+        </div>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <!-- Desktop Navigation -->
+<div class="hidden lg:flex items-center space-x-6 ml-6">
+  <!-- Navigation Links -->
+  <nav x-data="{
+    activeLink: '',
+    init() {
+      const currentPath = window.location.pathname;
+      const currentHash = window.location.hash;
+      
+      // Check hash links first
+      if (currentHash) {
+        const hashLinks = ['#php-tutorial', '#review-cms', '#contact'];
+        if (hashLinks.includes(currentHash)) {
+          this.activeLink = currentHash;
+          return;
+        }
+      }
+      
+      // Check page links
+      const currentPage = currentPath.split('/').pop() || 'index.html';
+      
+      if (currentPath.includes('usage-guide')) {
+        this.activeLink = 'usage-guide.html';
+      } else if (currentPage === 'features.html') {
+        this.activeLink = 'features.html';
+      } else if (currentPage === 'blog.html') {
+        this.activeLink = 'blog.html';
+      }
+    },
+    isUsageGuideActive() {
+      return this.activeLink === 'usage-guide.html';
+    }
+  }" class="flex items-center space-x-8">
+    <a href="/features.html" 
+       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      Features
+    </a>
+    <a href="/usage-guide.html" 
+       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      Usage Guide
+    </a>
+    <a href="/php-tutorial.html" 
+       :class="activeLink === '#php-tutorial' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      PHP Tutorial
+    </a>
+    <a href="#review-cms" 
+       :class="activeLink === '#review-cms' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      Review CMS
+    </a>
+    <a href="/blog.html" 
+       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      Blog
+    </a>
+    <a href="#contact" 
+       :class="activeLink === '#contact' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+      Contact
+    </a>
+  </nav>
+  
+  <!-- Language Dropdown -->
+  <div x-data="{ open: false, lang: 'English' }" 
+       @click.outside="open = false"
+       class="relative">
+    <!-- Trigger Button -->
+    <button
+      @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
+    >
+      <!-- Globe Icon -->
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z"
+          fill="#595959" />
+        <path
+          d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z"
+          fill="#595959" />
+        <path
+          d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z"
+          fill="#595959" />
+        <path
+          d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z"
+          fill="#595959" />
+        <path
+          d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z"
+          fill="#595959" />
+        <path
+          d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z"
+          fill="#595959" />
+      </svg>
+
+      <!-- Selected Language -->
+      <span class="text-sm font-medium text-gray-700" x-text="lang"></span>
+
+      <!-- Arrow Icon -->
+      <svg width="10" height="6" viewBox="0 0 10 6">
+        <path
+          d="M1 1L5 5L9 1"
+          stroke="#9CA3AF"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- Dropdown Menu -->
+    <div
+      x-show="open"
+      x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
+      style="display: none;"
+    >
+      <button
+        @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+      >
+        English
+      </button>
+      <button
+        @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+      >
+        Vietnamese
+      </button>
+    </div>
+  </div>
+
+  <!-- Download Button -->
+  <button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
+    Download v8.4
+  </button>
+</div>
+    </div>
+  </div>
+  <!-- Mobile Menu Overlay - Using jModal -->
+<div id="mobileMenuModal" class="jmodal hidden lg:hidden flex">
+  <div class="jmodal-slide-left flex flex-col h-full">
+    <!-- Mobile Menu Header -->
+    <div class="from-emerald-500 to-green-600 p-6 text-white flex-shrink-0">
+      <div class="flex items-center justify-between mb-4">
+        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors p-1">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8L8 24M8 8L24 24" stroke="black" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            
+        </button>
+        <!-- Mobile Search -->
+        <form action="" method="GET" class="flex-1 mx-4">
+          <div class="relative">
+            <svg   class="absolute right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-[24px] h-[24px]"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_dddd_190_20412)">
+              <path d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z" stroke="url(#paint0_linear_190_20412)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+              <filter id="filter0_dddd_190_20412" x="-2" y="0" width="32" height="39" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="1"/>
+              <feGaussianBlur stdDeviation="0.5"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_20412"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="3"/>
+              <feGaussianBlur stdDeviation="1.5"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0"/>
+              <feBlend mode="normal" in2="effect1_dropShadow_190_20412" result="effect2_dropShadow_190_20412"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="6"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0"/>
+              <feBlend mode="normal" in2="effect2_dropShadow_190_20412" result="effect3_dropShadow_190_20412"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dy="11"/>
+              <feGaussianBlur stdDeviation="2"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0"/>
+              <feBlend mode="normal" in2="effect3_dropShadow_190_20412" result="effect4_dropShadow_190_20412"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_190_20412" result="shape"/>
+              </filter>
+              <linearGradient id="paint0_linear_190_20412" x1="5.57692" y1="18" x2="23.0833" y2="17.7463" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#05DF85"/>
+              <stop offset="0.576923" stop-color="#2B8CEE"/>
+              </linearGradient>
+              </defs>
+              </svg>
+              
+            <input 
+              type="text" 
+              name="q" 
+              id="mobileSearchInput"
+              placeholder="Search..." 
+              class="input w-full pl-4 pr-10 bg-white/90 focus:border-white text-gray-900"
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Items - Scrollable -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar bg-white">
+      <nav x-data="{
+        activeLink: '',
+        init() {
+          const currentPath = window.location.pathname;
+          const currentHash = window.location.hash;
+          
+          // Check hash links first
+          if (currentHash) {
+            const hashLinks = ['#php-tutorial', '#review-cms', '#contact'];
+            if (hashLinks.includes(currentHash)) {
+              this.activeLink = currentHash;
+              return;
+            }
+          }
+          
+          // Check page links
+          const currentPage = currentPath.split('/').pop() || 'index.html';
+          
+          if (currentPath.includes('usage-guide')) {
+            this.activeLink = 'usage-guide.html';
+          } else if (currentPage === 'features.html') {
+            this.activeLink = 'features.html';
+          } else if (currentPage === 'blog.html') {
+            this.activeLink = 'blog.html';
+          }
+        },
+        isUsageGuideActive() {
+          return this.activeLink === 'usage-guide.html';
+        }
+      }" class="py-4">
+        <a href="/features.html" 
+           :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Features
+        </a>
+        <a href="/usage-guide.html" 
+           :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Usage Guide
+        </a>
+        <a href="/php-tutorial.html" 
+           :class="activeLink === '#php-tutorial' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          PHP Tutorial
+        </a>
+        <a href="#review-cms" 
+           :class="activeLink === '#review-cms' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Review CMS
+        </a>
+        <a href="/blog.html" 
+           :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Blog
+        </a>
+        <a href="#contact" 
+           :class="activeLink === '#contact' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+           class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Contact
+        </a>
+      </nav>
+      <div class="flex items-center justify-center space-x-4 mb-4">
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <path d="M21.4898 15.1933V17.6606H24.3743L23.9175 20.9841H21.4898V28.6413C21.0031 28.7128 20.5051 28.7501 19.9996 28.7501C19.4161 28.7501 18.8432 28.7009 18.2852 28.6056V20.9841H15.625V17.6606H18.2852V14.6418C18.2852 12.769 19.7199 11.2501 21.4906 11.2501V11.2516C21.4958 11.2516 21.5003 11.2501 21.5056 11.2501H24.375V14.1244H22.5001C21.9428 14.1244 21.4906 14.6029 21.4906 15.1926L21.4898 15.1933Z" fill="#595959"/>
+            </svg>
+            
+        </a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <path d="M24.5636 11.2501H15.4369C12.9155 11.2501 10.8643 13.3019 10.8643 15.824V24.1761C10.8643 26.6982 12.9155 28.7501 15.4369 28.7501H24.5636C27.085 28.7501 29.1362 26.6982 29.1362 24.1761V15.824C29.1362 13.3019 27.085 11.2501 24.5636 11.2501ZM12.4773 15.824C12.4773 14.1919 13.8052 12.8636 15.4369 12.8636H24.5636C26.1953 12.8636 27.5231 14.1919 27.5231 15.824V24.1761C27.5231 25.8082 26.1953 27.1365 24.5636 27.1365H15.4369C13.8052 27.1365 12.4773 25.8082 12.4773 24.1761V15.824Z" fill="#595959"/>
+            <path d="M20.0004 24.253C22.3451 24.253 24.2537 22.3449 24.2537 19.9985C24.2537 17.652 22.3461 15.7439 20.0004 15.7439C17.6547 15.7439 15.7471 17.652 15.7471 19.9985C15.7471 22.3449 17.6547 24.253 20.0004 24.253ZM20.0004 17.3585C21.4564 17.3585 22.6407 18.5431 22.6407 19.9995C22.6407 21.4559 21.4564 22.6405 20.0004 22.6405C18.5444 22.6405 17.3602 21.4559 17.3602 19.9995C17.3602 18.5431 18.5444 17.3585 20.0004 17.3585Z" fill="#595959"/>
+            <path d="M24.647 16.4294C25.2784 16.4294 25.793 15.9157 25.793 15.2831C25.793 14.6505 25.2794 14.1367 24.647 14.1367C24.0146 14.1367 23.501 14.6505 23.501 15.2831C23.501 15.9157 24.0146 16.4294 24.647 16.4294Z" fill="#595959"/>
+            </svg>
+            
+        </a>
+        <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263"/>
+            <path d="M10.6983 11.2501L17.9155 20.9022L10.6533 28.7501H12.2882L18.6469 21.8795L23.784 28.7501H29.3466L21.7237 18.555L28.4837 11.2501H26.8488L20.9934 17.5777L16.262 11.2501H10.6994H10.6983ZM13.1018 12.4544H15.6567L26.9409 27.5457H24.386L13.1018 12.4544Z" fill="#595959"/>
+            </svg>
+            
+        </a>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Footer - Fixed at bottom -->
+    <div class="px-6 py-6  border-gray-200 bg-white flex-shrink-0">
+      <div class="flex flex-col items-center gap-2 mb-4">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8.00558" cy="8.0054" r="7" transform="rotate(-171.034 8.00558 8.0054)" fill="#2B8CEE" fill-opacity="0.1"/>
+          <circle cx="8.00518" cy="8.00539" r="3" transform="rotate(-171.034 8.00518 8.00539)" fill="#2B8CEE"/>
+        </svg>
+        <span class="text-sm text-gray-600 text-center">
+          Performance: 100/100 on Desktop - laragon.org is built locally with Laragon - where modern projects begin
+        </span>
+      </div>
+      
+      <!-- Download Button -->
+      <button class="w-full bg-[#2B8CEE] text-white py-3 px-5 rounded-lg font-medium hover:bg-[#2178d4] transition mb-4">
+        Download v8.4
+      </button>
+      
+      <!-- Copyright -->
+      <p class="text-xs text-gray-500 text-center">
+        ©2025 Laragon. All rights reserved.
+      </p>
+    </div>
+  </div>
+</div>
+
+  
+  <!-- Auth Modal - Using jModal -->
+  <div id="authModal" class="jmodal hidden">
+    <div class="jmodal-content w-full max-w-md max-h-[90vh] overflow-y-auto rounded-xl">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 sm:p-6 !pb-0">
+        <h3 class="text-responsive-lg font-bold text-gray-900">
+          <span x-show="authTab === 'login'">Đăng Nhập</span>
+          <span x-show="authTab === 'register'">Tạo Tài Khoản</span>
+        </h3>
+        <button data-jmodal-close class="text-gray-400 hover:text-gray-600 transition-colors p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 py-2 sm:p-6 sm:py-4 border-b border-gray-100">
+        <!-- Tab Buttons -->
+        <div class="tabs">
+          <div class="tabs-menus">
+            <button class="tab-menu active" data-tab="login">
+            Đăng Nhập 
+            </button>
+            <button class="tab-menu" data-tab="register">
+            Đăng Ký
+            </button>
+          </div>
+             <!-- Login Form -->
+            <div class="tab-content active p-4 sm:p-6 !pt-0" data-tab-content="login">
+                <form @submit.prevent="handleLogin()" class="space-y-4">
+                <div>
+                    <label for="login-email" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên đăng
+                    nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="login-email" x-model="loginForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="login-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="login-password" x-model="loginForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                    <input type="checkbox" x-model="loginForm.remember" class="checkbox">
+                    <span class="ml-2 text-sm text-gray-600">Ghi nhớ đăng nhập</span>
+                    </label>
+                    <a href="#" class="text-sm link-primary">Quên mật khẩu?</a>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Đăng Nhập</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+                <!-- Social Login Buttons - Login -->
+                <div class="space-y-3 mt-4 pb-2">
+                <!-- Divider -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">Hoặc đăng nhập với</span>
+                    </div>
+                </div>
+                <!-- Social Buttons Row -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" @click="handleFacebookLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="#1877F2">
+                        <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span class="font-medium text-sm">Facebook</span>
+                    </button>
+                    <button type="button" @click="handleGoogleLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24">
+                        <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        fill="#4285F4" />
+                        <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        fill="#34A853" />
+                        <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        fill="#FBBC05" />
+                        <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        fill="#EA4335" />
+                    </svg>
+                    <span class="font-medium text-sm">Google</span>
+                    </button>
+                </div>
+                </div>
+            </div>
+            <!-- Register Form -->
+            <div class="tab-content p-4 sm:p-6 !pt-0" data-tab-content="register">
+                <form @submit.prevent="handleRegister()" class="space-y-4 pb-2">
+                <div>
+                    <label for="register-fullname" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Họ và
+                    tên</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-fullname" x-model="registerForm.fullname"
+                        class="input input-lg rounded-lg"
+                        :class="errors.fullname ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập họ và tên">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.fullname" x-text="errors.fullname"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-username" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên
+                    đăng nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-username" x-model="registerForm.username"
+                        class="input input-lg rounded-lg"
+                        :class="errors.username ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.username" x-text="errors.username"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-email"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <div class="input-icon">
+                    <input type="email" id="register-email" x-model="registerForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập email của bạn">
+                    <i data-lucide="mail" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-phone" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Số điện
+                    thoại</label>
+                    <div class="input-icon">
+                    <input type="tel" id="register-phone" x-model="registerForm.phone"
+                        class="input input-lg rounded-lg"
+                        :class="errors.phone ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập số điện thoại">
+                    <i data-lucide="phone" class="icon"></i>
+                    </div>
+                    <p x-show="errors.phone" x-text="errors.phone"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-password" x-model="registerForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu (ít nhất 6 ký tự)">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-confirm-password"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Xác nhận mật khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-confirm-password"
+                        x-model="registerForm.confirmPassword" class="input input-lg rounded-lg"
+                        :class="errors.confirmPassword ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập lại mật khẩu">
+                    <i data-lucide="shield-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.confirmPassword" x-text="errors.confirmPassword"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label class="flex items-start">
+                    <input type="checkbox" x-model="registerForm.agree" class="checkbox mt-0.5">
+                    <span class="ml-2 text-sm text-gray-600">
+                    Tôi đồng ý với 
+                    <a href="#" class="link-primary">Điều khoản sử dụng</a>
+                    và 
+                    <a href="#" class="link-primary">Chính sách bảo mật</a>
+                    </span>
+                    </label>
+                    <p x-show="errors.agree" x-text="errors.agree"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Tạo Tài Khoản</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+            </div>
+        </div>
+            
+      </div>
+    </div>
+  </div>
+</header>

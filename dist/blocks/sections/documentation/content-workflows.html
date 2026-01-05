@@ -1,0 +1,491 @@
+<section class="py-8 sm:py-12 px-0 sm:px-6 lg:px-[108px] relative overflow-hidden">
+    <!-- Background Blur Effects -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div class="absolute w-full h-[1454px] rounded-full bg-[#2377FD80]/10 blur-[250px] -translate-x-1/2"
+            style="left: 100%; top: 0;"></div>
+        <div class="absolute w-full h-[772px] rounded-full bg-[#63ECFF80]/15 blur-[200px] -translate-x-1/2"
+            style="left: 0; top: 100px;"></div>
+        <div class="absolute w-full h-[1366px] rounded-full bg-[#63ECFF33]/0.9 blur-[100px] -translate-x-1/2"
+            style="left: 50%; top: 0px;"></div>
+    </div>
+
+    <div class="container mx-auto px-0 sm:px-6 relative z-10">
+        <div
+            class="flex flex-col lg:flex-row gap-8 lg:gap-0 p-0 sm:p-6 lg:p-12 bg-white rounded-none sm:rounded-2xl lg:rounded-[48px] shadow-sm">
+
+            <!-- Left Sidebar - Documentation Navigation -->
+            <!-- Left Sidebar - Documentation Navigation -->
+<aside class="hidden lg:block w-[288px] flex-shrink-0">
+    <div class="sticky top-24 flex flex-col items-start gap-6 px-6 pt-6 pb-0 w-[288px] h-[757px]">
+        <h2 class="text-lg font-semibold text-[#595959] leading-[27px]"
+            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            DOCUMENTATION
+        </h2>
+        <nav class="flex flex-col items-start gap-3 w-full" x-data="{
+            currentPath: '',
+            init() {
+                const path = window.location.pathname;
+                this.currentPath = path;
+            },
+            getLink(href) {
+                const path = this.currentPath;
+                // If in usage-guide subdirectory, use relative paths
+                if (path.includes('/usage-guide/')) {
+                    if (href === 'index.html') {
+                        return '../usage-guide.html'; // Go back to root usage-guide.html
+                    }
+                    return href; // Relative path from subdirectory
+                } else {
+                    // At root level
+                    if (href === 'index.html') {
+                        return 'usage-guide.html'; // Root level file
+                    }
+                    return 'usage-guide/' + href; // Subdirectory file
+                }
+            },
+            isActive(href) {
+                const path = this.currentPath;
+                const currentPage = path.split('/').pop() || '';
+                
+                // For index.html: active if on usage-guide.html (root)
+                if (href === 'index.html') {
+                    return currentPage === 'usage-guide.html' || 
+                           (path.includes('/usage-guide') && !path.includes('installation-guide') && !path.includes('workflows') && !path.includes('troubleshooting'));
+                }
+                
+                // For workflows.html: active if on workflows.html
+                if (href === 'workflows.html') {
+                    return currentPage === 'workflows.html' || path.includes('workflows');
+                }
+                
+                // For troubleshooting.html: active if on troubleshooting.html
+                if (href === 'troubleshooting.html') {
+                    return currentPage === 'troubleshooting.html' || path.includes('troubleshooting');
+                }
+                
+                // For installation-guide.html: active if on installation-guide.html
+                if (href === 'installation-guide.html') {
+                    return currentPage === 'installation-guide.html' || path.includes('installation-guide');
+                }
+                
+                // For other pages: check if current page matches
+                const hrefPage = href.split('/').pop();
+                return currentPage === hrefPage;
+            }
+        }">
+            <a :href="getLink('index.html')"
+                :class="isActive('index.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" 
+                        :stroke="isActive('index.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" 
+                        :stroke="isActive('index.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Introduction</span>
+            </a>
+            <a :href="getLink('installation-guide.html')"
+                :class="isActive('installation-guide.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 7V21M12 7C12 5.93913 11.5786 4.92172 10.8284 4.17157C10.0783 3.42143 9.06087 3 8 3H3C2.73478 3 2.48043 3.10536 2.29289 3.29289C2.10536 3.48043 2 3.73478 2 4V17C2 17.2652 2.10536 17.5196 2.29289 17.7071C2.48043 17.8946 2.73478 18 3 18H9C9.79565 18 10.5587 18.3161 11.1213 18.8787C11.6839 19.4413 12 20.2044 12 21M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21" 
+                        :stroke="isActive('installation-guide.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Installation & Setup</span>
+            </a>
+            <a :href="getLink('workflows.html')"
+                :class="isActive('workflows.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9H21M9 21V9M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z" 
+                        :stroke="isActive('workflows.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Real-world Workflows</span>
+            </a>
+            <a :href="getLink('troubleshooting.html')"
+                :class="isActive('troubleshooting.html') ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'hover:bg-gray-100'"
+                class="flex items-center gap-3 p-4 self-stretch rounded-lg font-medium transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9999 9.00001V13M11.9999 17H12.0099M21.7299 18L13.7299 4.00001C13.5555 3.69222 13.3025 3.4362 12.9969 3.25808C12.6912 3.07996 12.3437 2.98611 11.9899 2.98611C11.6361 2.98611 11.2887 3.07996 10.983 3.25808C10.6773 3.4362 10.4244 3.69222 10.2499 4.00001L2.24993 18C2.07361 18.3054 1.98116 18.6519 1.98194 19.0045C1.98272 19.3571 2.07671 19.7033 2.25438 20.0078C2.43204 20.3124 2.68708 20.5646 2.99362 20.7388C3.30017 20.9131 3.64734 21.0032 3.99993 21H19.9999C20.3508 20.9997 20.6955 20.907 20.9992 20.7313C21.303 20.5556 21.5551 20.3031 21.7304 19.9991C21.9057 19.6951 21.998 19.3504 21.9979 18.9995C21.9978 18.6486 21.9054 18.3039 21.7299 18Z" 
+                        :stroke="isActive('troubleshooting.html') ? '#2B8CEE' : '#595959'" 
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Troubleshooting</span>
+            </a>
+        </nav>
+    </div>
+</aside>
+
+
+
+            <!-- Divider Line -->
+            <div class="hidden lg:flex items-stretch px-[80px] flex-shrink-0 self-stretch">
+                <div class="w-2 bg-[#E9F3FD]"></div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="flex-1 min-w-0 px-4 sm:px-0">
+                <!-- Search Bar -->
+                <div class="mb-8">
+                    <form action="" method="GET" class="flex-1 mx-0 sm:mx-4 rounded-[12px]">
+                        <div class="relative">
+                            <svg
+                                class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-5 h-5 sm:w-[28px] sm:h-[27px]"
+                                viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_dddd_965_3639)">
+                                    <path
+                                        d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z"
+                                        stroke="url(#paint0_linear_965_3639)" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_dddd_965_3639" x="-2" y="0" width="32" height="39"
+                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="1" />
+                                        <feGaussianBlur stdDeviation="0.5" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0" />
+                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                            result="effect1_dropShadow_965_3639" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="3" />
+                                        <feGaussianBlur stdDeviation="1.5" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0" />
+                                        <feBlend mode="normal" in2="effect1_dropShadow_965_3639"
+                                            result="effect2_dropShadow_965_3639" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="6" />
+                                        <feGaussianBlur stdDeviation="2" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0" />
+                                        <feBlend mode="normal" in2="effect2_dropShadow_965_3639"
+                                            result="effect3_dropShadow_965_3639" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="11" />
+                                        <feGaussianBlur stdDeviation="2" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0" />
+                                        <feBlend mode="normal" in2="effect3_dropShadow_965_3639"
+                                            result="effect4_dropShadow_965_3639" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_965_3639"
+                                            result="shape" />
+                                    </filter>
+                                    <linearGradient id="paint0_linear_965_3639" x1="5.57692" y1="18" x2="23.0833"
+                                        y2="17.7463" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#05DF85" />
+                                        <stop offset="0.576923" stop-color="#2B8CEE" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <input type="text" name="q" id="mobileSearchInput" placeholder="Search documentation..."
+                                class="input w-full h-[22px] p-4 sm:p-7 bg-white/90 focus:border-white text-sm sm:text-base text-gray-900">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Page Title -->
+                <div class="mb-12 px-4 sm:px-0">
+                    <h1 class="text-3xl sm:text-5xl md:text-[64px] font-bold text-[#2C2C2C] text-start mb-[30px] sm:mb-8 leading-tight sm:leading-[60px] md:leading-[80px]"
+                        style="font-family: 'Space Grotesk', sans-serif; font-weight: 700;">
+                        Real-world Workflows
+                    </h1>
+
+                    <!-- Section 1: Create a New Laravel Project -->
+                    <div class="mb-6 sm:mb-8 bg-gradient-to-r from-[#FFF5F5] to-[#FFE5E5] border border-[#FFE5E5]">
+                        <div class="flex items-center self-stretch p-4 sm:p-6 gap-3 sm:gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#FFE5E5] flex items-center justify-center">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 26 26" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.1792 14.6268C3.98149 14.6275 3.78765 14.5721 3.62019 14.467C3.45274 14.3618 3.31855 14.2114 3.23321 14.033C3.14786 13.8547 3.11488 13.6558 3.13808 13.4595C3.16128 13.2631 3.23972 13.0774 3.36427 12.9238L13.7076 2.26712C13.7851 2.17757 13.8909 2.11705 14.0074 2.0955C14.1239 2.07396 14.2443 2.09266 14.3488 2.14855C14.4533 2.20443 14.5356 2.29418 14.5824 2.40306C14.6291 2.51194 14.6375 2.63347 14.6061 2.74772L12.6001 9.03727C12.5409 9.19558 12.5211 9.36588 12.5422 9.53355C12.5633 9.70122 12.6248 9.86127 12.7214 9.99996C12.818 10.1386 12.9467 10.2518 13.0967 10.3298C13.2466 10.4078 13.4132 10.4483 13.5822 10.4477H20.8956C21.0933 10.447 21.2872 10.5025 21.4546 10.6076C21.6221 10.7127 21.7563 10.8632 21.8416 11.0415C21.927 11.2199 21.9599 11.4188 21.9367 11.6151C21.9135 11.8114 21.8351 11.9972 21.7105 12.1507L11.3673 22.8074C11.2897 22.897 11.1839 22.9575 11.0674 22.979C10.9509 23.0006 10.8305 22.9819 10.726 22.926C10.6216 22.8701 10.5392 22.7804 10.4924 22.6715C10.4457 22.5626 10.4373 22.4411 10.4688 22.3268L12.4747 16.0373C12.5339 15.879 12.5537 15.7087 12.5326 15.541C12.5115 15.3733 12.45 15.2133 12.3534 15.0746C12.2569 14.9359 12.1281 14.8227 11.9782 14.7447C11.8282 14.6667 11.6616 14.6263 11.4926 14.6268H4.1792Z"
+                                        stroke="#DE3232" stroke-width="2.08955" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Create a New Laravel Project
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-3 mb-4 sm:mb-6">
+                        <div class="flex items-start gap-2 sm:gap-3">
+                            <svg class="w-5 h-6 sm:w-6 sm:h-8 flex-shrink-0" viewBox="0 0 25 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1025_2436)" filter="url(#filter0_dddd_1025_2436)">
+                                    <path
+                                        d="M20.6649 8.33357C21.0455 10.2013 20.7742 12.1431 19.8964 13.8351C19.0186 15.527 17.5873 16.8669 15.8412 17.6313C14.095 18.3957 12.1396 18.5384 10.301 18.0355C8.46237 17.5327 6.85172 16.4147 5.73763 14.8681C4.62353 13.3214 4.07333 11.4396 4.17878 9.53639C4.28424 7.63318 5.03896 5.82364 6.31711 4.40954C7.59525 2.99545 9.31955 2.06226 11.2025 1.76561C13.0854 1.46897 15.013 1.82679 16.6641 2.7794M9.9974 9.1669L12.4974 11.6669L20.8307 3.33357"
+                                        stroke="#00E676" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_dddd_1025_2436" x="-0.835286" y="0" width="26.6667"
+                                        height="32.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="0.833333" />
+                                        <feGaussianBlur stdDeviation="0.416667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                            result="effect1_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="2.5" />
+                                        <feGaussianBlur stdDeviation="1.25" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                        <feBlend mode="normal" in2="effect1_dropShadow_1025_2436"
+                                            result="effect2_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="5" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                        <feBlend mode="normal" in2="effect2_dropShadow_1025_2436"
+                                            result="effect3_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="9.16667" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                        <feBlend mode="normal" in2="effect3_dropShadow_1025_2436"
+                                            result="effect4_dropShadow_1025_2436" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_1025_2436"
+                                            result="shape" />
+                                    </filter>
+                                    <clipPath id="clip0_1025_2436">
+                                        <rect width="20" height="20" fill="white" transform="translate(2.49805)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Menu > Quick app > Laravel
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2 sm:gap-3">
+                            <svg class="w-5 h-6 sm:w-6 sm:h-8 flex-shrink-0" viewBox="0 0 25 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1025_2436)" filter="url(#filter0_dddd_1025_2436)">
+                                    <path
+                                        d="M20.6649 8.33357C21.0455 10.2013 20.7742 12.1431 19.8964 13.8351C19.0186 15.527 17.5873 16.8669 15.8412 17.6313C14.095 18.3957 12.1396 18.5384 10.301 18.0355C8.46237 17.5327 6.85172 16.4147 5.73763 14.8681C4.62353 13.3214 4.07333 11.4396 4.17878 9.53639C4.28424 7.63318 5.03896 5.82364 6.31711 4.40954C7.59525 2.99545 9.31955 2.06226 11.2025 1.76561C13.0854 1.46897 15.013 1.82679 16.6641 2.7794M9.9974 9.1669L12.4974 11.6669L20.8307 3.33357"
+                                        stroke="#00E676" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_dddd_1025_2436" x="-0.835286" y="0" width="26.6667"
+                                        height="32.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="0.833333" />
+                                        <feGaussianBlur stdDeviation="0.416667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                            result="effect1_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="2.5" />
+                                        <feGaussianBlur stdDeviation="1.25" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                        <feBlend mode="normal" in2="effect1_dropShadow_1025_2436"
+                                            result="effect2_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="5" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                        <feBlend mode="normal" in2="effect2_dropShadow_1025_2436"
+                                            result="effect3_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="9.16667" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                        <feBlend mode="normal" in2="effect3_dropShadow_1025_2436"
+                                            result="effect4_dropShadow_1025_2436" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_1025_2436"
+                                            result="shape" />
+                                    </filter>
+                                    <clipPath id="clip0_1025_2436">
+                                        <rect width="20" height="20" fill="white" transform="translate(2.49805)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Name your project (e.g., "my-api")
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2 sm:gap-3">
+                            <svg class="w-5 h-6 sm:w-6 sm:h-8 flex-shrink-0" viewBox="0 0 25 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1025_2436)" filter="url(#filter0_dddd_1025_2436)">
+                                    <path
+                                        d="M20.6649 8.33357C21.0455 10.2013 20.7742 12.1431 19.8964 13.8351C19.0186 15.527 17.5873 16.8669 15.8412 17.6313C14.095 18.3957 12.1396 18.5384 10.301 18.0355C8.46237 17.5327 6.85172 16.4147 5.73763 14.8681C4.62353 13.3214 4.07333 11.4396 4.17878 9.53639C4.28424 7.63318 5.03896 5.82364 6.31711 4.40954C7.59525 2.99545 9.31955 2.06226 11.2025 1.76561C13.0854 1.46897 15.013 1.82679 16.6641 2.7794M9.9974 9.1669L12.4974 11.6669L20.8307 3.33357"
+                                        stroke="#00E676" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_dddd_1025_2436" x="-0.835286" y="0" width="26.6667"
+                                        height="32.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="0.833333" />
+                                        <feGaussianBlur stdDeviation="0.416667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                        <feBlend mode="normal" in2="BackgroundImageFix"
+                                            result="effect1_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="2.5" />
+                                        <feGaussianBlur stdDeviation="1.25" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                        <feBlend mode="normal" in2="effect1_dropShadow_1025_2436"
+                                            result="effect2_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="5" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                        <feBlend mode="normal" in2="effect2_dropShadow_1025_2436"
+                                            result="effect3_dropShadow_1025_2436" />
+                                        <feColorMatrix in="SourceAlpha" type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                        <feOffset dy="9.16667" />
+                                        <feGaussianBlur stdDeviation="1.66667" />
+                                        <feColorMatrix type="matrix"
+                                            values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                        <feBlend mode="normal" in2="effect3_dropShadow_1025_2436"
+                                            result="effect4_dropShadow_1025_2436" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_1025_2436"
+                                            result="shape" />
+                                    </filter>
+                                    <clipPath id="clip0_1025_2436">
+                                        <rect width="20" height="20" fill="white" transform="translate(2.49805)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Wait for Composer to finish. Access at http://my-api.test
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Output -->
+                    <div class="w-full lg:px-4 mb-8 sm:mb-12">
+                        <img src="/assets/images/usegade.png" alt="" class="w-full h-auto">
+                    </div>
+
+
+                    <!-- Section 2: Migrate from XAMPP to Laragon -->
+                    <div class="mb-6 sm:mb-8 bg-gradient-to-r from-[#FFF7ED] to-[#FFF7ED] border border-[#FFF7ED]">
+                        <div class="flex items-center self-stretch p-4 sm:p-6 gap-3 sm:gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#FFF7ED] flex items-center justify-center">
+                                <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6.42857" fill="#ED712D" fill-opacity="0.1"/>
+                                    <path d="M10.3574 20.0001C10.3574 17.4427 11.3734 14.99 13.1817 13.1816C14.9901 11.3732 17.4428 10.3572 20.0003 10.3572C22.696 10.3674 25.2835 11.4193 27.2217 13.293L29.6431 15.7144M29.6431 15.7144V10.3572M29.6431 15.7144H24.286M29.6431 20.0001C29.6431 22.5575 28.6272 25.0102 26.8188 26.8186C25.0104 28.627 22.5577 29.643 20.0003 29.643C17.3045 29.6328 14.717 28.5809 12.7789 26.7072L10.3574 24.2858M10.3574 24.2858H15.7146M10.3574 24.2858V29.643" stroke="#ED712D" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    
+                            </div>
+                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Migrate from XAMPP to Laragon
+                            </h2>
+                        </div>
+                    </div>
+                        <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Moving is easy. You just need to move your files and export/import your database.
+                        </p>
+
+                        <div class="space-y-4 sm:space-y-6 px-4 sm:px-0">
+                            <!-- Step 1 -->
+                            <div class="flex gap-3 sm:gap-4">
+                                <div
+                                    class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black text-sm sm:text-base">
+                                    1
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Move Files
+                                    </h3>
+                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Copy folders from C:\xampp\htdocs to C:\laragon\www.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="flex gap-4">
+                                <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
+                                    2
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Export Database (in XAMPP)
+                                    </h3>
+                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Open phpMyAdmin in XAMPP, go to Export, and save the .sql file.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="flex gap-4">
+                                <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
+                                    3
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Import Database (in Laragon)
+                                    </h3>
+                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                        Start Laragon. Open HeidiSQL (Database button). Right click > Load SQL file.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+               
+
+                </div>
+            </div>
+        </div>
+</section>

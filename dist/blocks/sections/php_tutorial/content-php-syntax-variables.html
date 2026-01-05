@@ -1,5 +1,4 @@
-
-<section class="py-8 sm:py-12 px-0 sm:px-6 lg:px-[108px] relative overflow-hidden">
+<section class="sm:py-12 px-0 lg:px-[108px] relative overflow-hidden">
     <!-- Background Blur Effects -->
     <div class="absolute inset-0 pointer-events-none z-0">
         <div class="absolute w-full h-[1454px] rounded-full bg-[#2377FD80]/10 blur-[250px] -translate-x-1/2"
@@ -10,12 +9,776 @@
             style="left: 50%; top: 0px;"></div>
     </div>
 
-    <div class="container mx-auto px-0 sm:px-6 relative z-10">
-        <div
-            class="flex flex-col lg:flex-row gap-8 lg:gap-0 p-0 sm:p-6 lg:p-12 bg-white rounded-none sm:rounded-2xl lg:rounded-[48px] shadow-sm">
+    <div class="container mx-auto px-0 relative z-10" x-data="{
+        activeTopic: Alpine.store('phpTutorial')?.activeTopic || 'syntax',
+        getBreadcrumbPhase() {
+            const phaseMap = {
+                // Phase 1
+                'installation': 'Phase 1: PHP Basics',
+                'syntax': 'Phase 1: PHP Basics',
+                'control-structures': 'Phase 1: PHP Basics',
+                'arrays-loops': 'Phase 1: PHP Basics',
+                'functions': 'Phase 1: PHP Basics',
+                // Phase 2
+                'oop-concepts': 'Phase 2: Advanced PHP',
+                'mvc-pattern': 'Phase 2: Advanced PHP',
+                'database-pdo': 'Phase 2: Advanced PHP',
+                'security': 'Phase 2: Advanced PHP',
+                'composer': 'Phase 2: Advanced PHP',
+                // Phase 3
+                'news-db-design': 'Phase 3: Build News Site',
+                'news-frontend': 'Phase 3: Build News Site',
+                'news-admin': 'Phase 3: Build News Site',
+                'news-auth': 'Phase 3: Build News Site',
+                'news-deployment': 'Phase 3: Build News Site',
+                // Phase 4
+                'ecommerce-cart': 'Phase 4: Build E-Commerce',
+                'ecommerce-payment': 'Phase 4: Build E-Commerce',
+                'ecommerce-orders': 'Phase 4: Build E-Commerce',
+                'ecommerce-api': 'Phase 4: Build E-Commerce',
+                'ecommerce-performance': 'Phase 4: Build E-Commerce'
+            };
+            return phaseMap[this.activeTopic] || 'Phase 1: PHP Basics';
+        },
 
-            <!-- Left Sidebar - Documentation Navigation -->
+        init() {
+            this.$watch('$store.phpTutorial.activeTopic', value => {
+                this.activeTopic = value;
+            });
+        }
+    }">
+        <div
+            class="flex flex-col lg:flex-row gap-8 lg:gap-0 p-0  lg:p-12 bg-white rounded-none sm:rounded-2xl lg:rounded-[48px] shadow-sm">
+
+            <!-- Left Sidebar - PHP Tutorial Learning Roadmap -->
+            <!-- Mobile Menu Button -->
+<div x-data="{ sidebarOpen: false }" class="">
+    <!-- Menu Button - Mobile Only -->
+    <button 
+        @click="sidebarOpen = !sidebarOpen"
+        class="lg:hidden fixed top-20 right-4 z-50 flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md border border-gray-200 hover:bg-gray-50 transition-colors"
+        aria-label="Toggle menu"
+    >
+        <span class="text-sm font-medium text-gray-700" style="font-family: 'Plus Jakarta Sans', sans-serif;">Menu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21M3 6H21M3 18H21" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Mobile Overlay -->
+    <div 
+        x-show="sidebarOpen"
+        @click="sidebarOpen = false"
+        x-transition:enter="transition-opacity ease-linear duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity ease-linear duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+        style="display: none;"
+    ></div>
+
+    <!-- Left Sidebar - PHP Tutorial Learning Roadmap -->
+    <aside 
+        :class="sidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'"
+        class="fixed lg:sticky top-0 right-0 lg:top-24 h-screen lg:h-auto w-full lg:w-auto lg:max-w-none bg-white lg:bg-transparent z-40 lg:z-auto flex-shrink-0 shadow-xl lg:shadow-none border-l border-gray-200 lg:border-0 transition-transform duration-300 ease-in-out overflow-y-auto"
+    >
+        <div class="sticky lg:relative top-0 flex flex-col items-start gap-6 p-6 lg:p-0 pb-6 lg:pb-0">
+            <!-- Mobile Header -->
+            <div class="lg:hidden flex items-center justify-between w-full mb-4 pb-4 border-b border-gray-200">
+                <h2 class="text-[18px] font-semibold text-[#595959] leading-[27px]"
+                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                    LEARNING ROADMAP
+                </h2>
+                <button 
+                    @click="sidebarOpen = false"
+                    class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                    aria-label="Close menu"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
             
+            <!-- Desktop Header -->
+            <h2 class="hidden lg:block text-[18px] font-semibold text-[#595959] leading-[27px]"
+                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                LEARNING ROADMAP
+            </h2>
+
+        <div class="flex flex-col gap-4 w-full" x-data="{ 
+            activePhase: 'phase1',
+            activeTopic: Alpine.store('phpTutorial')?.activeTopic || 'syntax',
+            init() {
+                this.$watch('$store.phpTutorial.activeTopic', value => {
+                    this.activeTopic = value;
+                });
+            },
+            setTopic(topic) { 
+                if (Alpine.store('phpTutorial')) {
+                    Alpine.store('phpTutorial').activeTopic = topic;
+                    this.activeTopic = topic;
+                }
+                // Close sidebar on mobile after selecting topic
+                if (window.innerWidth < 1024) {
+                    sidebarOpen = false;
+                }
+            }
+        }">
+            <!-- Phase 1: PHP Basics -->
+            <div class="flex flex-col gap-2">
+                <button @click="activePhase = activePhase === 'phase1' ? null : 'phase1'"
+                    class="flex items-center gap-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Green Graduation Cap Icon -->
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#00E676" fill-opacity="0.2" />
+                        <path
+                            d="M45.2784 26.9449V36.1115M20.8339 30.7643V36.1115C20.8339 37.3271 21.7997 38.4929 23.5188 39.3524C25.2379 40.212 27.5694 40.6949 30.0006 40.6949C32.4317 40.6949 34.7633 40.212 36.4824 39.3524C38.2015 38.4929 39.1673 37.3271 39.1673 36.1115V30.7643M44.3923 28.3535C44.6658 28.2328 44.8978 28.0346 45.0598 27.7833C45.2217 27.532 45.3064 27.2388 45.3033 26.9399C45.3002 26.641 45.2095 26.3495 45.0424 26.1016C44.8753 25.8538 44.6392 25.6604 44.3632 25.5454L31.2686 19.581C30.8706 19.3994 30.4381 19.3054 30.0006 19.3054C29.563 19.3054 29.1306 19.3994 28.7325 19.581L15.6395 25.5393C15.3675 25.6584 15.1361 25.8542 14.9736 26.1028C14.8111 26.3513 14.7246 26.6418 14.7246 26.9387C14.7246 27.2357 14.8111 27.5262 14.9736 27.7747C15.1361 28.0233 15.3675 28.2191 15.6395 28.3382L28.7325 34.3087C29.1306 34.4903 29.563 34.5843 30.0006 34.5843C30.4381 34.5843 30.8706 34.4903 31.2686 34.3087L44.3923 28.3535Z"
+                            stroke="#00E676" stroke-width="3.05556" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <div class="flex-1 min-w-0">
+                        <div class="text-[18px] font-semibold rounded-sm text-[#2C2C2C] leading-[27px] mb-1"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            PHASE 1: PHP Basics
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-[#00E676] text-white">NEWBIE</span>
+                            <div class="flex items-center gap-2 bg-[#E9F3FD80] px-1.5 py-0.5 rounded-md">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_847_10215)">
+                                        <path
+                                            d="M5.99902 3.00003V6.00003L7.99902 7.00003M10.999 6.00003C10.999 8.76145 8.76045 11 5.99902 11C3.2376 11 0.999023 8.76145 0.999023 6.00003C0.999023 3.23861 3.2376 1.00003 5.99902 1.00003C8.76045 1.00003 10.999 3.23861 10.999 6.00003Z"
+                                            stroke="#97A4B2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_847_10215">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span class="text-[10px] text-gray-500">1-2 WEEKS</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase1' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <!-- Phase 1 Topics -->
+                <div x-show="activePhase === 'phase1'" x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2" class=" flex flex-col gap-1">
+                    <a href="#" @click.prevent="setTopic('installation')"
+                        :class="activeTopic === 'installation' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'installation'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'installation'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'installation' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Installation & Setup</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('syntax')"
+                        :class="activeTopic === 'syntax' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'syntax'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'syntax'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'syntax' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Syntax & Variables</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('control-structures')"
+                        :class="activeTopic === 'control-structures' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'control-structures'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'control-structures'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'control-structures' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Control Structures</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('arrays-loops')"
+                        :class="activeTopic === 'arrays-loops' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'arrays-loops'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'arrays-loops'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'arrays-loops' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Arrays & Loops</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('functions')"
+                        :class="activeTopic === 'functions' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'functions'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'functions'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'functions' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Functions</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 2: Advanced PHP -->
+            <div class="flex flex-col gap-2">
+                <button @click="activePhase = activePhase === 'phase2' ? null : 'phase2'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Purple Document Icon -->
+                    <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="55" height="55" rx="5.5" fill="#9747FF" fill-opacity="0.15" />
+                        <path
+                            d="M13.5977 19.2502H19.0977M13.5977 24.7502H19.0977M13.5977 30.2502H19.0977M13.5977 35.7502H19.0977M23.9102 22.0002H30.7852M23.9102 27.5002H32.8477M23.9102 33.0002H30.0977M19.0977 13.7502H35.5977C37.1164 13.7502 38.3477 14.9814 38.3477 16.5002V38.5002C38.3477 40.019 37.1164 41.2502 35.5977 41.2502H19.0977C17.5789 41.2502 16.3477 40.019 16.3477 38.5002V16.5002C16.3477 14.9814 17.5789 13.7502 19.0977 13.7502Z"
+                            stroke="#9747FF" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <div class="flex-1 min-w-0">
+                        <div class="text-[18px] rounded-sm font-semibold text-[#2C2C2C] leading-[27px] mb-1"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            PHASE 2: Advanced PHP
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-[#9747FF] text-white">Intermediate</span>
+                            <div class="flex items-center gap-2 bg-[#E9F3FD80] px-1.5 py-0.5 rounded-md">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_847_10215)">
+                                        <path
+                                            d="M5.99902 3.00003V6.00003L7.99902 7.00003M10.999 6.00003C10.999 8.76145 8.76045 11 5.99902 11C3.2376 11 0.999023 8.76145 0.999023 6.00003C0.999023 3.23861 3.2376 1.00003 5.99902 1.00003C8.76045 1.00003 10.999 3.23861 10.999 6.00003Z"
+                                            stroke="#97A4B2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_847_10215">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span class="text-[10px] text-gray-500">2-3 WEEKS</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase2' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <!-- Phase 2 Topics -->
+                <div x-show="activePhase === 'phase2'" x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2" class=" flex flex-col gap-1">
+                    <a href="#" @click.prevent="setTopic('oop-concepts')"
+                        :class="activeTopic === 'oop-concepts' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'oop-concepts'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'oop-concepts'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'oop-concepts' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">OOP Concepts</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('mvc-pattern')"
+                        :class="activeTopic === 'mvc-pattern' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'mvc-pattern'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'mvc-pattern'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'mvc-pattern' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">MVC Pattern</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('database-pdo')"
+                        :class="activeTopic === 'database-pdo' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'database-pdo'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'database-pdo'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'database-pdo' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Database (PDO)</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('security')"
+                        :class="activeTopic === 'security' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'security'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'security'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'security' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Security Best Practices</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('composer')"
+                        :class="activeTopic === 'composer' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'composer'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'composer'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'composer' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Composer & Libraries</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 3: Build News Site -->
+            <div class="flex flex-col gap-2">
+                <button @click="activePhase = activePhase === 'phase3' ? null : 'phase3'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Orange Database Icon -->
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#ED661D" fill-opacity="0.15" />
+                        <path
+                            d="M42.375 20.3751C42.375 22.6533 36.8345 24.5001 30 24.5001C23.1655 24.5001 17.625 22.6533 17.625 20.3751M42.375 20.3751C42.375 18.0969 36.8345 16.2501 30 16.2501C23.1655 16.2501 17.625 18.0969 17.625 20.3751M42.375 20.3751V39.6251C42.375 40.7191 41.0712 41.7684 38.7504 42.5419C36.4297 43.3155 33.2821 43.7501 30 43.7501C26.7179 43.7501 23.5703 43.3155 21.2496 42.5419C18.9288 41.7684 17.625 40.7191 17.625 39.6251V20.3751M17.625 30.0001C17.625 31.0941 18.9288 32.1434 21.2496 32.9169C23.5703 33.6905 26.7179 34.1251 30 34.1251C33.2821 34.1251 36.4297 33.6905 38.7504 32.9169C41.0712 32.1434 42.375 31.0941 42.375 30.0001"
+                            stroke="#ED661D" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <div class="flex-1 min-w-0">
+                        <div class="text-[18px] font-semibold rounded-sm text-[#2C2C2C] leading-[27px] mb-1"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Phase 3: Build News Site
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-[#ED661D] text-white">Project</span>
+                            <div class="flex items-center gap-2 bg-[#E9F3FD80] px-1.5 py-0.5 rounded-md">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_847_10215)">
+                                        <path
+                                            d="M5.99902 3.00003V6.00003L7.99902 7.00003M10.999 6.00003C10.999 8.76145 8.76045 11 5.99902 11C3.2376 11 0.999023 8.76145 0.999023 6.00003C0.999023 3.23861 3.2376 1.00003 5.99902 1.00003C8.76045 1.00003 10.999 3.23861 10.999 6.00003Z"
+                                            stroke="#97A4B2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_847_10215">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span class="text-[10px] text-gray-500">2 WEEKS</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase3' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <!-- Phase 3 Topics -->
+                <div x-show="activePhase === 'phase3'" x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2" class=" flex flex-col gap-1">
+                    <a href="#" @click.prevent="setTopic('news-db-design')"
+                        :class="activeTopic === 'news-db-design' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'news-db-design'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'news-db-design'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'news-db-design' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 1: Database Design</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('news-frontend')"
+                        :class="activeTopic === 'news-frontend' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'news-frontend'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'news-frontend'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'news-frontend' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 2: Frontend & Views</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('news-admin')"
+                        :class="activeTopic === 'news-admin' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'news-admin'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'news-admin'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'news-admin' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 3: Admin Dashboard</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('news-auth')"
+                        :class="activeTopic === 'news-auth' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'news-auth'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'news-auth'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'news-auth' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 4: Authentication</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('news-deployment')"
+                        :class="activeTopic === 'news-deployment' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'news-deployment'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'news-deployment'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'news-deployment' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 5: Deployment</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phase 4: Build E-Commerce -->
+            <div class="flex flex-col gap-2">
+                <button @click="activePhase = activePhase === 'phase4' ? null : 'phase4'"
+                    class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-left w-full group">
+                    <!-- Blue Shopping Bag Icon -->
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#2B8CEE" fill-opacity="0.2" />
+                        <path
+                            d="M35.5 27.2501C35.5 28.7088 34.9205 30.1078 33.8891 31.1392C32.8576 32.1707 31.4587 32.7501 30 32.7501C28.5413 32.7501 27.1424 32.1707 26.1109 31.1392C25.0795 30.1078 24.5 28.7088 24.5 27.2501M17.7666 21.7969H42.2334M18.175 21.0172C17.818 21.4933 17.625 22.0722 17.625 22.6672V41.0001C17.625 41.7295 17.9147 42.4289 18.4305 42.9447C18.9462 43.4604 19.6457 43.7501 20.375 43.7501H39.625C40.3543 43.7501 41.0538 43.4604 41.5695 42.9447C42.0853 42.4289 42.375 41.7295 42.375 41.0001V22.6672C42.375 22.0722 42.182 21.4933 41.825 21.0172L39.075 17.3501C38.8188 17.0086 38.4867 16.7314 38.1048 16.5404C37.723 16.3495 37.3019 16.2501 36.875 16.2501H23.125C22.6981 16.2501 22.277 16.3495 21.8952 16.5404C21.5133 16.7314 21.1812 17.0086 20.925 17.3501L18.175 21.0172Z"
+                            stroke="#2B8CEE" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <div class="flex-1 min-w-0">
+                        <div class="text-[18px] font-semibold rounded-sm text-[#2C2C2C] leading-[27px] mb-1"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Phase 4: Build E-Commerce
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-[#2B8CEE] text-white">Advanced</span>
+                            <div class="flex items-center gap-2 bg-[#E9F3FD80] px-1.5 py-0.5 rounded-md">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_847_10215)">
+                                        <path
+                                            d="M5.99902 3.00003V6.00003L7.99902 7.00003M10.999 6.00003C10.999 8.76145 8.76045 11 5.99902 11C3.2376 11 0.999023 8.76145 0.999023 6.00003C0.999023 3.23861 3.2376 1.00003 5.99902 1.00003C8.76045 1.00003 10.999 3.23861 10.999 6.00003Z"
+                                            stroke="#97A4B2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_847_10215">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span class="text-[10px] text-gray-500">3-4 WEEKS</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        :class="activePhase === 'phase4' ? 'rotate-180' : ''"
+                        class="transform transition-transform flex-shrink-0">
+                        <path d="M6 9L12 15L18 9" stroke="#595959" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <!-- Phase 4 Topics -->
+                <div x-show="activePhase === 'phase4'" x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2" class=" flex flex-col gap-1">
+                    <a href="#" @click.prevent="setTopic('ecommerce-cart')"
+                        :class="activeTopic === 'ecommerce-cart' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'ecommerce-cart'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'ecommerce-cart'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'ecommerce-cart' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 1: Shopping Cart Logic</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('ecommerce-payment')"
+                        :class="activeTopic === 'ecommerce-payment' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'ecommerce-payment'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'ecommerce-payment'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'ecommerce-payment' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 2: Payment Integration</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('ecommerce-orders')"
+                        :class="activeTopic === 'ecommerce-orders' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'ecommerce-orders'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'ecommerce-orders'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'ecommerce-orders' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 3: Order Management</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('ecommerce-api')"
+                        :class="activeTopic === 'ecommerce-api' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'ecommerce-api'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'ecommerce-api'" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'ecommerce-api' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 4: REST API for Mobile</span>
+                    </a>
+                    <a href="#" @click.prevent="setTopic('ecommerce-performance')"
+                        :class="activeTopic === 'ecommerce-performance' ? 'bg-[#E9F3FD]' : 'hover:bg-[#E9F3FD]'"
+                        class="flex items-center gap-3 p-4 self-stretch rounded-lg transition-colors group">
+                        <!-- Icon khi đóng -->
+                        <svg x-show="activeTopic !== 'ecommerce-performance'" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M4 12.15V4.00001C4 3.46957 4.21071 2.96087 4.58579 2.58579C4.96086 2.21072 5.46957 2.00001 6 2.00001H14M14 2.00001C14.3169 1.99923 14.6308 2.06122 14.9236 2.18239C15.2164 2.30357 15.4823 2.48153 15.706 2.70601L19.294 6.29401C19.5185 6.51768 19.6964 6.78359 19.8176 7.0764C19.9388 7.36921 20.0008 7.68312 20 8.00001M14 2.00001V7.00001C14 7.26522 14.1054 7.51958 14.2929 7.70711C14.4804 7.89465 14.7348 8.00001 15 8.00001H20M20 8.00001V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H14.65M5 16L2 19L5 22M9 22L12 19L9 16"
+                                stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <!-- Icon khi mở -->
+                        <svg x-show="activeTopic === 'ecommerce-performance'" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
+                            <path
+                                d="M12 21V7M12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7M12 21C12 20.2044 12.3161 19.4413 12.8787 18.8787C13.4413 18.3161 14.2044 18 15 18H21C21.2652 18 21.5196 17.8946 21.7071 17.7071C21.8946 17.5196 22 17.2652 22 17V15.7M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V6M16 12L18 14L22 10"
+                                stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span
+                            :class="activeTopic === 'ecommerce-performance' ? 'font-medium text-[#2B8CEE]' : 'text-gray-700 group-hover:text-[#2B8CEE]'"
+                            class="text-sm transition-colors">Part 5: Performance & Caching</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+</div>
 
             <!-- Divider Line -->
             <div class="hidden lg:flex items-stretch px-[80px] flex-shrink-0 self-stretch">
@@ -24,185 +787,647 @@
 
             <!-- Main Content Area -->
             <div class="flex-1 min-w-0 px-4 sm:px-0">
-                <!-- Search Bar -->
-                <div class="mb-8">
-                    <form action="" method="GET" class="flex-1 mx-0 sm:mx-4 rounded-[12px]">
-                        <div class="relative">
-                            <svg width="28" height="37"
-                                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-[28px] h-[27px]"
-                                viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g filter="url(#filter0_dddd_965_3639)">
-                                    <path
-                                        d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z"
-                                        stroke="url(#paint0_linear_965_3639)" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </g>
-                                <defs>
-                                    <filter id="filter0_dddd_965_3639" x="-2" y="0" width="32" height="39"
-                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                        <feColorMatrix in="SourceAlpha" type="matrix"
-                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                        <feOffset dy="1" />
-                                        <feGaussianBlur stdDeviation="0.5" />
-                                        <feColorMatrix type="matrix"
-                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0" />
-                                        <feBlend mode="normal" in2="BackgroundImageFix"
-                                            result="effect1_dropShadow_965_3639" />
-                                        <feColorMatrix in="SourceAlpha" type="matrix"
-                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                        <feOffset dy="3" />
-                                        <feGaussianBlur stdDeviation="1.5" />
-                                        <feColorMatrix type="matrix"
-                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0" />
-                                        <feBlend mode="normal" in2="effect1_dropShadow_965_3639"
-                                            result="effect2_dropShadow_965_3639" />
-                                        <feColorMatrix in="SourceAlpha" type="matrix"
-                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                        <feOffset dy="6" />
-                                        <feGaussianBlur stdDeviation="2" />
-                                        <feColorMatrix type="matrix"
-                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0" />
-                                        <feBlend mode="normal" in2="effect3_dropShadow_965_3639"
-                                            result="effect3_dropShadow_965_3639" />
-                                        <feColorMatrix in="SourceAlpha" type="matrix"
-                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                        <feOffset dy="11" />
-                                        <feGaussianBlur stdDeviation="2" />
-                                        <feColorMatrix type="matrix"
-                                            values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0" />
-                                        <feBlend mode="normal" in2="effect3_dropShadow_965_3639"
-                                            result="effect4_dropShadow_965_3639" />
-                                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_965_3639"
-                                            result="shape" />
-                                    </filter>
-                                    <linearGradient id="paint0_linear_965_3639" x1="5.57692" y1="18" x2="23.0833"
-                                        y2="17.7463" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#05DF85" />
-                                        <stop offset="0.576923" stop-color="#2B8CEE" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                            <input type="text" name="q" id="mobileSearchInput" placeholder="Search documentation..."
-                                class="input w-full h-[22px] p-7 bg-white/90 focus:border-white text-gray-900">
-                        </div>
-                    </form>
+                <!-- Breadcrumbs -->
+                <div class="mb-4">
+                    <nav class="flex items-center gap-2 text-sm text-gray-500"
+                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                        <a href="#" class="hover:text-[#2B8CEE] transition-colors">Academy</a>
+                        <span>></span>
+                        <a href="#" class="hover:text-[#2B8CEE] transition-colors">PHP Tutorial</a>
+                        <span>></span>
+                        <span class="text-[#2B8CEE]" x-text="getBreadcrumbPhase()">Phase 1: PHP Basics</span>
+
+                    </nav>
                 </div>
 
-                <!-- Page Title -->
-                <div class="mb-8 sm:mb-12 px-4 sm:px-0">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[80px] text-start mb-6 sm:mb-8"
-                        style="font-family: 'Space Grotesk', sans-serif;">
-                        PHP Syntax & Variables
-                    </h1>
+                <!-- Dynamic Page Title -->
+                <div class="mb-6 sm:mb-8">
+                    <!-- Installation & Setup -->
+                    <div x-show="activeTopic === 'installation'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[64px] text-start mb-3 sm:mb-4"
+                            style="font-family: 'Space Grotesk', sans-serif;">
+                            Installation & Setup
+                        </h1>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Get started with PHP development environment setup using Laragon.
+                        </p>
+                    </div>
 
-                    <!-- Content Sections -->
-                    <div class="space-y-6 sm:space-y-8">
-                        <!-- Implementation/Guide Section -->
-                        <div class="rounded-xl border border-gray-200 overflow-hidden">
-                            <div class="flex items-start gap-4 sm:gap-6 p-4 sm:p-6">
-                                <!-- Lightbulb Icon -->
-                                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#05DF85] flex items-center justify-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2V4M12 20V22M4 12H2M6.31412 6.31412L4.8999 4.8999M17.6859 6.31412L19.1001 4.8999M6.31412 17.69L4.8999 19.1042M17.6859 17.69L19.1001 19.1042M22 12H20M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Syntax & Variables -->
+                    <div x-show="activeTopic === 'syntax'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[64px] text-start mb-3 sm:mb-4"
+                            style="font-family: 'Space Grotesk', sans-serif;">
+                            PHP Syntax & Variables
+                        </h1>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Learn how to write your first PHP script and store data in variables.
+                        </p>
+                    </div>
+
+                    <!-- Control Structures -->
+                    <div x-show="activeTopic === 'control-structures'"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[64px] text-start mb-3 sm:mb-4"
+                            style="font-family: 'Space Grotesk', sans-serif;">
+                            Control Structures
+                        </h1>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Master if/else statements, switch cases, and conditional logic in PHP.
+                        </p>
+                    </div>
+
+                    <!-- Arrays & Loops -->
+                    <div x-show="activeTopic === 'arrays-loops'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[64px] text-start mb-3 sm:mb-4"
+                            style="font-family: 'Space Grotesk', sans-serif;">
+                            Arrays & Loops
+                        </h1>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Work with arrays and iterate through data using loops in PHP.
+                        </p>
+                    </div>
+
+                    <!-- Functions -->
+                    <div x-show="activeTopic === 'functions'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[64px] text-start mb-3 sm:mb-4"
+                            style="font-family: 'Space Grotesk', sans-serif;">
+                            Functions
+                        </h1>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                            Create reusable code blocks with PHP functions and understand scope.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
+                    <!-- Installation & Setup Content -->
+                    <div x-show="activeTopic === 'installation'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2">
+                        <!-- What you will learn Section -->
+                        <div class="p-4 sm:p-6">
+                            <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
+                                style="font-family: 'Space Grotesk', sans-serif;">
+                                Coming Soon
+                            </h2>
+                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                Content for Control Structures will be available soon.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Syntax & Variables Content -->
+                    <div x-show="activeTopic === 'syntax'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2">
+                        <!-- What you will learn Section -->
+                        <div class="rounded-xl overflow-hidden mb-6 sm:mb-8 bg-white"
+                            style="box-shadow: 0 2.667px 8px 0 rgba(43, 140, 238, 0.05);">
+                            <div class="flex flex-col items-start gap-6 p-6 self-stretch">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <svg width="25" height="32" viewBox="0 0 25 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_847_11248)" filter="url(#filter0_dddd_847_11248)">
+                                            <path
+                                                d="M20.6649 8.33357C21.0455 10.2013 20.7742 12.1431 19.8964 13.8351C19.0186 15.527 17.5873 16.8669 15.8412 17.6313C14.095 18.3957 12.1396 18.5384 10.301 18.0355C8.46237 17.5327 6.85172 16.4147 5.73763 14.8681C4.62353 13.3214 4.07333 11.4396 4.17878 9.53639C4.28424 7.63318 5.03896 5.82364 6.31711 4.40954C7.59525 2.99545 9.31955 2.06226 11.2025 1.76561C13.0854 1.46897 15.013 1.82679 16.6641 2.7794M9.9974 9.1669L12.4974 11.6669L20.8307 3.33357"
+                                                stroke="#00E676" stroke-width="1.66667" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <filter id="filter0_dddd_847_11248" x="-0.835286" y="0" width="26.6667"
+                                                height="32.5" filterUnits="userSpaceOnUse"
+                                                color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                    result="hardAlpha" />
+                                                <feOffset dy="0.833333" />
+                                                <feGaussianBlur stdDeviation="0.416667" />
+                                                <feColorMatrix type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                                <feBlend mode="normal" in2="BackgroundImageFix"
+                                                    result="effect1_dropShadow_847_11248" />
+                                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                    result="hardAlpha" />
+                                                <feOffset dy="2.5" />
+                                                <feGaussianBlur stdDeviation="1.25" />
+                                                <feColorMatrix type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                                <feBlend mode="normal" in2="effect1_dropShadow_847_11248"
+                                                    result="effect2_dropShadow_847_11248" />
+                                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                    result="hardAlpha" />
+                                                <feOffset dy="5" />
+                                                <feGaussianBlur stdDeviation="1.66667" />
+                                                <feColorMatrix type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                                <feBlend mode="normal" in2="effect2_dropShadow_847_11248"
+                                                    result="effect3_dropShadow_847_11248" />
+                                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                    result="hardAlpha" />
+                                                <feOffset dy="9.16667" />
+                                                <feGaussianBlur stdDeviation="1.66667" />
+                                                <feColorMatrix type="matrix"
+                                                    values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                                <feBlend mode="normal" in2="effect3_dropShadow_847_11248"
+                                                    result="effect4_dropShadow_847_11248" />
+                                                <feBlend mode="normal" in="SourceGraphic"
+                                                    in2="effect4_dropShadow_847_11248" result="shape" />
+                                            </filter>
+                                            <clipPath id="clip0_847_11248">
+                                                <rect width="20" height="20" fill="white"
+                                                    transform="translate(2.49805)" />
+                                            </clipPath>
+                                        </defs>
                                     </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4"
-                                        style="font-family: 'Space Grotesk', sans-serif;">
-                                        Implementation/Guide
-                                    </h2>
-                                    <p class="text-sm sm:text-base text-gray-600 leading-[22px] mb-4 sm:mb-6"
+
+                                    <h2 class="text-base font-medium leading-6 text-gray-900"
                                         style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        PHP scripts start with <?php and end with ?>. You can place PHP code anywhere in your document. PHP files have a default file extension of ".php". A PHP file normally contains HTML tags and some PHP scripting code.
-                                    </p>
-                                    <!-- Code Block -->
-                                    <div class="bg-[#1E1E1E] rounded-lg p-4 sm:p-6 overflow-x-auto">
-                                        <pre class="text-sm sm:text-base text-[#D4D4D4] font-mono"><code>&lt;?php echo "Hello World!"; ?&gt;</code></pre>
+                                        What you will learn
+                                    </h2>
+                                </div>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#05DF85] mt-2"></div>
+                                        <span class="text-sm text-[#595959] font-normal leading-[22px]"
+                                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                            Understand PHP tags &lt;?php?&gt;
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#05DF85] mt-2"></div>
+                                        <span class="text-sm text-[#595959] font-normal leading-[22px]"
+                                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                            Datatypes: String, Integer, Array
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#05DF85] mt-2"></div>
+                                        <span class="text-sm text-[#595959] font-normal leading-[22px]"
+                                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                            Declare and use variables
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Implementation Guide Section -->
+                        <div class="rounded-xl overflow-hidden mb-6 sm:mb-8">
+                            <div class="">
+                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
+                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                    Implementation Guide
+                                </h2>
+                                <p class="text-sm sm:text-base text-gray-600 leading-[22px] mb-6 sm:mb-8"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Learn how to write your first PHP script and store data in variables.
+                                </p>
+
+                                <!-- Steps -->
+                                <div class="space-y-4 sm:space-y-6">
+                                    <!-- Step 1 -->
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 bg-[#F3F4F6] px-6 py-4">
+                                                <svg width="21" height="29" viewBox="0 0 21 29" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g filter="url(#filter0_dddd_847_11269)">
+                                                        <path
+                                                            d="M9.33301 6.75004C9.53192 6.75004 9.72269 6.67102 9.86334 6.53037C10.004 6.38972 10.083 6.19895 10.083 6.00004V3.79579C10.0499 3.62594 10.0765 3.44985 10.1583 3.29738C10.2402 3.14491 10.3723 3.02545 10.5322 2.95923C10.692 2.89302 10.8699 2.88413 11.0356 2.93408C11.2013 2.98403 11.3446 3.08974 11.4413 3.23329L16.5683 8.36029C16.6523 8.44435 16.719 8.54415 16.7645 8.65398C16.81 8.76381 16.8334 8.88153 16.8334 9.00042C16.8334 9.1193 16.81 9.23702 16.7645 9.34685C16.719 9.45668 16.6523 9.55648 16.5683 9.64054L11.4413 14.7668C11.3446 14.9103 11.2013 15.0161 11.0356 15.066C10.8699 15.1159 10.692 15.1071 10.5322 15.0408C10.3723 14.9746 10.2402 14.8552 10.1583 14.7027C10.0765 14.5502 10.0499 14.3741 10.083 14.2043V12C10.083 11.8011 10.004 11.6104 9.86334 11.4697C9.72269 11.3291 9.53192 11.25 9.33301 11.25H4.83301C4.6341 11.25 4.44333 11.171 4.30268 11.0304C4.16203 10.8897 4.08301 10.699 4.08301 10.5V7.50004C4.08301 7.30113 4.16203 7.11036 4.30268 6.96971C4.44333 6.82906 4.6341 6.75004 4.83301 6.75004H9.33301Z"
+                                                            stroke="#00E676" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </g>
+                                                    <defs>
+                                                        <filter id="filter0_dddd_847_11269" x="-2.25033" y="0"
+                                                            width="24.6667" height="30.5" filterUnits="userSpaceOnUse"
+                                                            color-interpolation-filters="sRGB">
+                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="0.833333" />
+                                                            <feGaussianBlur stdDeviation="0.416667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                                            <feBlend mode="normal" in2="BackgroundImageFix"
+                                                                result="effect1_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="2.5" />
+                                                            <feGaussianBlur stdDeviation="1.25" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                                            <feBlend mode="normal" in2="effect1_dropShadow_847_11269"
+                                                                result="effect2_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="5" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                                            <feBlend mode="normal" in2="effect2_dropShadow_847_11269"
+                                                                result="effect3_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="9.16667" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                                            <feBlend mode="normal" in2="effect3_dropShadow_847_11269"
+                                                                result="effect4_dropShadow_847_11269" />
+                                                            <feBlend mode="normal" in="SourceGraphic"
+                                                                in2="effect4_dropShadow_847_11269" result="shape" />
+                                                        </filter>
+                                                    </defs>
+                                                </svg>
+                                                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2"
+                                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                                    Step 1: Create a PHP file
+                                                </h3>
+                                            </div>
+
+                                            <div
+                                                class=" rounded-[12px] bg-white shadow-[0_2.667px_8px_0_rgba(43,140,238,0.05)] flex flex-col items-start gap-6 py-6 self-stretch">
+                                                <p
+                                                    class="text-sm px-6 gap-2 sm:text-base text-gray-700 leading-relaxed font-['Plus_Jakarta_Sans']">
+                                                    Create 'index.php' in 'C:/laragon/www/team-php/'
+                                                </p>
+                                            </div>
+
+                                        </div>
                                     </div>
+
+                                    <!-- Step 2 -->
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 bg-[#F3F4F6] px-6 py-4">
+                                                <svg width="21" height="29" viewBox="0 0 21 29" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g filter="url(#filter0_dddd_847_11269)">
+                                                        <path
+                                                            d="M9.33301 6.75004C9.53192 6.75004 9.72269 6.67102 9.86334 6.53037C10.004 6.38972 10.083 6.19895 10.083 6.00004V3.79579C10.0499 3.62594 10.0765 3.44985 10.1583 3.29738C10.2402 3.14491 10.3723 3.02545 10.5322 2.95923C10.692 2.89302 10.8699 2.88413 11.0356 2.93408C11.2013 2.98403 11.3446 3.08974 11.4413 3.23329L16.5683 8.36029C16.6523 8.44435 16.719 8.54415 16.7645 8.65398C16.81 8.76381 16.8334 8.88153 16.8334 9.00042C16.8334 9.1193 16.81 9.23702 16.7645 9.34685C16.719 9.45668 16.6523 9.55648 16.5683 9.64054L11.4413 14.7668C11.3446 14.9103 11.2013 15.0161 11.0356 15.066C10.8699 15.1159 10.692 15.1071 10.5322 15.0408C10.3723 14.9746 10.2402 14.8552 10.1583 14.7027C10.0765 14.5502 10.0499 14.3741 10.083 14.2043V12C10.083 11.8011 10.004 11.6104 9.86334 11.4697C9.72269 11.3291 9.53192 11.25 9.33301 11.25H4.83301C4.6341 11.25 4.44333 11.171 4.30268 11.0304C4.16203 10.8897 4.08301 10.699 4.08301 10.5V7.50004C4.08301 7.30113 4.16203 7.11036 4.30268 6.96971C4.44333 6.82906 4.6341 6.75004 4.83301 6.75004H9.33301Z"
+                                                            stroke="#00E676" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </g>
+                                                    <defs>
+                                                        <filter id="filter0_dddd_847_11269" x="-2.25033" y="0"
+                                                            width="24.6667" height="30.5" filterUnits="userSpaceOnUse"
+                                                            color-interpolation-filters="sRGB">
+                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="0.833333" />
+                                                            <feGaussianBlur stdDeviation="0.416667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                                            <feBlend mode="normal" in2="BackgroundImageFix"
+                                                                result="effect1_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="2.5" />
+                                                            <feGaussianBlur stdDeviation="1.25" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                                            <feBlend mode="normal" in2="effect1_dropShadow_847_11269"
+                                                                result="effect2_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="5" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                                            <feBlend mode="normal" in2="effect2_dropShadow_847_11269"
+                                                                result="effect3_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="9.16667" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                                            <feBlend mode="normal" in2="effect3_dropShadow_847_11269"
+                                                                result="effect4_dropShadow_847_11269" />
+                                                            <feBlend mode="normal" in="SourceGraphic"
+                                                                in2="effect4_dropShadow_847_11269" result="shape" />
+                                                        </filter>
+                                                    </defs>
+                                                </svg>
+                                                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2"
+                                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                                    Step 2: Write code
+                                                </h3>
+                                            </div>
+
+                                            <div
+                                                class=" rounded-[12px] bg-white shadow-[0_2.667px_8px_0_rgba(43,140,238,0.05)] flex flex-col items-start px-6 gap-6 py-6 self-stretch">
+                                                <div class="bg-[#1E293B]  rounded-lg p-4 sm:p-6 overflow-x-auto w-full">
+                                                    <pre class="text-sm sm:text-base text-[#D4D4D4] font-mono"><code>&lt;?php
+  $greeting = "Hello, Laragon!";
+  $year = 2025;
+  echo $greeting . " Welcome to " . $year;
+  ?&gt;</code></pre>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 bg-[#F3F4F6] px-6 py-4">
+                                                <svg width="21" height="29" viewBox="0 0 21 29" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g filter="url(#filter0_dddd_847_11269)">
+                                                        <path
+                                                            d="M9.33301 6.75004C9.53192 6.75004 9.72269 6.67102 9.86334 6.53037C10.004 6.38972 10.083 6.19895 10.083 6.00004V3.79579C10.0499 3.62594 10.0765 3.44985 10.1583 3.29738C10.2402 3.14491 10.3723 3.02545 10.5322 2.95923C10.692 2.89302 10.8699 2.88413 11.0356 2.93408C11.2013 2.98403 11.3446 3.08974 11.4413 3.23329L16.5683 8.36029C16.6523 8.44435 16.719 8.54415 16.7645 8.65398C16.81 8.76381 16.8334 8.88153 16.8334 9.00042C16.8334 9.1193 16.81 9.23702 16.7645 9.34685C16.719 9.45668 16.6523 9.55648 16.5683 9.64054L11.4413 14.7668C11.3446 14.9103 11.2013 15.0161 11.0356 15.066C10.8699 15.1159 10.692 15.1071 10.5322 15.0408C10.3723 14.9746 10.2402 14.8552 10.1583 14.7027C10.0765 14.5502 10.0499 14.3741 10.083 14.2043V12C10.083 11.8011 10.004 11.6104 9.86334 11.4697C9.72269 11.3291 9.53192 11.25 9.33301 11.25H4.83301C4.6341 11.25 4.44333 11.171 4.30268 11.0304C4.16203 10.8897 4.08301 10.699 4.08301 10.5V7.50004C4.08301 7.30113 4.16203 7.11036 4.30268 6.96971C4.44333 6.82906 4.6341 6.75004 4.83301 6.75004H9.33301Z"
+                                                            stroke="#00E676" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </g>
+                                                    <defs>
+                                                        <filter id="filter0_dddd_847_11269" x="-2.25033" y="0"
+                                                            width="24.6667" height="30.5" filterUnits="userSpaceOnUse"
+                                                            color-interpolation-filters="sRGB">
+                                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="0.833333" />
+                                                            <feGaussianBlur stdDeviation="0.416667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.2 0" />
+                                                            <feBlend mode="normal" in2="BackgroundImageFix"
+                                                                result="effect1_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="2.5" />
+                                                            <feGaussianBlur stdDeviation="1.25" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.17 0" />
+                                                            <feBlend mode="normal" in2="effect1_dropShadow_847_11269"
+                                                                result="effect2_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="5" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.1 0" />
+                                                            <feBlend mode="normal" in2="effect2_dropShadow_847_11269"
+                                                                result="effect3_dropShadow_847_11269" />
+                                                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                                result="hardAlpha" />
+                                                            <feOffset dy="9.16667" />
+                                                            <feGaussianBlur stdDeviation="1.66667" />
+                                                            <feColorMatrix type="matrix"
+                                                                values="0 0 0 0 0 0 0 0 0 0.901961 0 0 0 0 0.462745 0 0 0 0.03 0" />
+                                                            <feBlend mode="normal" in2="effect3_dropShadow_847_11269"
+                                                                result="effect4_dropShadow_847_11269" />
+                                                            <feBlend mode="normal" in="SourceGraphic"
+                                                                in2="effect4_dropShadow_847_11269" result="shape" />
+                                                        </filter>
+                                                    </defs>
+                                                </svg>
+                                                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2"
+                                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                                    Step 3: Run it
+                                                </h3>
+                                            </div>
+
+                                            <div
+                                                class=" rounded-[12px] bg-white shadow-[0_2.667px_8px_0_rgba(43,140,238,0.15)] flex flex-col items-start gap-6 py-6 self-stretch">
+                                                <p
+                                                    class="text-sm px-6 gap-2 sm:text-base text-gray-700 leading-relaxed font-['Plus_Jakarta_Sans']">
+                                                    Open browser: http://learn-php.test
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
                         <!-- Common Issues Section -->
-                        <div class="rounded-xl border border-gray-200 overflow-hidden">
-                            <div class="flex items-start gap-4 sm:gap-6 p-4 sm:p-6">
-                                <!-- Warning Icon -->
-                                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#EF4444] flex items-center justify-center">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M12 8V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <div class="rounded-xl overflow-hidden">
+                            <div class="">
+                                <div class="flex items-center gap-3 mb-2 sm:mb-6">
+                                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18 30V16.5M18 30C20.3869 30 22.6761 29.0518 24.364 27.364C26.0518 25.6761 27 23.3869 27 21V16.5C27 14.9087 26.3679 13.3826 25.2426 12.2574C24.1174 11.1321 22.5913 10.5 21 10.5H15C13.4087 10.5 11.8826 11.1321 10.7574 12.2574C9.63214 13.3826 9 14.9087 9 16.5V21C9 23.3869 9.94821 25.6761 11.636 27.364C13.3239 29.0518 15.6131 30 18 30ZM21.18 5.82L24 3M31.5 31.5C31.5017 29.9569 30.9089 28.4724 29.8446 27.355C28.7803 26.2377 27.3264 25.5733 25.785 25.5M31.5 7.5C31.4983 8.97323 30.9546 10.3943 29.9726 11.4925C28.9906 12.5907 27.6389 13.2893 26.175 13.455M33 19.5H27M4.5 31.5C4.49826 29.9569 5.09113 28.4724 6.15543 27.355C7.21972 26.2377 8.67361 25.5733 10.215 25.5M4.5 7.5C4.5017 8.97323 5.04535 10.3943 6.02737 11.4925C7.00939 12.5907 8.36112 13.2893 9.825 13.455M9 19.5H3M12 3L14.82 5.82M13.5 10.695V9C13.5 7.80653 13.9741 6.66193 14.818 5.81802C15.6619 4.97411 16.8065 4.5 18 4.5C19.1935 4.5 20.3381 4.97411 21.182 5.81802C22.0259 6.66193 22.5 7.80653 22.5 9V10.695"
+                                            stroke="#DB3D23" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
                                     </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4"
-                                        style="font-family: 'Space Grotesk', sans-serif;">
+
+                                    <h2 class="text-[36px] font-semibold text-[#2C2C2C] leading-[54px]"
+                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
                                         Common Issues
                                     </h2>
-                                    <p class="text-sm sm:text-base text-gray-600 leading-[22px]"
-                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Make sure your PHP file has the correct file extension (.php) and that PHP is properly installed on your server. Always ensure that PHP opening and closing tags are correctly placed. Variables in PHP are case-sensitive, so be careful with variable naming.
-                                    </p>
                                 </div>
-                            </div>
-                        </div>
+                                <p class="text-sm sm:text-base text-gray-600 leading-[22px] mb-4 sm:mb-6"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Learn how to write your first PHP script and store data in variables.
+                                </p>
 
-                        <!-- Related Articles Section -->
-                        <div class="rounded-xl border border-gray-200 overflow-hidden">
-                            <div class="p-4 sm:p-6">
-                                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
-                                        style="font-family: 'Space Grotesk', sans-serif;">
-                                        Related Articles
-                                    </h2>
-                                    <div class="space-y-3 sm:space-y-4">
-                                        <!-- Article Link 1 -->
-                                        <a href="#" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors group">
-                                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#E9F3FD] flex items-center justify-center group-hover:bg-[#2B8CEE] transition-colors">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
-                                                    <path d="M14 2V8H20" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
+                                <!-- Issues List -->
+                                <div class="space-y-3 sm:space-y-4">
+                                    <!-- Issue 1 -->
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 bg-[#FEF2F2] px-6 py-4">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_847_11298)">
+                                                        <path
+                                                            d="M9 12V9M9 6H9.0075M16.5 9C16.5 13.1421 13.1421 16.5 9 16.5C4.85786 16.5 1.5 13.1421 1.5 9C1.5 4.85786 4.85786 1.5 9 1.5C13.1421 1.5 16.5 4.85786 16.5 9Z"
+                                                            stroke="#DB3D23" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_847_11298">
+                                                            <rect width="18" height="18" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
                                                 </svg>
-                                            </div>
-                                            <span class="text-sm sm:text-base text-gray-700 group-hover:text-[#2B8CEE] transition-colors"
-                                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                                PHP Comments
-                                            </span>
-                                        </a>
 
-                                        <!-- Article Link 2 -->
-                                        <a href="#" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors group">
-                                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#E9F3FD] flex items-center justify-center group-hover:bg-[#2B8CEE] transition-colors">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
-                                                    <path d="M14 2V8H20" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
-                                                </svg>
-                                            </div>
-                                            <span class="text-sm sm:text-base text-gray-700 group-hover:text-[#2B8CEE] transition-colors"
-                                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                                PHP Echo/Print
-                                            </span>
-                                        </a>
 
-                                        <!-- Article Link 3 -->
-                                        <a href="#" class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors group">
-                                            <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#E9F3FD] flex items-center justify-center group-hover:bg-[#2B8CEE] transition-colors">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
-                                                    <path d="M14 2V8H20" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white"/>
-                                                </svg>
+                                                <h3 class="text-base font-medium text-[#2C2C2C] leading-6 mb-2"
+                                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                                    White screen / 500 Error
+                                                </h3>
                                             </div>
-                                            <span class="text-sm sm:text-base text-gray-700 group-hover:text-[#2B8CEE] transition-colors"
-                                                style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                                PHP Data Types
-                                            </span>
-                                        </a>
+
+                                            <div
+                                                class=" rounded-[12px] bg-white shadow-[0_2.667px_8px_0_rgba(43,140,238,0.15)] flex flex-col items-start gap-6 py-6 self-stretch">
+                                                <p class="text-sm font-normal text-[#DB3D23] leading-[22px] px-6"
+                                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                                    Check for missing semicolons (;) at end of lines.
+                                                </p>
+                                            </div>
+
+                                        </div>
                                     </div>
+
+                                    <!-- Issue 2 -->
+                                    <div class="flex items-start gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 bg-[#FEF2F2] px-6 py-4">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_847_11298)">
+                                                        <path
+                                                            d="M9 12V9M9 6H9.0075M16.5 9C16.5 13.1421 13.1421 16.5 9 16.5C4.85786 16.5 1.5 13.1421 1.5 9C1.5 4.85786 4.85786 1.5 9 1.5C13.1421 1.5 16.5 4.85786 16.5 9Z"
+                                                            stroke="#DB3D23" stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_847_11298">
+                                                            <rect width="18" height="18" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+
+
+                                                <h3 class="text-base font-medium text-[#2C2C2C] leading-6 mb-2"
+                                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                                    Variables not showing
+                                                </h3>
+                                            </div>
+
+                                            <div
+                                                class=" rounded-[12px] bg-white shadow-[0_2.667px_8px_0_rgba(43,140,238,0.15)] flex flex-col items-start gap-6 py-6 self-stretch">
+                                                <p class="text-sm font-normal text-[#DB3D23] leading-[22px] px-6"
+                                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                                    Ensure you use the $ sign before variable names.
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Control Structures Content -->
+                    <div x-show="activeTopic === 'control-structures'"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2">
+                        <div class="rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="p-4 sm:p-6">
+                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
+                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                    Coming Soon
+                                </h2>
+                                <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Content for Control Structures will be available soon.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrays & Loops Content -->
+                    <div x-show="activeTopic === 'arrays-loops'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2">
+                        <div class="rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="p-4 sm:p-6">
+                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
+                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                    Coming Soon
+                                </h2>
+                                <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Content for Arrays & Loops will be available soon.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Functions Content -->
+                    <div x-show="activeTopic === 'functions'" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2">
+                        <div class="rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="p-4 sm:p-6">
+                                <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-6"
+                                    style="font-family: 'Space Grotesk', sans-serif;">
+                                    Coming Soon
+                                </h2>
+                                <p class="text-sm sm:text-base text-gray-600 leading-relaxed"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Content for Functions will be available soon.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation -->
+                <div class="flex items-center justify-between pt-6 border-t border-gray-200">
+                    <a href="#"
+                        class="flex items-center gap-2 text-sm sm:text-base text-gray-600 hover:text-[#2B8CEE] transition-colors"
+                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
+
+                        <span>&lt; Previous</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-2 text-[#2B8CEE] text-base font-semibold leading-6 hover:text-[#2B8CEE] transition-colors"
+                        style="font-family: 'Plus Jakarta Sans', sans-serif; leading-trim: both; text-edge: cap;">
+                        <span>Next Lesson -&gt;</span>
+
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-

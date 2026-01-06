@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Blog - Laragon</title>
+		<title>Blog Detail - Laragon</title>
 		<meta name="description"
-			content="Blog về các sản phẩm premium, key license, VPN và các sản phẩm số chất lượng cao.">
+			content="Learn PHP syntax, variables, and programming fundamentals with Laragon's comprehensive PHP tutorial guide.">
 		<script type="text/javascript">
 			const API_URL = "https://panel.dongnai.net/api/v2/";
 		</script>
@@ -17,10 +17,15 @@
         }
 		</style>
 		<!-- all css -->
-        <link rel="stylesheet" href="assets/css/blog copy_styles.css" />
+        <link rel="stylesheet" href="assets/css/blog-detail_styles.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Google Fonts - Space Grotesk -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<!-- Google Fonts - Plus Jakarta Sans -->
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 		
 		
 		<!-- 1. CAC THU VIEN CAN SU DUNG -->
@@ -58,6 +63,14 @@
 
 		<!-- Alpine.js CDN. Nam duoi cung vi chay Defer va vi no AutoRun nen can load sau cung truoc -->
 		<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+		<!-- Initialize PHP Tutorial Store -->
+		<script>
+			document.addEventListener('alpine:init', () => {
+				Alpine.store('phpTutorial', {
+					activeTopic: 'syntax'
+				});
+			});
+		</script>
 		
 		
 	</head>
@@ -232,12 +245,12 @@
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Usage Guide
     </a>
-    <a href="#php-tutorial" 
+    <a href="/php-tutorial.html" 
        :class="activeLink === '#php-tutorial' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       PHP Tutorial
     </a>
-    <a href="#review-cms" 
+    <a href="/review-cms.html" 
        :class="activeLink === '#review-cms' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Review CMS
@@ -247,7 +260,7 @@
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Blog
     </a>
-    <a href="#contact" 
+    <a href="/contact.html" 
        :class="activeLink === '#contact' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Contact
@@ -328,9 +341,10 @@
   </div>
 
   <!-- Download Button -->
-  <button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
+  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
     Download v8.4
   </button>
+</a>
 </div>
     </div>
   </div>
@@ -439,12 +453,12 @@
            class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Usage Guide
         </a>
-        <a href="#php-tutorial" 
+        <a href="/php-tutorial.html" 
            :class="activeLink === '#php-tutorial' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
            class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           PHP Tutorial
         </a>
-        <a href="#review-cms" 
+        <a href="/review-cms.html" 
            :class="activeLink === '#review-cms' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
            class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Review CMS
@@ -454,7 +468,7 @@
            class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Blog
         </a>
-        <a href="#contact" 
+        <a href="/contact.html" 
            :class="activeLink === '#contact' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
            class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Contact
@@ -750,382 +764,407 @@
 
 		<!-- Main Content Area -->
 		<main class="min-h-screen bg-white w-full ">
-			<!-- Banner Blog Section -->
-			<section class="relative overflow-hidden min-h-screen bg-white py-12">
-    <!-- Content -->
-    <div class="absolute flex justify-between items-center">
-        <img src="assets/images/backblog1.png" alt="" class="w-full sm:w-[820px] h-auto object-cover" />
-        <img src="assets/images/backblog2.png" alt="" class="hidden sm:block w-full  object-cover" />
-    </div>
-    <div class="relative container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <!-- Heading -->
-
-        <div class="text-center mb-6 sm:mb-8">
- 
-            <h1 class="text-4xl sm:text-5xl md:text-[64px] font-bold text-black text-center mb-3 sm:mb-4 lg:leading-[80px]" style="font-family: 'Space Grotesk', sans-serif; ">
-                Insights and Inspiration,
-                <br />
-                <span class="bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] bg-clip-text text-transparent">
-                    Explore Our Blog.
-                </span>
-            </h1>
-            <p class="text-gray-600 text-base sm:text-lg md:text-xl max-w-4xl mx-auto px-4 sm:px-0">
-                News, tutorials, and deep dives into modern web development.
-            </p>
+		
+			<section class=" py-12 sm:py-20">
+    <div class="container mx-auto px-0 sm:px-6 ">
+        <div class="mb-6">
+            <nav class="flex items-center gap-2 text-sm text-gray-500 justify-center"
+                style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                <a href="#"
+                    class="text-[#595959] text-sm font-normal leading-[22px] text-center font-['Plus_Jakarta_Sans'] hover:text-[#2B8CEE] transition-colors">
+                    Blog
+                </a>
+                <span>></span>
+                <span
+                    class="text-[#2B8CEE] text-sm font-normal leading-[22px] text-center font-['Plus_Jakarta_Sans'] hover:text-[#2B8CEE] transition-colors"
+                    x-text="">Update</span>
+            </nav>
         </div>
-        <!-- Search Form -->
-        <div class="mb-6 sm:mb-8 flex justify-center px-4 sm:px-0">
-            <form action="" method="GET" class="w-full max-w-sm">
-                <div class="relative">
-                    <input type="text" name="q" id="blogSearchInput" placeholder="Search articles..."
-                        class="w-full h-[48px] sm:h-[56px] pl-4 pr-10 sm:pr-12 bg-white border border-[#EDEFF4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2B8CEE] focus:border-transparent text-sm sm:text-base text-gray-900 placeholder-gray-500 shadow-sm">
-                    <button type="submit"
-                        class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#2B8CEE] transition-colors"
-                        aria-label="Search">
-                        <svg width="20" height="20" class="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g filter="url(#filter0_dddd_104_5323)">
-                                <path
-                                    d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z"
-                                    stroke="url(#paint0_linear_104_5323)" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </g>
-                            <defs>
-                                <filter id="filter0_dddd_104_5323" x="-2" y="0" width="32" height="39"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                    <feOffset dy="1" />
-                                    <feGaussianBlur stdDeviation="0.5" />
-                                    <feColorMatrix type="matrix"
-                                        values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0" />
-                                    <feBlend mode="normal" in2="BackgroundImageFix"
-                                        result="effect1_dropShadow_104_5323" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                    <feOffset dy="3" />
-                                    <feGaussianBlur stdDeviation="1.5" />
-                                    <feColorMatrix type="matrix"
-                                        values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0" />
-                                    <feBlend mode="normal" in2="effect1_dropShadow_104_5323"
-                                        result="effect2_dropShadow_104_5323" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                    <feOffset dy="6" />
-                                    <feGaussianBlur stdDeviation="2" />
-                                    <feColorMatrix type="matrix"
-                                        values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0" />
-                                    <feBlend mode="normal" in2="effect2_dropShadow_104_5323"
-                                        result="effect3_dropShadow_104_5323" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                    <feOffset dy="11" />
-                                    <feGaussianBlur stdDeviation="2" />
-                                    <feColorMatrix type="matrix"
-                                        values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0" />
-                                    <feBlend mode="normal" in2="effect3_dropShadow_104_5323"
-                                        result="effect4_dropShadow_104_5323" />
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_104_5323"
-                                        result="shape" />
-                                </filter>
-                                <linearGradient id="paint0_linear_104_5323" x1="5.57692" y1="18" x2="23.0833"
-                                    y2="17.7463" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#05DF85" />
-                                    <stop offset="0.576923" stop-color="#2B8CEE" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
+        <h2
+            class="w-full text-[30px] sm:text-[24px] lg:text-[32px] font-medium leading-[28px] sm:leading-[36px] lg:leading-[48px] text-center text-[#2C2C2C] font-['Plus_Jakarta_Sans'] mb-3 px-4">
+            How to Upgrade to PHP 8.4 in Laragon (Step-by-Step)
+        </h2>
 
-                    </button>
+
+        <div class="flex sm:flex-row items-center justify-center gap-4 sm:gap-12 mt-6 text-sm text-gray-500 px-4">
+
+            <!-- Author -->
+            <div class="flex items-center">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gray-300">
+                    <img src="assets/images/user1.png" alt="" class="w-full h-full object-cover">
                 </div>
-            </form>
-        </div>
-
-        <!-- Tabs Navigation -->
-        <div x-data="{ activeTab: 'all-posts', currentPage: 1, totalPages: 10 }" class="mb-12">
-
-            <div
-                class="flex flex-wrap justify-center gap-3 mb-8 bg-[#E9F3FD] rounded-xl w-full max-w-[650px] px-2 py-2 mx-auto border-gray-200">
-                <button @click="activeTab = 'all-posts'"
-                    :class="activeTab === 'all-posts' ? 'bg-[#2B8CEE] border-[#2B8CEE] text-white rounded-lg' : 'text-gray-600 hover:text-gray-900 rounded-lg'"
-                    class="px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors">
-                    All Posts
-                </button>
-                <button @click="activeTab = 'updates'"
-                    :class="activeTab === 'updates' ? 'bg-[#2B8CEE] border-[#2B8CEE] text-white rounded-lg' : 'text-gray-600 hover:text-gray-900 rounded-lg'"
-                    class="px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors">
-                    Updates
-                </button>
-                <button @click="activeTab = 'tutorials'"
-                    :class="activeTab === 'tutorials' ? 'bg-[#2B8CEE] border-[#2B8CEE] text-white rounded-lg' : 'text-gray-600 hover:text-gray-900 rounded-lg'"
-                    class="px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors">
-                    Tutorials
-                </button>
-                <button @click="activeTab = 'academy-series'"
-                    :class="activeTab === 'academy-series' ? 'bg-[#2B8CEE] border-[#2B8CEE] text-white rounded-lg' : 'text-gray-600 hover:text-gray-900 rounded-lg'"
-                    class="px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors">
-                    Academy Series
-                </button>
-                <button @click="activeTab = 'community'"
-                    :class="activeTab === 'community' ? 'bg-[#2B8CEE] border-[#2B8CEE] text-white rounded-lg' : 'text-gray-600 hover:text-gray-900 rounded-lg'"
-                    class="px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium transition-colors">
-                    Community
-                </button>
+                <span class="text-xs sm:text-sm font-medium text-gray-900 ml-2">
+                    Leo Khoa
+                </span>
             </div>
 
-            <!-- Tab Content: All Posts -->
-            <div x-show="activeTab === 'all-posts'" x-transition:enter="transition ease-out duration-200"
-                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0">
-                <!-- Featured Article -->
-                <div>
-                    <svg width="84" height="69" viewBox="0 0 84 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_114_4053)" filter="url(#filter0_dddd_114_4053)">
-                            <path d="M63.8572 11.0129L12.7517 32L65.3863 7.48816L63.8572 11.0129Z"
-                                fill="url(#paint0_linear_114_4053)" />
-                            <path d="M69.288 17.8974L12.7517 32L65.8099 16.2175L69.288 17.8974Z"
-                                fill="url(#paint1_linear_114_4053)" />
-                            <path d="M62.9671 14.3008L12.7517 32L60.0884 11.7021L62.9671 14.3008Z"
-                                fill="url(#paint2_linear_114_4053)" />
-                            <path d="M62.504 18.1343L12.7517 32.0001L62.9671 14.3008L62.504 18.1343Z"
-                                fill="url(#paint3_linear_114_4053)" />
-                            <path d="M65.8099 16.2175L12.7517 32L62.504 18.1343L65.8099 16.2175Z"
-                                fill="url(#paint4_linear_114_4053)" />
+            <!-- Meta -->
+            <div class="flex items-center gap-4 sm:gap-12 text-xs sm:text-sm text-gray-500">
+
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 20 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
+                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>Jan 15, 2025</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.99935 4.99999V9.99999L13.3327 11.6667M18.3327 9.99999C18.3327 14.6024 14.6017 18.3333 9.99935 18.3333C5.39698 18.3333 1.66602 14.6024 1.66602 9.99999C1.66602 5.39762 5.39698 1.66666 9.99935 1.66666C14.6017 1.66666 18.3327 5.39762 18.3327 9.99999Z"
+                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <span>1 mins read</span>
+                </div>
+
+            </div>
+        </div>
+        <div
+            class="relative w-full rounded-lg overflow-hidden mt-8 aspect-[16/9] sm:aspect-[16/6] container rounded-lg lg:px-0">
+            <img src="/assets/images/blog1.png" alt=""
+                class="w-full h-full object-cover brightness-110 contrast-115 rounded-lg">
+        </div>
+
+
+        <!-- Article content -->
+        <!-- Wrapper relative -->
+        <div class="relative w-full mt-12 px-4 sm:px-6 lg:px-0 ">
+
+            <!-- Left floating actions -->
+            <div class="hidden lg:flex flex-col items-center gap-4
+            absolute left-0  z-10">
+
+                <button
+                    class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                            stroke-width="0.842105" />
+                        <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+                        <g clip-path="url(#clip0_897_13530)">
                             <path
-                                d="M65.3863 7.48816L67.2492 10.8945L71.0719 11.318L68.4552 14.1106L69.2879 17.8973L65.8098 16.2175L62.504 18.1342L62.9671 14.3008L60.0884 11.7021L63.8572 11.0129L65.3863 7.48816Z"
-                                fill="#FFE029" />
-                            <path d="M37.1595 9.77459L12.7517 32L40.5299 2L37.1595 9.77459Z"
-                                fill="url(#paint5_linear_114_4053)" />
-                            <path d="M35.1961 17.0287L12.7517 32L28.8536 11.2929L35.1961 17.0287Z"
-                                fill="url(#paint6_linear_114_4053)" />
-                            <path d="M49.1444 24.9577L12.7517 32L41.4667 21.2534L49.1444 24.9577Z"
-                                fill="url(#paint7_linear_114_4053)" />
-                            <path d="M34.1767 25.4781L12.7517 32L35.1961 17.0287L34.1767 25.4781Z"
-                                fill="url(#paint8_linear_114_4053)" />
-                            <path
-                                d="M40.5298 2L44.6432 9.51256L53.071 10.4458L47.3065 16.6052L49.1443 24.9576L41.4666 21.2534L34.1766 25.4781L35.1959 17.0287L28.8535 11.2929L37.1593 9.77459L40.5298 2Z"
-                                fill="#FFE029" />
-                            <path d="M14.7653 12.7251L12.7517 32L16.2944 9.20392L14.7653 12.7251Z"
-                                fill="url(#paint9_linear_114_4053)" />
-                            <path d="M20.1997 19.6095L12.7517 32L16.718 17.9297L20.1997 19.6095Z"
-                                fill="url(#paint10_linear_114_4053)" />
-                            <path d="M13.8787 16.0165L12.7516 32L11 13.4142L13.8787 16.0165Z"
-                                fill="url(#paint11_linear_114_4053)" />
-                            <path d="M13.4157 19.8464L12.7517 32L13.8788 16.0165L13.4157 19.8464Z"
-                                fill="url(#paint12_linear_114_4053)" />
-                            <path d="M16.718 17.9297L12.7517 32L13.4157 19.8464L16.718 17.9297Z"
-                                fill="url(#paint13_linear_114_4053)" />
-                            <path
-                                d="M16.2943 9.20392L18.1608 12.6066L21.9799 13.0302L19.3668 15.8263L20.1996 19.6095L16.7179 17.9297L13.4156 19.8464L13.8787 16.0166L11 13.4143L14.7653 12.7251L16.2943 9.20392Z"
-                                fill="#FFE029" />
+                                d="M12.6673 14.6666V22.6666M18.0007 11.92L17.334 14.6666H21.2207C21.4276 14.6666 21.6318 14.7148 21.8169 14.8074C22.0021 14.9 22.1631 15.0344 22.2873 15.2C22.4115 15.3656 22.4954 15.5578 22.5325 15.7615C22.5695 15.9651 22.5586 16.1746 22.5007 16.3733L20.9473 21.7066C20.8665 21.9836 20.6981 22.2269 20.4673 22.4C20.2365 22.5731 19.9558 22.6666 19.6673 22.6666H10.6673C10.3137 22.6666 9.97456 22.5262 9.72451 22.2761C9.47446 22.0261 9.33398 21.6869 9.33398 21.3333V16C9.33398 15.6464 9.47446 15.3072 9.72451 15.0572C9.97456 14.8071 10.3137 14.6666 10.6673 14.6666H12.5073C12.7554 14.6665 12.9985 14.5972 13.2093 14.4665C13.4201 14.3357 13.5903 14.1488 13.7007 13.9266L16.0007 9.33331C16.315 9.33721 16.6245 9.41209 16.9059 9.55238C17.1872 9.69266 17.4333 9.89472 17.6256 10.1434C17.8179 10.3922 17.9515 10.6812 18.0165 10.9888C18.0814 11.2964 18.076 11.6147 18.0007 11.92Z"
+                                stroke="#595959" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </g>
                         <defs>
-                            <filter id="filter0_dddd_114_4053" x="0" y="0" width="82.0718" height="69"
-                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                <feOffset dy="2" />
-                                <feGaussianBlur stdDeviation="2" />
-                                <feColorMatrix type="matrix"
-                                    values="0 0 0 0 1 0 0 0 0 0.85098 0 0 0 0 0.156863 0 0 0 0.1 0" />
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_114_4053" />
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                <feOffset dy="7" />
-                                <feGaussianBlur stdDeviation="3.5" />
-                                <feColorMatrix type="matrix"
-                                    values="0 0 0 0 1 0 0 0 0 0.85098 0 0 0 0 0.156863 0 0 0 0.09 0" />
-                                <feBlend mode="normal" in2="effect1_dropShadow_114_4053"
-                                    result="effect2_dropShadow_114_4053" />
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                <feOffset dy="15" />
-                                <feGaussianBlur stdDeviation="4.5" />
-                                <feColorMatrix type="matrix"
-                                    values="0 0 0 0 1 0 0 0 0 0.85098 0 0 0 0 0.156863 0 0 0 0.05 0" />
-                                <feBlend mode="normal" in2="effect2_dropShadow_114_4053"
-                                    result="effect3_dropShadow_114_4053" />
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                <feOffset dy="26" />
-                                <feGaussianBlur stdDeviation="5.5" />
-                                <feColorMatrix type="matrix"
-                                    values="0 0 0 0 1 0 0 0 0 0.85098 0 0 0 0 0.156863 0 0 0 0.01 0" />
-                                <feBlend mode="normal" in2="effect3_dropShadow_114_4053"
-                                    result="effect4_dropShadow_114_4053" />
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_114_4053"
-                                    result="shape" />
-                            </filter>
-                            <linearGradient id="paint0_linear_114_4053" x1="12.7517" y1="19.7423" x2="65.3863"
-                                y2="19.7423" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_114_4053" x1="12.7517" y1="24.107" x2="69.288" y2="24.107"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear_114_4053" x1="11.0001" y1="21.8493" x2="62.9671"
-                                y2="21.8493" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint3_linear_114_4053" x1="11.0001" y1="23.1522" x2="62.9671"
-                                y2="23.1522" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint4_linear_114_4053" x1="11.0001" y1="24.107" x2="65.8099"
-                                y2="24.107" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint5_linear_114_4053" x1="11.0001" y1="17" x2="40.5299" y2="17"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint6_linear_114_4053" x1="11.0001" y1="21.6447" x2="35.1961"
-                                y2="21.6447" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint7_linear_114_4053" x1="11.0001" y1="26.6267" x2="49.1444"
-                                y2="26.6267" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint8_linear_114_4053" x1="11.0001" y1="24.5126" x2="35.1961"
-                                y2="24.5126" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint9_linear_114_4053" x1="11.0001" y1="20.6002" x2="16.2944"
-                                y2="20.6002" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint10_linear_114_4053" x1="11.0001" y1="24.9649" x2="20.1997"
-                                y2="24.9649" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint11_linear_114_4053" x1="11" y1="22.7071" x2="13.8787" y2="22.7071"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F2BA38" />
-                                <stop offset="1" stop-color="#EDA826" />
-                            </linearGradient>
-                            <linearGradient id="paint12_linear_114_4053" x1="11.0001" y1="24.0065" x2="13.8788"
-                                y2="24.0065" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <linearGradient id="paint13_linear_114_4053" x1="11.0001" y1="24.9649" x2="16.718"
-                                y2="24.9649" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#EDA826" />
-                                <stop offset="0.33" stop-color="#EEAE2C" />
-                                <stop offset="0.77" stop-color="#F2BF3D" />
-                                <stop offset="1" stop-color="#F6CB49" />
-                            </linearGradient>
-                            <clipPath id="clip0_114_4053">
-                                <rect width="60.0718" height="30" fill="white" transform="translate(11 2)" />
+                            <clipPath id="clip0_897_13530">
+                                <rect width="16" height="16" fill="white" transform="translate(8 8)" />
                             </clipPath>
                         </defs>
                     </svg>
 
+                </button>
+
+                <button
+                    class="w-9 h-9 mb-[48px] rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                            stroke-width="0.842105" />
+                        <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+                        <path
+                            d="M20.6673 22L16.0007 19.3333L11.334 22V11.3333C11.334 10.9797 11.4745 10.6406 11.7245 10.3905C11.9746 10.1405 12.3137 10 12.6673 10H19.334C19.6876 10 20.0267 10.1405 20.2768 10.3905C20.5268 10.6406 20.6673 10.9797 20.6673 11.3333V22Z"
+                            stroke="#595959" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                </button>
+
+                <button
+                    class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="7" height="14" viewBox="0 0 7 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.69187 3.15463V5.12841H6.9994L6.63401 7.78722H4.69187V13.913C4.30248 13.9702 3.90409 14 3.4997 14C3.03291 14 2.57453 13.9606 2.12814 13.8845V7.78722H0V5.12841H2.12814V2.7134C2.12814 1.21513 3.27591 0 4.69247 0V0.00127097C4.69667 0.00127097 4.70027 0 4.70447 0H7V2.29947H5.50004C5.05426 2.29947 4.69247 2.68229 4.69247 3.154L4.69187 3.15463Z"
+                            fill="#595959" />
+                    </svg>
+
+                </button>
+
+                <button
+                    class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                            stroke-width="0.842105" />
+                        <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+                        <path
+                            d="M19.6509 9H12.3495C10.3324 9 8.69141 10.6415 8.69141 12.6592V19.3408C8.69141 21.3585 10.3324 23 12.3495 23H19.6509C21.668 23 23.309 21.3585 23.309 19.3408V12.6592C23.309 10.6415 21.668 9 19.6509 9ZM9.98187 12.6592C9.98187 11.3535 11.0442 10.2908 12.3495 10.2908H19.6509C20.9562 10.2908 22.0185 11.3535 22.0185 12.6592V19.3408C22.0185 20.6465 20.9562 21.7092 19.6509 21.7092H12.3495C11.0442 21.7092 9.98187 20.6465 9.98187 19.3408V12.6592Z"
+                            fill="#595959" />
+                        <path
+                            d="M16.0003 19.4023C17.8761 19.4023 19.403 17.8758 19.403 15.9987C19.403 14.1215 17.8769 12.595 16.0003 12.595C14.1237 12.595 12.5977 14.1215 12.5977 15.9987C12.5977 17.8758 14.1237 19.4023 16.0003 19.4023ZM16.0003 13.8867C17.1651 13.8867 18.1125 14.8344 18.1125 15.9995C18.1125 17.1647 17.1651 18.1123 16.0003 18.1123C14.8355 18.1123 13.8881 17.1647 13.8881 15.9995C13.8881 14.8344 14.8355 13.8867 16.0003 13.8867Z"
+                            fill="#595959" />
+                        <path
+                            d="M19.7176 13.1435C20.2227 13.1435 20.6344 12.7325 20.6344 12.2264C20.6344 11.7203 20.2235 11.3093 19.7176 11.3093C19.2116 11.3093 18.8008 11.7203 18.8008 12.2264C18.8008 12.7325 19.2116 13.1435 19.7176 13.1435Z"
+                            fill="#595959" />
+                    </svg>
+
+                </button>
+
+                <button
+                    class="w-9 h-9 mb-[48px] rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.0359686 0L5.80975 7.72171L0 14H1.30792L6.39486 8.50355L10.5046 14H14.9547L8.8563 5.84394L14.2643 0H12.9564L8.27208 5.06213L4.48693 0H0.0368359H0.0359686ZM1.9588 0.963479H4.00271L13.0301 13.0365H10.9862L1.9588 0.963479Z"
+                            fill="#595959" />
+                    </svg>
+
+                </button>
+
+                <button
+                    class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                            stroke-width="0.842105" />
+                        <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+                        <g clip-path="url(#clip0_897_13537)">
+                            <path
+                                d="M10.6673 18.6667C9.93398 18.6667 9.33398 18.0667 9.33398 17.3334V10.6667C9.33398 9.93337 9.93398 9.33337 10.6673 9.33337H17.334C18.0673 9.33337 18.6673 9.93337 18.6673 10.6667M14.6673 13.3334H21.334C22.0704 13.3334 22.6673 13.9303 22.6673 14.6667V21.3334C22.6673 22.0698 22.0704 22.6667 21.334 22.6667H14.6673C13.9309 22.6667 13.334 22.0698 13.334 21.3334V14.6667C13.334 13.9303 13.9309 13.3334 14.6673 13.3334Z"
+                                stroke="#595959" stroke-width="1.33333" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_897_13537">
+                                <rect width="16" height="16" fill="white" transform="translate(8 8)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                </button>
+
+            </div>
+
+            <!-- Article content -->
+            <div class="w-full font-['Plus_Jakarta_Sans'] lg:ps-[80px]">
+
+                <!-- Intro -->
+                <p class="text-[16px] leading-[24px] font-normal text-[#595959] mb-6 font-['Plus_Jakarta_Sans']">
+                    PHP 8.4 brings massive performance improvements and new features like property hooks.
+                    Laragon makes it incredibly easy to switch PHP versions without touching system
+                    environment variables. Here is how to do it in 3 minutes.
+                </p>
+
+
+                <!-- Step 1 -->
+                <h3
+                    class="text-[24px] sm:text-[24px] leading-[30px] sm:leading-[36px] font-semibold text-[#2C2C2C] mb-2 font-['Plus_Jakarta_Sans']">
+                    Step 1: Download PHP 8.4
+                </h3>
+
+
+                <p class="text-[16px] leading-[24px] font-normal text-[#595959] mb-6 font-['Plus_Jakarta_Sans']">
+                    First, you need to download the PHP binary for Windows. Since Laragon uses Apache, we usually need
+                    the Thread Safe (TS) version, but Laragon handles Non-Thread Safe (NTS) well too with FastCGI. For
+                    best compatibility, let's grab the VS17 x64 Thread Safe zip.
+                </p>
+
+                <div class="relative w-full rounded-lg overflow-hidden mt-8
+                h-[159px] sm:h-80 md:h-96 lg:h-[159px]">
+                    <img src="/assets/images/img-erol-1.png" alt=""
+                        class="w-full h-full object-cover brightness-110 contrast-115">
                 </div>
+
+
+                <!-- Step 2 -->
+                <h3
+                    class="text-[24px] sm:text-[24px] leading-[30px] sm:leading-[36px] font-semibold text-[#2C2C2C] mb-2 font-['Plus_Jakarta_Sans'] mt-12">
+                    Step 2: Extract to Laragon
+                </h3>
+
+                <p class="text-[16px] leading-[24px] font-normal text-[#595959] mb-6 font-['Plus_Jakarta_Sans']">
+                    Locate your Laragon installation folder (usually C:\Laragon).
+                </p>
+
+                <div class="relative w-full rounded-lg overflow-hidden mt-8
+                h-[159px] sm:h-80 md:h-96 lg:h-[159px]">
+                    <img src="/assets/images/img-erol-1.png" alt=""
+                        class="w-full h-full object-cover brightness-110 contrast-115">
+                </div>
+                <div class="relative w-full rounded-lg overflow-hidden mt-8
+                  h-[318px] sm:h-80 md:h-96 lg:h-[318px]">
+                    <img src="/assets/images/img-erol-1.png" alt=""
+                        class="w-full h-full object-cover brightness-110 contrast-115">
+                </div>
+
+                <!-- Step 3 -->
+                <h3
+                    class="text-[24px] sm:text-[24px] leading-[30px] sm:leading-[36px] font-semibold text-[#2C2C2C] mb-2 font-['Plus_Jakarta_Sans'] mt-12">
+                    Step 3: Select Version
+                </h3>
+                <p class="text-[16px] leading-[24px] font-normal text-[#595959] mb-6 font-['Plus_Jakarta_Sans']">
+                    Open Laragon interface. Go to Menu > PHP > Version and select the new 8.4 version. Laragon will
+                    automatically restart Apache to apply changes.
+                </p>
+
+                <!-- Note -->
                 <div
-                    class="mb-8 sm:mb-12 bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow group">
-                    <div class="flex flex-col p-4 sm:p-6 lg:flex-row">
-                        <div class="lg:w-1/2 relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog1.png" alt="Featured article"
-                                class="w-full h-[250px] sm:h-[300px] lg:h-full object-cover transition-transform duration-500 ease-out hover:scale-105">
-                        </div>
-                        <div class="lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
-                            <div>
-                                <div
-                                    class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-4">
-                                    <span
-                                        class="bg-[#E1EBF5] text-[#2B8CEE] text-xs font-semibold px-2 sm:px-3 py-1 sm:py-2 rounded-lg">UPDATES</span>
-                                    <div class="flex items-center gap-1 sm:gap-2">
-                                        <svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 20 20"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                                stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>Jan 15, 2025</span>
-                                    </div>
+                    class="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full border-l-4 border-[#FEB934] bg-[rgba(237,168,38,0.10)] px-4 sm:px-6 py-4">
 
-                                    <div class="flex items-center gap-1 sm:gap-2">
-                                        <svg width="16" height="16" class="sm:w-5 sm:h-5" viewBox="0 0 20 20"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                                stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
+                    <div
+                        class="text-[#FEB934] font-medium text-[14px] leading-[22px] font-['Plus_Jakarta_Sans'] flex items-center gap-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="24" height="24" fill="url(#pattern0_897_13559)" />
+                            <defs>
+                                <pattern id="pattern0_897_13559" patternContentUnits="objectBoundingBox" width="1"
+                                    height="1">
+                                    <use xlink:href="#image0_897_13559" transform="scale(0.01)" />
+                                </pattern>
+                                <image id="image0_897_13559" width="100" height="100" preserveAspectRatio="none"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHFklEQVR4nO2dW0wc1x2Hj8GAgdgYDJgYDMbAcsdgrgYMwVXdJq2iuqkbVZWqSk37GlXtQ/oQtVX7UCmteouqtkqa+qGqRAvY4AVzhywstyUsN3MNGFhXje26tmQSz7nMr9qoL5UaB8PunDPDfNL3ypzv/MVqNTM7Q4iNjY2NjY2F0HykRPOR32g+coP6iCdQarfJGL1Nrvj/vuxG00B95Pva1gFOfQcQLDXfAfp4i3xFdqvyPPaFvqhthejUF4Jgq/lCHmCTxMluVhaAhNCtkHm6FQKj1DZDvi67W1keb4W+RDdDYagbIa/K7lYWunGwiW4ehJGyjdCLsruVBLdJlHYrbJtuhMEotY2wh1gnh2S3K4m2EfaykcOgfm8d/LPsbmWh6+GN9FY4jJTdCv+C7G4lwSaJpGsRj9h6BIySrkX8G3MkXHa7krD18C8bOQzmdy38T7K7lYWuRfyFrR2Coa6HPy+7W0mwTCLoWuRDthYJo6TvH7pvf1x9Amwt8kX2fhQMdTXyLdndykJXI6+wVf8mGehK1OdkdysJPCSMrkTdZ6vRMEq6GnXPf1zZ7UrCVqNeYCvPwFCXo/8ou1tZ2Er02xIG8lnZ3UqCfnKQLh++y5YPwyjp8uG7/uPKblcStnzkIls6AkNdPPx72d3KwhZj/sCWYmCoizGfkd2tJAAJpQsxH7DFjzfJEOlCzB374+oTYIsxF9jiURjqQszvZHcrC1uIfZMtxMJQF2MuyO5W90aG+dh/sJtxMEp6M07znzOT3a4kdP7oeSOHwT4eSOwj2d3KwuaO/YrNH4PRPp6Ly5PdrhwAOUDn47fYfDyMls4f+5v/+LL3QCnozbgqPhcPWbK5Y29hOe6I7H1QBjab8HM+mwCZstn4R3wmoZfPJjTuVjaT8Fd/C5uOf960/3X+hbPZhHU+mwgryWYS5ulMfD0xG3QmqYzPHIcVZdOJGp85/lViJthM4s9kbxwP5lBmErcxl5BJzALzJq3w6SRYWm9SIzEDmvdECfc+C6vLppI+wqgJvsUx77M/lb1Z3CDp5IlzRHXY1IkFPnUC+0E2mfR5ojLadEohn0rGflHzphQQlWGTyT/i76VgP8jeS36ARhJKVIZPJs/yyRTsB9lkyi+JysCTlsMnT2I/yDwntzCVdpSoDPekvs49qbC6zHPyIzqRUkFUh0+c9Fp+GBOpOp9I+RpRHYwkZ/GJNFhdNp72E2IG+HjaD/j4KVjcFv89AsQM8PH0ET6eDut6ahpzec8QMwB3SiQfPaWJsXRYUT6afg+ezAxiFjCami7GTsOK8tF0DWOn6oiZwPDpRDGaASvKRzK+TcwIH8lYFSOZsJTujF8Ts8JHMl+XvoEjgTSjG/315r1ZG96iaD6ctSLcWTC7fDhrGe488z/oDO6MTO52bAi3A2aVDzseYCQrl1gF9KcdFUNZb/Ihx0Mx7ICZ5MMOzlwOaz7xAZ7SKAxllzFX1iXuyr68I4eyvymGHG9zl0MTQ9kwWu7K/p7sfVMSDOUVc1fOB2IoB8aZbT9L60mwweyXhCsXRsjfzXWjPdP+PcmTAEgId+XeDfowXDmb6M9Lkt1rCvhg7pR4Nw/Bkg/mbmMw56zsTlOAxsuhfDD/rhjMRzDkA/k6Hygw1/25MkF/Xm2whvFffyy70VSIgYI3xEABgmJ/frNpLjSpAu8vWBIDhQi0fKDQi86iaNl9pgID+bmivwiBlvcX3UN34WnZfaYDvUWv6X1FCKSit5Cir8B8v3xSAdFX5Nb7ziCQou/Md2R3mRJ0FiWK3mKh9xYjUIreYrVv+VQZ9BS/EthhnOky9YUm2Yju4la9pwSBUPSULMFVGCu7ybSgtTRKdJds691nsVdFd8lD9J7Jl91katBT+iW9uxR7VXSf5egutd+EsFdEV+k7elcp9io6S78ru8USJxNFV9kdvasMe1F0ll2R3WIJ0FFxXu8sx14UneXD9oWmACE6yt/Qb1Rgt4qOig30VB6X3WEZxI2KpV0P40b5h+gqL5PdYBlwvTJX76jEbhTtlTqclS/LbrAUaK98Te+owm5Ee9UPZa/fcghnpVtvr8LTKpxVTaZ9oJiqoPNconCeE7rzHJ5G4ayasi80BQE4q1/RndV4GoWz+p9orUmVvXZLItqq2/TrNdipoq2GorXWvtAUtJOJ12u2n2YgaKs25y+azADaai6hrRY7t+YXstdsadBa+w5az2NHXqvttC80BflkIq6dv7PDgSyipV7tB72YHbTW1+JaHT7Vq3X30VzrkL1ey4Ordd/AtXo82TqOlroXZK91X4CrdZdw9Tl8iq/KXue+Aa1fjEJL/b/Q8hz+r8319vtrjQbNDRfR0vAhWhrwPzY3/B2Nl+23O8sAzQ0ZaGr4LZoaxtDU0I6WC9/yfwOTvS4bGxsbGxtiAv4D4z270aXjjhEAAAAASUVORK5CYII=" />
+                            </defs>
+                        </svg>
+                        <p class="text-[14px] leading-[22px] text-[#DB3D23] font-['Plus_Jakarta_Sans'] font-semibold">
+                            Note: If you don't see the new version, try Stop → Start again.
+                        </p>
+                    </div>
 
-                                        <span>1 mins road</span>
-                                    </div>
-                                </div>
-                                <h2
-                                    class="text-xl sm:text-2xl lg:text-3xl text-gray-900 mb-3 sm:mb-4 group-hover:text-[#2B8CEE] transition-colors">
-                                    Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                                </h2>
-                                <p class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                                    Experience faster load times, the latest PHP features, and a completely revamped UI
-                                    with our newest major update. Learn what's new and how to upgrade safely today.
-                                </p>
-                            </div>
-                            <div
-                                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
-                                <div class="flex items-center">
-                                    <div
-                                        class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user1.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs sm:text-sm font-medium text-gray-900 ms-2">Leo Khoa</span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span class="group-hover/link:-translate-x-1 transition-transform duration-200">Read
-                                        Article</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
 
-                                </a>
-                            </div>
-                        </div>
+                </div>
+                <!-- Mobile social buttons -->
+                <div class="flex lg:hidden flex-row items-center justify-between w-full mt-8">
+                    <!-- Left group: 3 buttons -->
+                    <div class="flex items-center gap-2 sm:gap-4">
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789"
+                                    stroke="#F3F4F6" stroke-width="0.842105" />
+                                <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6"
+                                    stroke-width="0.842105" />
+                                <g clip-path="url(#clip0_897_13530_mobile)">
+                                    <path
+                                        d="M12.6673 14.6666V22.6666M18.0007 11.92L17.334 14.6666H21.2207C21.4276 14.6666 21.6318 14.7148 21.8169 14.8074C22.0021 14.9 22.1631 15.0344 22.2873 15.2C22.4115 15.3656 22.4954 15.5578 22.5325 15.7615C22.5695 15.9651 22.5586 16.1746 22.5007 16.3733L20.9473 21.7066C20.8665 21.9836 20.6981 22.2269 20.4673 22.4C20.2365 22.5731 19.9558 22.6666 19.6673 22.6666H10.6673C10.3137 22.6666 9.97456 22.5262 9.72451 22.2761C9.47446 22.0261 9.33398 21.6869 9.33398 21.3333V16C9.33398 15.6464 9.47446 15.3072 9.72451 15.0572C9.97456 14.8071 10.3137 14.6666 10.6673 14.6666H12.5073C12.7554 14.6665 12.9985 14.5972 13.2093 14.4665C13.4201 14.3357 13.5903 14.1488 13.7007 13.9266L16.0007 9.33331C16.315 9.33721 16.6245 9.41209 16.9059 9.55238C17.1872 9.69266 17.4333 9.89472 17.6256 10.1434C17.8179 10.3922 17.9515 10.6812 18.0165 10.9888C18.0814 11.2964 18.076 11.6147 18.0007 11.92Z"
+                                        stroke="#595959" stroke-width="1.33333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_897_13530_mobile">
+                                        <rect width="16" height="16" fill="white" transform="translate(8 8)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789"
+                                    stroke="#F3F4F6" stroke-width="0.842105" />
+                                <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6"
+                                    stroke-width="0.842105" />
+                                <path
+                                    d="M20.6673 22L16.0007 19.3333L11.334 22V11.3333C11.334 10.9797 11.4745 10.6406 11.7245 10.3905C11.9746 10.1405 12.3137 10 12.6673 10H19.334C19.6876 10 20.0267 10.1405 20.2768 10.3905C20.5268 10.6406 20.6673 10.9797 20.6673 11.3333V22Z"
+                                    stroke="#595959" stroke-width="1.33333" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="7" height="14" viewBox="0 0 7 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.69187 3.15463V5.12841H6.9994L6.63401 7.78722H4.69187V13.913C4.30248 13.9702 3.90409 14 3.4997 14C3.03291 14 2.57453 13.9606 2.12814 13.8845V7.78722H0V5.12841H2.12814V2.7134C2.12814 1.21513 3.27591 0 4.69247 0V0.00127097C4.69667 0.00127097 4.70027 0 4.70447 0H7V2.29947H5.50004C5.05426 2.29947 4.69247 2.68229 4.69247 3.154L4.69187 3.15463Z"
+                                    fill="#595959" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Right group: 3 buttons -->
+                    <div class="flex items-center gap-2 sm:gap-4">
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789"
+                                    stroke="#F3F4F6" stroke-width="0.842105" />
+                                <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6"
+                                    stroke-width="0.842105" />
+                                <path
+                                    d="M19.6509 9H12.3495C10.3324 9 8.69141 10.6415 8.69141 12.6592V19.3408C8.69141 21.3585 10.3324 23 12.3495 23H19.6509C21.668 23 23.309 21.3585 23.309 19.3408V12.6592C23.309 10.6415 21.668 9 19.6509 9ZM9.98187 12.6592C9.98187 11.3535 11.0442 10.2908 12.3495 10.2908H19.6509C20.9562 10.2908 22.0185 11.3535 22.0185 12.6592V19.3408C22.0185 20.6465 20.9562 21.7092 19.6509 21.7092H12.3495C11.0442 21.7092 9.98187 20.6465 9.98187 19.3408V12.6592Z"
+                                    fill="#595959" />
+                                <path
+                                    d="M16.0003 19.4023C17.8761 19.4023 19.403 17.8758 19.403 15.9987C19.403 14.1215 17.8769 12.595 16.0003 12.595C14.1237 12.595 12.5977 14.1215 12.5977 15.9987C12.5977 17.8758 14.1237 19.4023 16.0003 19.4023ZM16.0003 13.8867C17.1651 13.8867 18.1125 14.8344 18.1125 15.9995C18.1125 17.1647 17.1651 18.1123 16.0003 18.1123C14.8355 18.1123 13.8881 17.1647 13.8881 15.9995C13.8881 14.8344 14.8355 13.8867 16.0003 13.8867Z"
+                                    fill="#595959" />
+                                <path
+                                    d="M19.7176 13.1435C20.2227 13.1435 20.6344 12.7325 20.6344 12.2264C20.6344 11.7203 20.2235 11.3093 19.7176 11.3093C19.2116 11.3093 18.8008 11.7203 18.8008 12.2264C18.8008 12.7325 19.2116 13.1435 19.7176 13.1435Z"
+                                    fill="#595959" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0.0359686 0L5.80975 7.72171L0 14H1.30792L6.39486 8.50355L10.5046 14H14.9547L8.8563 5.84394L14.2643 0H12.9564L8.27208 5.06213L4.48693 0H0.0368359H0.0359686ZM1.9588 0.963479H4.00271L13.0301 13.0365H10.9862L1.9588 0.963479Z"
+                                    fill="#595959" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789"
+                                    stroke="#F3F4F6" stroke-width="0.842105" />
+                                <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6"
+                                    stroke-width="0.842105" />
+                                <g clip-path="url(#clip0_897_13537_mobile)">
+                                    <path
+                                        d="M10.6673 18.6667C9.93398 18.6667 9.33398 18.0667 9.33398 17.3334V10.6667C9.33398 9.93337 9.93398 9.33337 10.6673 9.33337H17.334C18.0673 9.33337 18.6673 9.93337 18.6673 10.6667M14.6673 13.3334H21.334C22.0704 13.3334 22.6673 13.9303 22.6673 14.6667V21.3334C22.6673 22.0698 22.0704 22.6667 21.334 22.6667H14.6673C13.9309 22.6667 13.334 22.0698 13.334 21.3334V14.6667C13.334 13.9303 13.9309 13.3334 14.6673 13.3334Z"
+                                        stroke="#595959" stroke-width="1.33333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_897_13537_mobile">
+                                        <rect width="16" height="16" fill="white" transform="translate(8 8)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
                     </div>
                 </div>
+                <div
+                    class="flex flex-wrap items-center gap-3 sm:gap-4 w-full pt-4 mt-8 sm:mt-12 border-t-2 border-[#E5E7EB]">
+                    <div
+                        class="inline-flex items-center justify-center gap-[10px] px-4 sm:px-6 py-2 rounded-full bg-[#F3F4F6] text-[#2C2C2C] text-[12px] sm:text-[14px] leading-[18px] sm:leading-[22px] font-['Plus_Jakarta_Sans']">
+                        #PHP
+                    </div>
 
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div
+                        class="inline-flex items-center justify-center gap-[10px] px-4 sm:px-6 py-2 rounded-full bg-[#F3F4F6] text-[#2C2C2C] text-[12px] sm:text-[14px] leading-[18px] sm:leading-[22px] font-['Plus_Jakarta_Sans']">
+                        #Laragon
+                    </div>
+
+                    <div
+                        class="inline-flex items-center justify-center gap-[10px] px-4 sm:px-6 py-2 rounded-full bg-[#F3F4F6] text-[#2C2C2C] text-[12px] sm:text-[14px] leading-[18px] sm:leading-[22px] font-['Plus_Jakarta_Sans']">
+                        #Config
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- content -->
+<section class="bg-[#F3F4F6] py-16 ">
+    <div class="container mx-auto">
+        <!-- Section Header -->
+        <h2 class="w-full text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-start text-[#2C2C2C] mb-3 sm:mb-4 flex-none order-0 self-stretch flex-grow-0 px-4"
+            style="font-family: 'Space Grotesk', sans-serif;">Related Articles</h2>
+
+
+        <div class="relative">
+            <!-- Mobile: Horizontal Scroll -->
+            <div class="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+                <div class="flex gap-4" style="scroll-snap-type: x mandatory;">
                     <!-- Article Card 1 -->
                     <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
+                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1 flex-shrink-0 w-[320px]"
+                        style="scroll-snap-align: start;">
                         <div class="relative overflow-hidden rounded-xl">
                             <img src="assets/images/blog2.png" alt="Article"
                                 class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
@@ -1138,7 +1177,7 @@
                         <div class="p-5">
                             <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
 
-                                <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-2 mt-2">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -1158,13 +1197,14 @@
                                             stroke-linejoin="round" />
                                     </svg>
 
-                                    <span>1 mins road</span>
+                                    <span>1 mins read</span>
                                 </div>
                             </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
+                            <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
                                 Build a Newspaper Website with PHP - Part 1: Database
                             </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            <p
+                                class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
                                 Start your journey to build a full-featured CMS. In this part, we design the MySQL
                                 schema for articles, categories, and users.
                             </p>
@@ -1191,7 +1231,8 @@
 
                     <!-- Article Card 2 -->
                     <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
+                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1 flex-shrink-0 w-[320px]"
+                        style="scroll-snap-align: start;">
                         <div class="relative overflow-hidden rounded-xl">
                             <img src="assets/images/blog3.png" alt="Article"
                                 class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
@@ -1204,7 +1245,7 @@
                         <div class="p-5">
                             <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
 
-                                <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-2 mt-2">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -1224,13 +1265,14 @@
                                             stroke-linejoin="round" />
                                     </svg>
 
-                                    <span>20 mins road</span>
+                                    <span>20 mins read</span>
                                 </div>
                             </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
+                            <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
                                 Build E-commerce from Scratch - Part 1: Shopping C...
                             </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            <p
+                                class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
                                 Learn how to handle sessions, manage cart state, and calculate totals securely in pure
                                 PHP.
 
@@ -1258,7 +1300,8 @@
 
                     <!-- Article Card 3 -->
                     <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
+                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1 flex-shrink-0 w-[320px]"
+                        style="scroll-snap-align: start;">
                         <div class="relative overflow-hidden rounded-xl">
                             <img src="assets/images/blog4.png" alt="Article"
                                 class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
@@ -1271,7 +1314,7 @@
                         <div class="p-5">
                             <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
 
-                                <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-2 mt-2">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -1291,13 +1334,14 @@
                                             stroke-linejoin="round" />
                                     </svg>
 
-                                    <span>1 mins road</span>
+                                    <span>1 mins read</span>
                                 </div>
                             </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
+                            <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
                                 How to use Ngrok with Laragon to share local sites
                             </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+                            <p
+                                class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
                                 Expose your localhost to the internet instantly for client demos or webhook testing.
                             </p>
                             <div class="flex items-center justify-between">
@@ -1320,491 +1364,235 @@
                             </div>
                         </div>
                     </article>
-
-                    <!-- Article Card 4 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog8.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#F5E7E0] text-[#ED661D] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Community
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Experience faster load times, the latest PHP features, and a completely revamped UI with
-                                our newest major update. Learn what’s new and how to upgrade safely today.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Guy Hawkins </span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Article Card 5 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog10.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#DDF4E9] text-[#00E676] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Tutorials
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                How to use Ngrok with Laragon to share local sites
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Expose your localhost to the internet instantly for client demos or webhook testing.
-
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Robert Fox</span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 6 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog5.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#ECE4F6] text-[#9747FF] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Academy Series
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Experience faster load times, the latest PHP features, and a completely revamped UI with
-                                our newest major update. Learn what’s new and how to upgrade safely today.
-
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Theresa Webb</span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 7 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog7.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#ECE4F6] text-[#9747FF] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Academy Series
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Experience faster load times, the latest PHP features, and a completely revamped UI with
-                                our newest major update. Learn what’s new and how to upgrade safely today.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Floyd Miles</span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 8 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog6.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#F5E7E0] text-[#ED661D] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Community
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Experience faster load times, the latest PHP features, and a completely revamped UI with
-                                our newest major update. Learn what’s new and how to upgrade safely today.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Albert Flores </span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Article Card 9 -->
-                    <article
-                        class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
-                        <div class="relative overflow-hidden rounded-xl">
-                            <img src="assets/images/blog9.png" alt="Article"
-                                class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
-                            <div class="absolute top-3 left-3">
-                                <span class="bg-[#F5E7E0] text-[#ED661D] text-xs font-semibold px-3 py-2 rounded-lg">
-                                    Community
-                                </span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                    <span>Jan 15, 2025</span>
-                                </div>
-
-                                <div class="flex items-center gap-2">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
-                                            stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                    <span>1 mins road</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg text-gray-900 mb-2 group-hover:text-[#2B8CEE] transition-colors">
-                                Laragon 6.0 Released: PHP 8.4 Support & Performanc..
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-                                Experience faster load times, the latest PHP features, and a completely revamped UI with
-                                our newest major update. Learn what’s new and how to upgrade safely today.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                                        <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-700">Esther Howard </span>
-                                </div>
-                                <a href="#"
-                                    class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
-                                    <span
-                                        class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
-                                    </svg>
-
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-
-                </div>
-
-                <!-- Pagination -->
-                <div class="flex items-center justify-center gap-1 sm:gap-2 mt-8 sm:mt-12 mb-6 flex-wrap px-4 sm:px-0">
-                    <!-- Previous Button -->
-                    <a href="blog.html?page=1"
-                        class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-[#2B8CEE] transition-colors"
-                        aria-label="Previous page">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </a>
-
-                    <!-- First Page -->
-                    <a href="blog.html?page=1"
-                        class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-[#2B8CEE] transition-colors">
-                        1
-                    </a>
-
-                    <!-- Page Numbers -->
-                    <a href="blog.html?page=2"
-                        class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:text-[#2B8CEE]">
-                        2
-                    </a>
-                    <a href="blog.html?page=3"
-                        class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:text-[#2B8CEE]">
-                        3
-                    </a>
-                    <a href="blog.html?page=10"
-                        class="px-2 sm:px-4 py-2 text-xs sm:text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-[#2B8CEE] transition-colors"
-                        aria-label="Next page">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
             </div>
-        </div>
 
-        <!-- Tab Content: Updates -->
-        <div x-show="activeTab === 'updates'" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0" style="display: none;">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Update articles will go here -->
-                <p class="text-gray-500 text-center col-span-full py-12">No updates available at this time.</p>
-            </div>
-        </div>
+            <!-- Desktop: Grid Layout -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                <!-- Article Card 1 -->
+                <article
+                    class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1 ">
+                    <div class="relative overflow-hidden rounded-xl">
+                        <img src="assets/images/blog2.png" alt="Article"
+                            class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#ECE4F6] text-[#9747FF] text-xs font-semibold px-3 py-2 rounded-lg">
+                                Academy Series
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
 
-        <!-- Tab Content: Tutorials -->
-        <div x-show="activeTab === 'tutorials'" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0" style="display: none;">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Tutorial articles will go here -->
-                <p class="text-gray-500 text-center col-span-full py-12">No tutorials available at this time.</p>
-            </div>
-        </div>
+                            <div class="flex items-center gap-2 mt-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>Jan 15, 2025</span>
+                            </div>
 
-        <!-- Tab Content: Academy Series -->
-        <div x-show="activeTab === 'academy-series'" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0" style="display: none;">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Academy series articles will go here -->
-                <p class="text-gray-500 text-center col-span-full py-12">No academy series available at this time.
-                </p>
-            </div>
-        </div>
+                            <div class="flex items-center gap-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
 
-        <!-- Tab Content: Community -->
-        <div x-show="activeTab === 'community'" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0" style="display: none;">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Community articles will go here -->
-                <p class="text-gray-500 text-center col-span-full py-12">No community posts available at this time.
-                </p>
+                                <span>1 mins read</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
+                            Build a Newspaper Website with PHP - Part 1: Database
+                        </h3>
+                        <p
+                            class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
+                            Start your journey to build a full-featured CMS. In this part, we design the MySQL
+                            schema for articles, categories, and users.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                                    <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-xs font-medium text-gray-700">Wade Warren</span>
+                            </div>
+                            <a href="#"
+                                class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
+                                <span
+                                    class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article
+                    class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
+                    <div class="relative overflow-hidden rounded-xl">
+                        <img src="assets/images/blog3.png" alt="Article"
+                            class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#ECE4F6] text-[#9747FF] text-xs font-semibold px-3 py-2 rounded-lg">
+                                Academy Series
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+
+                            <div class="flex items-center gap-2 mt-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>Jan 15, 2025</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                                <span>20 mins read</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
+                            Laragon 6.0 Released: PHP 8.4 Support & Performanc..
+                        </h3>
+                        <p
+                            class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
+                            Learn how to handle sessions, manage cart state, and calculate totals securely in pure
+                            PHP.
+
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                                    <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-xs font-medium text-gray-700">Devon Lane</span>
+                            </div>
+                            <a href="#"
+                                class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
+                                <span
+                                    class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article
+                    class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow p-1">
+                    <div class="relative overflow-hidden rounded-xl">
+                        <img src="assets/images/blog4.png" alt="Article"
+                            class="w-full h-48 object-cover transition-transform duration-500 ease-out hover:scale-105">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#DDF4E9] text-[#00E676] text-xs font-semibold px-3 py-2 rounded-lg">
+                                Tutorials
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+
+                            <div class="flex items-center gap-2 mt-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.66667 1.66669V5.00002M13.3333 1.66669V5.00002M2.5 8.33335H17.5M4.16667 3.33335H15.8333C16.7538 3.33335 17.5 4.07955 17.5 5.00002V16.6667C17.5 17.5872 16.7538 18.3334 15.8333 18.3334H4.16667C3.24619 18.3334 2.5 17.5872 2.5 16.6667V5.00002C2.5 4.07955 3.24619 3.33335 4.16667 3.33335Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>Jan 15, 2025</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.99984 5.00002V10L13.3332 11.6667M18.3332 10C18.3332 14.6024 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6024 1.6665 10C1.6665 5.39765 5.39746 1.66669 9.99984 1.66669C14.6022 1.66669 18.3332 5.39765 18.3332 10Z"
+                                        stroke="#97A4B2" stroke-width="1.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                                <span>1 mins read</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg text-gray-900 mb-4 group-hover:text-[#2B8CEE] transition-colors">
+                            How to use Ngrok with Laragon to share local sites
+                        </h3>
+                        <p
+                            class="text-[14px] text-[#595959] font-normal leading-[22px] mb-6 line-clamp-2 font-['Plus_Jakarta_Sans']">
+                            Expose your localhost to the internet instantly for client demos or webhook testing.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
+                                    <img src="assets/images/user2.png" alt="" class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-xs font-medium text-gray-700">Robert Fox </span>
+                            </div>
+                            <a href="#"
+                                class="group/link text-[#2B8CEE] text-sm sm:text-base font-semibold flex items-center gap-1 transition-all">
+                                <span
+                                    class="group-hover/link:-translate-x-1 transition-transform duration-200">Read</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.4 12L9.4 18L8 16.6L12.6 12L8 7.4L9.4 6L15.4 12Z" fill="#2B8CEE" />
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
+
+            <!-- LEFT -->
+            <button onclick="prev()"
+                class="hidden lg:flex absolute left-[-40px] top-1/2 -translate-y-1/2 z-[1000] w-12 h-12 items-center justify-center hover:bg-gray-100 rounded-full transition-colors bg-white shadow-md">
+                <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.2 24L29.2 36L32 33.2L22.8 24L32 14.8L29.2 12L17.2 24Z" fill="#595959" />
+                </svg>
+            </button>
+
+            <!-- RIGHT -->
+            <button onclick="next()"
+                class="hidden lg:flex absolute right-[-40px] top-1/2 -translate-y-1/2 z-[1000] w-12 h-12 items-center justify-center hover:bg-gray-100 rounded-full transition-colors bg-white shadow-md">
+                <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30.8 24L18.8 36L16 33.2L25.2 24L16 14.8L18.8 12L30.8 24Z" fill="#595959" />
+                </svg>
+            </button>
+
+
         </div>
-    </div>
     </div>
 </section>
+
+<!-- Ready to code faster?  -->
 <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
 
     <div class="absolute inset-0 bg-gradient-to-br from-[#000077] via-[#2C2C2C] to-[#2B8CEE]">

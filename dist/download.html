@@ -197,16 +197,7 @@
       const currentPath = window.location.pathname;
       const currentHash = window.location.hash;
       
-      // Check hash links first
-      if (currentHash) {
-        const hashLinks = ['#php-tutorial', '#review-cms', '#contact'];
-        if (hashLinks.includes(currentHash)) {
-          this.activeLink = currentHash;
-          return;
-        }
-      }
-      
-      // Check page links
+      // Check page links first
       const currentPage = currentPath.split('/').pop() || 'index.html';
       
       if (currentPath.includes('usage-guide')) {
@@ -215,6 +206,22 @@
         this.activeLink = 'features.html';
       } else if (currentPage === 'blog.html') {
         this.activeLink = 'blog.html';
+      } else if (currentPage === 'php-tutorial.html') {
+        this.activeLink = 'php-tutorial.html';
+      } else if (currentPage === 'review-cms.html') {
+        this.activeLink = 'review-cms.html';
+      } else if (currentPage === 'contact.html') {
+        this.activeLink = 'contact.html';
+      } else if (currentPage === 'download.html') {
+        this.activeLink = 'download.html';
+      }
+      
+      // Check hash links only if no page match
+      if (!this.activeLink && currentHash) {
+        const hashLinks = ['#php-tutorial', '#review-cms', '#contact'];
+        if (hashLinks.includes(currentHash)) {
+          this.activeLink = currentHash;
+        }
       }
     },
     isUsageGuideActive() {
@@ -232,12 +239,12 @@
       Usage Guide
     </a>
     <a href="/php-tutorial.html" 
-       :class="activeLink === '#php-tutorial' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       PHP Tutorial
     </a>
     <a href="/review-cms.html" 
-       :class="activeLink === '#review-cms' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Review CMS
     </a>
@@ -247,7 +254,7 @@
       Blog
     </a>
     <a href="/contact.html" 
-       :class="activeLink === '#contact' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
        class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
       Contact
     </a>

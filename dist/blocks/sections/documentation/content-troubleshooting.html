@@ -123,10 +123,9 @@
 
 
             <!-- Divider Line -->
-            <div class="hidden lg:flex items-stretch px-[80px] flex-shrink-0 self-stretch">
+            <div class="hidden md:flex items-stretch flex-shrink-0 self-stretch lg:hidden xl:flex xl:px-[80px]">
                 <div class="w-2 bg-[#E9F3FD]"></div>
             </div>
-
             <!-- Main Content Area -->
             <div class="flex-1 min-w-0 px-4 sm:px-0">
                 <!-- Search Bar -->
@@ -196,7 +195,7 @@
 
                 <!-- Page Title -->
                 <div class="mb-8 sm:mb-12 px-4 sm:px-0">
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[80px] text-start mb-6 sm:mb-8"
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[64px] font-bold text-[#2C2C2C] leading-tight sm:leading-snug md:leading-[60px] lg:leading-[80px] text-start mb-6 sm:mb-8"
                         style="font-family: 'Space Grotesk', sans-serif;">
                         Troubleshooting Common Errors
                     </h1>
@@ -208,14 +207,16 @@
                             <div class="flex items-start gap-2 sm:gap-4">
 
                                 <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden mb-4 sm:mb-6">
-                                    <div class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
+                                    <div
+                                        class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
                                             <circle cx="12" cy="12" r="10" stroke="#EF4444" stroke-width="2" />
                                             <path d="M12 8V12M12 16H12.01" stroke="#EF4444" stroke-width="2"
                                                 stroke-linecap="round" />
                                         </svg>
-                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> Apache fails to start (Port 80 occupied)
+                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> Apache fails to start
+                                            (Port 80 occupied)
                                         </h3>
                                     </div>
 
@@ -233,44 +234,50 @@
                             <div class="flex items-start gap-2 sm:gap-4">
 
                                 <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden mb-4 sm:mb-6">
-                                    <div class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
+                                    <div
+                                        class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
                                             <circle cx="12" cy="12" r="10" stroke="#EF4444" stroke-width="2" />
                                             <path d="M12 8V12M12 16H12.01" stroke="#EF4444" stroke-width="2"
                                                 stroke-linecap="round" />
                                         </svg>
-                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> MySQL 8.0 cannot start
+                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> MySQL 8.0 cannot
+                                            start
                                         </h3>
                                     </div>
 
                                     <p class="text-sm sm:text-base text-gray-600 p-4 sm:p-6 leading-[22px]">
-                                        Check if you have another MySQL instance running (e.g., from XAMPP). Stop it and try again. Or check data/mysql/error.log.
+                                        Check if you have another MySQL instance running (e.g., from XAMPP). Stop it and
+                                        try again. Or check data/mysql/error.log.
                                     </p>
                                 </div>
 
                             </div>
                         </div>
-                       
+
 
                         <!-- Error 3: Pretty URLs not working -->
                         <div class="rounded-xl">
                             <div class="flex items-start gap-2 sm:gap-4">
 
                                 <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden mb-4 sm:mb-6">
-                                    <div class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
+                                    <div
+                                        class="flex items-center gap-2 sm:gap-4 self-stretch bg-[#EDEFF4] text-gray-900 p-4 sm:p-6">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
                                             <circle cx="12" cy="12" r="10" stroke="#EF4444" stroke-width="2" />
                                             <path d="M12 8V12M12 16H12.01" stroke="#EF4444" stroke-width="2"
                                                 stroke-linecap="round" />
                                         </svg>
-                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> Pretty URLs not working
+                                        <h3 class="text-base sm:text-lg md:text-xl font-semibold"> Pretty URLs not
+                                            working
                                         </h3>
                                     </div>
 
                                     <p class="text-sm sm:text-base text-gray-600 p-4 sm:p-6 leading-[22px]">
-                                        Ensure you clicked "Start All" which reloads the hosts file. You might need to approve the UAC prompt.
+                                        Ensure you clicked "Start All" which reloads the hosts file. You might need to
+                                        approve the UAC prompt.
                                     </p>
                                 </div>
 

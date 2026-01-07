@@ -228,48 +228,56 @@
     isUsageGuideActive() {
       return this.activeLink === 'usage-guide.html';
     }
-  }" class="flex items-center space-x-8">
-    <a href="/features.html" 
-       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <a href="/features.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Features
     </a>
-    <a href="/usage-guide.html" 
-       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/usage-guide.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Usage Guide
     </a>
-    <a href="/php-tutorial.html" 
-       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/php-tutorial.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       PHP Tutorial
     </a>
-    <a href="/review-cms.html" 
-       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/review-cms.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Review CMS
     </a>
-    <a href="/blog.html" 
-       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/blog.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Blog
     </a>
-    <a href="/contact.html" 
-       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/contact.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Contact
     </a>
+
   </nav>
-  
+
   <!-- Language Dropdown -->
-  <div x-data="{ open: false, lang: 'English' }" 
-       @click.outside="open = false"
-       class="relative">
+  <div x-data="{ open: false, lang: 'English' }" @click.outside="open = false" class="relative">
     <!-- Trigger Button -->
-    <button
-      @click="open = !open"
-      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-    >
+    <button @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition">
       <!-- Globe Icon -->
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -297,48 +305,34 @@
 
       <!-- Arrow Icon -->
       <svg width="10" height="6" viewBox="0 0 10 6">
-        <path
-          d="M1 1L5 5L9 1"
-          stroke="#9CA3AF"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M1 1L5 5L9 1" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
 
     <!-- Dropdown Menu -->
-    <div
-      x-show="open"
-      x-transition:enter="transition ease-out duration-100"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-75"
-      x-transition:leave-start="opacity-100 scale-100"
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
-      style="display: none;"
-    >
-      <button
-        @click="lang = 'English'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      style="display: none;">
+      <button @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         English
       </button>
-      <button
-        @click="lang = 'Vietnamese'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      <button @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         Vietnamese
       </button>
     </div>
   </div>
 
   <!-- Download Button -->
-  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
-    Download v8.4
-  </button>
-</a>
+  <a href="/download.html"><button
+      class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition truncate">
+      Download v8.4
+    </button>
+  </a>
 </div>
     </div>
   </div>
@@ -759,38 +753,38 @@
 		<!-- Main Content Area -->
 		<main class="min-h-screen bg-white w-full ">
 			<!-- Banner Contact Section -->
-			<section class="py-16 sm:py-20 bg-gradient-to-b from-[#E8F4FD] to-white relative overflow-hidden">
+			<section class="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#E8F4FD] to-white relative overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
         <img src="assets/images/bannerFeatures.png" alt="" class="w-full h-full sm:h-auto object-cover" />
-        <div class="absolute w-full h-[550px] rounded-full bg-[#2377FD80]/10 blur-[250px] -translate-x-1/2"
+        <div class="absolute w-full sm:w-[600px] md:w-full h-[300px] sm:h-[450px] md:h-[550px] rounded-full bg-[#2377FD80]/10 blur-[150px] md:blur-[250px] -translate-x-1/2"
             style="left: 100%; top: -0;"></div>
-        <div class="absolute w-full h-[550px] rounded-full bg-[#63ECFF80]/5 blur-[200px] -translate-x-1/2"
+        <div class="absolute w-full sm:w-[600px] md:w-full h-[300px] sm:h-[450px] md:h-[550px] rounded-full bg-[#63ECFF80]/5 blur-[120px] md:blur-[200px] -translate-x-1/2"
             style="left: 0; top: 100px;"></div>
-        <div class="absolute w-[1366px] h-[1366px] rounded-full bg-[#63ECFF33]/7 blur-[100px] -translate-x-1/2"
+        <div class="absolute w-[800px] sm:w-[1000px] md:w-[1366px] h-[800px] sm:h-[1000px] md:h-[1366px] rounded-full bg-[#63ECFF33]/7 blur-[60px] md:blur-[100px] -translate-x-1/2"
             style="left: 50%; top: 0px;"></div>
     </div>
 
 
-    <div class="container mx-auto relative z-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <!-- Header -->
-         <div class="py-[16px]">
+        <div class="py-4 sm:py-6 md:py-[16px]">
             <h2
-            class="text-[32px] sm:text-[40px] lg:text-[48px] font-medium text-[#2C2C2C] text-center font-['Space_Grotesk']">
-            Get in Touch
-        </h2>
-        <div class="text-center text-[16px] sm:text-[18px] lg:text-[20px] leading-[24px] sm:leading-[27px] lg:leading-[30px]
-        font-normal text-[#595959] mb-12 px-4 mb-[108px]">
-            We are here to help. Send us your questions, feedback, or bug reports.
+                class="text-[32px] sm:text-[40px] lg:text-[48px] font-medium text-[#2C2C2C] text-center font-['Space_Grotesk']">
+                Get in Touch
+            </h2>
+            <div class="text-center text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-[21px] sm:leading-[24px] md:leading-[27px] lg:leading-[30px]
+        font-normal text-[#595959] mb-8 sm:mb-12 md:mb-16 lg:mb-[108px] px-4">
+                We are here to help. Send us your questions, feedback, or bug reports.
+            </div>
         </div>
-         </div>
 
 
         <!-- Main Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-[60px]  mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-[60px] mx-auto">
             <!-- Left Column: Contact Options -->
-            <div class="space-y-8 lg:space-y-12">
+            <div class="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12">
                 <!-- Contact Options Card -->
-                <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+                <div class="bg-white rounded-xl border border-gray-200 p-4 sm:p-5 md:p-6 shadow-sm">
                     <!-- Email Support -->
                     <div class="flex items-start gap-4 mb-6 pb-6 ">
                         <div class="w-12 h-12 rounded-lg bg-[#E3F2FD] flex items-center justify-center flex-shrink-0">
@@ -852,7 +846,7 @@
                 </div>
 
                 <!-- How to Report Issues Card -->
-                <div class="bg-[#FFF7ED] rounded-xl border border-gray-200 p-6 shadow-sm">
+                <div class="bg-[#FFF7ED] rounded-xl border border-gray-200 p-4 sm:p-5 md:p-6 shadow-sm">
                     <div class="flex items-center gap-3 mb-4">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -864,7 +858,7 @@
                         </h3>
 
                     </div>
-                    <ul class="space-y-3 text-sm mt-8">
+                    <ul class="space-y-3 text-sm mt-4 sm:mt-6 md:mt-8">
                         <li class="flex items-center gap-2">
                             <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="3" cy="3" r="3" fill="#DB3D23" />
@@ -902,8 +896,8 @@
                 </div>
 
                 <!-- Response Time Card -->
-                <div class="flex flex-col items-start gap-8 self-stretch
-                p-8 rounded-[12px] bg-white
+                <div class="flex flex-col items-start gap-4 sm:gap-6 md:gap-8 self-stretch
+                p-4 sm:p-6 md:p-8 rounded-[12px] bg-white
                 shadow-[0_2.667px_8px_0_rgba(43,140,238,0.05)]">
 
                     <div class="flex items-center gap-3">
@@ -928,8 +922,8 @@
 
             <!-- Right Column: Contact Form -->
             <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl border border-gray-200 p-6 sm:p-12 shadow-sm">
-                    <div class="flex items-center gap-4 mb-12">
+                <div class="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 md:p-8 lg:p-12 shadow-sm">
+                    <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.9134 13.0852C10.7223 12.8945 10.4945 12.7444 10.2438 12.644L2.31381 9.46399C2.21912 9.426 2.13833 9.35996 2.08226 9.27472C2.0262 9.18949 1.99755 9.08914 2.00016 8.98715C2.00278 8.88517 2.03652 8.78642 2.09688 8.70417C2.15723 8.62191 2.2413 8.56009 2.33781 8.527L21.3378 2.027C21.4264 1.99499 21.5223 1.98888 21.6143 2.00939C21.7062 2.02989 21.7904 2.07616 21.857 2.14277C21.9236 2.20939 21.9699 2.2936 21.9904 2.38555C22.0109 2.4775 22.0048 2.57339 21.9728 2.662L15.4728 21.662C15.4397 21.7585 15.3779 21.8426 15.2956 21.9029C15.2134 21.9633 15.1146 21.997 15.0126 21.9996C14.9107 22.0022 14.8103 21.9736 14.7251 21.9175C14.6398 21.8615 14.5738 21.7807 14.5358 21.686L11.3558 13.754C11.255 13.5035 11.1045 13.276 10.9134 13.0852ZM10.9134 13.0852L21.8538 2.147"
@@ -939,7 +933,7 @@
                         <h2 class="text-[24px] leading-[36px] font-semibold text-[#2C2C2C]">Get in Touch</h2>
                     </div>
 
-                    <form class="space-y-8">
+                    <form class="space-y-4 sm:space-y-6 md:space-y-8">
                         <!-- Name -->
                         <div class="flex flex-col md:flex-row gap-6">
                             <!-- Name -->
@@ -995,9 +989,12 @@
                                     <option value="other">Other</option>
                                 </select>
                                 <!-- Custom dropdown arrow -->
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 sm:pr-4">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#9CA3AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 sm:pr-4">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#9CA3AF]" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </div>
                             </div>
@@ -1027,35 +1024,25 @@
                             <label for="message" class="block text-sm font-medium text-[#2C2C2C] mb-2">
                                 Message
                             </label>
-                        
-                            <div
-                                class="p-[1px] rounded-lg bg-[#EDEFF4]
+
+                            <div class="p-[1px] rounded-lg bg-[#EDEFF4]
                                        focus-within:bg-[linear-gradient(162deg,#05DF85_-0.5%,#2B8CEE_92.84%)]
-                                       transition"
-                            >
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="6"
-                                    placeholder="Please describe your issue in detail..."
-                                    class="w-full px-4 py-3
+                                       transition">
+                                <textarea id="message" name="message" rows="6"
+                                    placeholder="Please describe your issue in detail..." class="w-full px-4 py-3
                                            rounded-[7px]
                                            bg-[#F9FAFB] text-[#2C2C2C]
                                            placeholder:text-[#9CA3AF]
                                            outline-none resize-none
-                                           block"
-                                    required
-                                ></textarea>
+                                           block" required></textarea>
                             </div>
                         </div>
-                        
+
 
 
                         <!-- Submit Button -->
-                        <button
-                        type="submit"
-                        class="
-                            w-full px-8 mt-6 mb-6 py-3 text-[17px] font-semibold rounded-lg
+                        <button type="submit" class="
+                            w-full px-6 sm:px-8 mt-4 sm:mt-6 mb-4 sm:mb-6 py-2.5 sm:py-3 text-[15px] sm:text-[17px] font-semibold rounded-lg
                             flex items-center justify-center gap-2 transition-all
                     
                             bg-[#EDEFF4] text-[#2C2C2C] border border-transparent
@@ -1063,23 +1050,17 @@
                     
                             md:bg-[#2B8CEE] md:text-white md:border-transparent
                             md:hover:bg-[#1A7CD4]
-                        "
-                    >
-                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="md:stroke-white stroke-[#2C2C2C]"
-                        >
-                            <path
-                                d="M11.6926 14.0198C11.4879 13.8154 11.2438 13.6546 10.9752 13.5471L2.4788 10.14C2.37735 10.0993 2.29079 10.0285 2.23072 9.93716C2.17065 9.84584 2.13995 9.73833 2.14275 9.62905C2.14555 9.51978 2.18171 9.41398 2.24638 9.32585C2.31104 9.23772 2.40112 9.17149 2.50451 9.13603L22.8617 2.17174C22.9566 2.13745 23.0593 2.13091 23.1578 2.15288C23.2564 2.17484 23.3466 2.22441 23.418 2.29579C23.4893 2.36716 23.5389 2.45739 23.5609 2.55591C23.5828 2.65443 23.5763 2.75716 23.542 2.8521L16.5777 23.2092C16.5423 23.3126 16.476 23.4027 16.3879 23.4674C16.2998 23.532 16.194 23.5682 16.0847 23.571C15.9754 23.5738 15.8679 23.5431 15.7766 23.483C15.6853 23.423 15.6145 23.3364 15.5738 23.235L12.1667 14.7364C12.0586 14.468 11.8974 14.2242 11.6926 14.0198Z"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    
-                        Send Message
-                    </button>
-                    
+                        ">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="md:stroke-white stroke-[#2C2C2C]">
+                                <path
+                                    d="M11.6926 14.0198C11.4879 13.8154 11.2438 13.6546 10.9752 13.5471L2.4788 10.14C2.37735 10.0993 2.29079 10.0285 2.23072 9.93716C2.17065 9.84584 2.13995 9.73833 2.14275 9.62905C2.14555 9.51978 2.18171 9.41398 2.24638 9.32585C2.31104 9.23772 2.40112 9.17149 2.50451 9.13603L22.8617 2.17174C22.9566 2.13745 23.0593 2.13091 23.1578 2.15288C23.2564 2.17484 23.3466 2.22441 23.418 2.29579C23.4893 2.36716 23.5389 2.45739 23.5609 2.55591C23.5828 2.65443 23.5763 2.75716 23.542 2.8521L16.5777 23.2092C16.5423 23.3126 16.476 23.4027 16.3879 23.4674C16.2998 23.532 16.194 23.5682 16.0847 23.571C15.9754 23.5738 15.8679 23.5431 15.7766 23.483C15.6853 23.423 15.6145 23.3364 15.5738 23.235L12.1667 14.7364C12.0586 14.468 11.8974 14.2242 11.6926 14.0198Z"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                            Send Message
+                        </button>
+
                     </form>
                 </div>
             </div>

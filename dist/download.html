@@ -227,48 +227,56 @@
     isUsageGuideActive() {
       return this.activeLink === 'usage-guide.html';
     }
-  }" class="flex items-center space-x-8">
-    <a href="/features.html" 
-       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <a href="/features.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Features
     </a>
-    <a href="/usage-guide.html" 
-       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/usage-guide.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Usage Guide
     </a>
-    <a href="/php-tutorial.html" 
-       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/php-tutorial.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       PHP Tutorial
     </a>
-    <a href="/review-cms.html" 
-       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/review-cms.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Review CMS
     </a>
-    <a href="/blog.html" 
-       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/blog.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Blog
     </a>
-    <a href="/contact.html" 
-       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/contact.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Contact
     </a>
+
   </nav>
-  
+
   <!-- Language Dropdown -->
-  <div x-data="{ open: false, lang: 'English' }" 
-       @click.outside="open = false"
-       class="relative">
+  <div x-data="{ open: false, lang: 'English' }" @click.outside="open = false" class="relative">
     <!-- Trigger Button -->
-    <button
-      @click="open = !open"
-      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-    >
+    <button @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition">
       <!-- Globe Icon -->
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -296,48 +304,34 @@
 
       <!-- Arrow Icon -->
       <svg width="10" height="6" viewBox="0 0 10 6">
-        <path
-          d="M1 1L5 5L9 1"
-          stroke="#9CA3AF"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M1 1L5 5L9 1" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
 
     <!-- Dropdown Menu -->
-    <div
-      x-show="open"
-      x-transition:enter="transition ease-out duration-100"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-75"
-      x-transition:leave-start="opacity-100 scale-100"
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
-      style="display: none;"
-    >
-      <button
-        @click="lang = 'English'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      style="display: none;">
+      <button @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         English
       </button>
-      <button
-        @click="lang = 'Vietnamese'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      <button @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         Vietnamese
       </button>
     </div>
   </div>
 
   <!-- Download Button -->
-  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
-    Download v8.4
-  </button>
-</a>
+  <a href="/download.html"><button
+      class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition truncate">
+      Download v8.4
+    </button>
+  </a>
 </div>
     </div>
   </div>
@@ -758,63 +752,73 @@
 		<!-- Main Content Area -->
 		<main class="min-h-screen bg-white w-full ">
 			<!-- Banner Download Section -->
-			<section
-    class="
+			<section class="
         relative overflow-hidden
-        flex flex-col items-center justify-center gap-12
-        py-[105px]
-        bg-no-repeat
+        flex flex-col items-center justify-center gap-8 sm:gap-10 lg:gap-12
+        py-16 sm:py-20 md:py-24 lg:py-[105px]
+        bg-no-repeat bg-center
         [background-blend-mode:hard-light]
-    "
-    style="background: url(assets/images/banner-download.jpg) lightgray 0px -450.997px / 100% 206.786% no-repeat;"
->
+    " style="background: url(assets/images/banner-download.jpg) lightgray 50% 50% / cover no-repeat;">
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#E8F4FD]/60 to-white flex flex-col items-center gap-8 w-full px-4 sm:px-6 lg:px-[160px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#E8F4FD]/60 to-white flex flex-col items-center gap-8 w-full">
+    </div>
 
     <!-- Content -->
-    <div class="relative z-10 container mx-auto px-4 sm:px-6 text-center max-w-4xl">
-        <div class="inline-flex gap-2 px-3 items-center py-2 mb-4 rounded-lg bg-[#E9F3FD] text-[#2B8CEE] text-sm sm:text-base hover:underline flex justify-center">
-            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1" style="display: block;">
+    <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center max-w-4xl">
+        <div <div
+            class="inline-flex gap-1.5 sm:gap-2 px-2 sm:px-3 items-center py-1.5 sm:py-2 mb-4 sm:mb-6 rounded-lg bg-[#E9F3FD] text-[#2B8CEE] hover:underline justify-center whitespace-nowrap">
+            <svg width="20" height="20" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="flex-shrink-0 sm:w-[27px] sm:h-[27px]" style="display: block;">
                 <g clip-path="url(#clip0_964_8644)" filter="url(#filter0_dddd_964_8644)">
-                <path d="M21.3329 8.33357C21.7134 10.2013 21.4422 12.1431 20.5644 13.8351C19.6866 15.527 18.2553 16.8669 16.5091 17.6313C14.763 18.3957 12.8076 18.5384 10.9689 18.0355C9.13034 17.5327 7.51969 16.4147 6.4056 14.8681C5.2915 13.3214 4.7413 11.4396 4.84675 9.53639C4.9522 7.63318 5.70693 5.82364 6.98508 4.40954C8.26322 2.99545 9.98752 2.06226 11.8704 1.76561C13.7533 1.46897 15.681 1.82679 17.332 2.7794M10.6654 9.1669L13.1654 11.6669L21.4987 3.33357" stroke="#2B8CEE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path
+                        d="M21.3329 8.33357C21.7134 10.2013 21.4422 12.1431 20.5644 13.8351C19.6866 15.527 18.2553 16.8669 16.5091 17.6313C14.763 18.3957 12.8076 18.5384 10.9689 18.0355C9.13034 17.5327 7.51969 16.4147 6.4056 14.8681C5.2915 13.3214 4.7413 11.4396 4.84675 9.53639C4.9522 7.63318 5.70693 5.82364 6.98508 4.40954C8.26322 2.99545 9.98752 2.06226 11.8704 1.76561C13.7533 1.46897 15.681 1.82679 17.332 2.7794M10.6654 9.1669L13.1654 11.6669L21.4987 3.33357"
+                        stroke="#2B8CEE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
                 </g>
                 <defs>
-                <filter id="filter0_dddd_964_8644" x="-0.833984" y="0" width="28" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="1"/>
-                <feGaussianBlur stdDeviation="0.5"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.2 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_964_8644"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="2"/>
-                <feGaussianBlur stdDeviation="1"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.17 0"/>
-                <feBlend mode="normal" in2="effect1_dropShadow_964_8644" result="effect2_dropShadow_964_8644"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="5"/>
-                <feGaussianBlur stdDeviation="1.5"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.1 0"/>
-                <feBlend mode="normal" in2="effect2_dropShadow_964_8644" result="effect3_dropShadow_964_8644"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dy="9"/>
-                <feGaussianBlur stdDeviation="2"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.03 0"/>
-                <feBlend mode="normal" in2="effect3_dropShadow_964_8644" result="effect4_dropShadow_964_8644"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_964_8644" result="shape"/>
-                </filter>
-                <clipPath id="clip0_964_8644">
-                <rect width="20" height="20" fill="white" transform="translate(3.16602)"/>
-                </clipPath>
+                    <filter id="filter0_dddd_964_8644" x="-0.833984" y="0" width="28" height="33"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="1" />
+                        <feGaussianBlur stdDeviation="0.5" />
+                        <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.2 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_964_8644" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="2" />
+                        <feGaussianBlur stdDeviation="1" />
+                        <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.17 0" />
+                        <feBlend mode="normal" in2="effect1_dropShadow_964_8644" result="effect2_dropShadow_964_8644" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="5" />
+                        <feGaussianBlur stdDeviation="1.5" />
+                        <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.1 0" />
+                        <feBlend mode="normal" in2="effect2_dropShadow_964_8644" result="effect3_dropShadow_964_8644" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="9" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.168627 0 0 0 0 0.54902 0 0 0 0 0.933333 0 0 0 0.03 0" />
+                        <feBlend mode="normal" in2="effect3_dropShadow_964_8644" result="effect4_dropShadow_964_8644" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_964_8644" result="shape" />
+                    </filter>
+                    <clipPath id="clip0_964_8644">
+                        <rect width="20" height="20" fill="white" transform="translate(3.16602)" />
+                    </clipPath>
                 </defs>
             </svg>
-            <a href="#release-notes"
-                class="text-[12px] leading-[18px] font-semibold uppercase">
+            <a href="#release-notes" class="text-[10px] sm:text-[12px] leading-tight font-semibold uppercase">
                 Latest Stable Release: v6.0.0 (2026)
-            </a>   
+            </a>
         </div>
         <h1
-            class="text-black text-center font-['Space_Grotesk'] text-[40px]  sm:text-4xl lg:text-[64px] leading-[80px] font-bold mb-8">
+            class="text-black text-center font-['Space_Grotesk'] text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] md:text-[52px] md:leading-[60px] lg:text-[64px] lg:leading-[80px] font-bold mb-4 sm:mb-6 lg:mb-8">
             Download Laragon
         </h1>
         <p
@@ -824,85 +828,97 @@
         </p>
     </div>
 </section>
-
 			<!-- Choose Your Edition Section -->
-			<section class="py-16 sm:py-20 lg:py-24 bg-white">
-    <div class="container mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12 lg:mb-16">
+			<section class="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 sm:mb-10 lg:mb-16">
             <h2
-                class=" text-[#2C2C2C] text-center font-['Space_Grotesk'] font-medium text-[32px] sm:text-[40px] lg:text-[48px] leading-normal">
+                class="text-[#2C2C2C] text-center font-['Space_Grotesk'] font-medium text-[28px] leading-[36px] sm:text-[36px] sm:leading-[44px] lg:text-[48px] lg:leading-normal">
                 Choose Your Edition
             </h2>
         </div>
 
         <!-- Mobile: Horizontal Scroll -->
-        <div id="mobile-cards-scroll" class="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide" style="scroll-snap-type: x mandatory; scroll-padding-left: calc(50% - 161px);">
+        <div id="mobile-cards-scroll" class="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide"
+            style="scroll-snap-type: x mandatory; scroll-padding-left: calc(50% - 140px);">
             <div class="flex gap-6" style="scroll-snap-type: x mandatory;">
                 <!--Laragon Portable Card (Left) -->
-                <div class="flex-shrink-0 w-[322px] snap-center">
+                <div class="flex-shrink-0 w-[280px] sm:w-[322px] snap-center">
                     <div class="w-full h-full flex flex-col px-6 py-10 bg-white relative rounded-xl border-[1.5px] border-[#999A9D]
                             shadow-[0_77.333px_21.333px_rgba(43,140,238,0.00),
                                     0_49.333px_20px_rgba(43,140,238,0.01),
                                     0_28px_17.333px_rgba(43,140,238,0.05),
                                     0_12px_12px_rgba(43,140,238,0.09),
                                     0_2.667px_6.667px_rgba(43,140,238,0.10)]">
-                
-                    <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
-                        Laragon Portable
-                    </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
-                        Self-contained. Copy folder to USB or Cloud. No installation required.
-                    </p>
 
-                    <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#EDEFF4] hover:bg-white hover:border-[#EDEFF4] border border-[#EDEFF4] hover:bg-[#EDEFF4] text-black font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
-                            <path d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="whitespace-nowrap">Download Portable</span>
-                    </button>
+                        <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
+                            Laragon Portable
+                        </h3>
+                        <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
+                            Self-contained. Copy folder to USB or Cloud. No installation required.
+                        </p>
 
-                    <!-- PACKAGES INCLUDED Section -->
-                    <div class="w-full">
-                        <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
-                            Service Includes:
-                        </h4>
-                        <ul class="space-y-2.5 text-sm text-[#595959]">
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>                                   
+                        <button
+                            class="w-full flex items-center justify-center gap-2 bg-[#EDEFF4] hover:bg-white hover:border-[#EDEFF4] border border-[#EDEFF4] hover:bg-[#EDEFF4] text-black font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                <path
+                                    d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                    stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="whitespace-nowrap">Download Portable</span>
+                        </button>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
-                                    Same content as Full
-                                </span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- PACKAGES INCLUDED Section -->
+                        <div class="w-full">
+                            <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
+                                Service Includes:
+                            </h4>
+                            <ul class="space-y-2.5 text-sm text-[#595959]">
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    
-                                <span
-                                    class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Zero registry impact</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
+                                        Same content as Full
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Server
-                                    Easy to move/backup</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">Zero
+                                        registry impact</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">24/7
-                                    Perfect for students/schools</span>
-                            </li>
-                        </ul>
-                    </div>
+
+                                    <span
+                                        class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Server
+                                        Easy to move/backup</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">24/7
+                                        Perfect for students/schools</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Laragon Full Card (Center) -->
@@ -913,160 +929,164 @@
                                 0_28px_17.333px_rgba(43,140,238,0.05),
                                 0_12px_12px_rgba(43,140,238,0.09),
                                 0_2.667px_6.667px_rgba(43,140,238,0.10)]">
-                    <div
-                        class="flex justify-center items-center gap-1.5 py-1.5 px-4 rounded-tr-xl rounded-bl-xl bg-[#2B8CEE]  absolute right-0 top-0">
-                        <span class="text-xs font-semibold text-white">
-                            Recommended
-                        </span>
-                    </div>
-                    <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
-                        Laragon-Install.exe
-                    </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
-                        Includes Apache 2.4, Nginx, MySQL 8/9, PHP 8.x, Node.js 22+, npm, git, yarn + Cmder.
-                    </p>
+                        <div
+                            class="flex justify-center items-center gap-1.5 py-1.5 px-4 rounded-tr-xl rounded-bl-xl bg-[#2B8CEE]  absolute right-0 top-0">
+                            <span class="text-xs font-semibold text-white">
+                                Recommended
+                            </span>
+                        </div>
+                        <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
+                            Laragon-Install.exe
+                        </h3>
+                        <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
+                            Includes Apache 2.4, Nginx, MySQL 8/9, PHP 8.x, Node.js 22+, npm, git, yarn + Cmder.
+                        </p>
 
-                    <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#1a7cd4] text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
-                            <path
-                                d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="whitespace-nowrap">Download Full (173MB)</span>
-                    </button>
+                        <button
+                            class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#1a7cd4] text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                <path
+                                    d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="whitespace-nowrap">Download Full (173MB)</span>
+                        </button>
 
-                    <!-- PACKAGES INCLUDED Section -->
-                    <div class="w-full">
-                        <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
-                            PACKAGES INCLUDED:
-                        </h4>
-                        <ul class="space-y-2.5 text-sm text-[#595959]">
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                        <!-- PACKAGES INCLUDED Section -->
+                        <div class="w-full">
+                            <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
+                                PACKAGES INCLUDED:
+                            </h4>
+                            <ul class="space-y-2.5 text-sm text-[#595959]">
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
-                                    Apache 2.4, Nginx, MySQL 8
-                                </span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
+                                        Apache 2.4, Nginx, MySQL 8
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">PHP 8.4,
-                                    Node.js 23, npm</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">PHP
+                                        8.4,
+                                        Node.js 23, npm</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">git,
-                                    yarn, Redis, Memcached</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">git,
+                                        yarn, Redis, Memcached</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#2B8CEE" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
 
-                                <span
-                                    class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">HeidiSQL,
-                                    Cmder, Notepad++</span>
-                            </li>
-                        </ul>
-                    </div>
+                                    <span
+                                        class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">HeidiSQL,
+                                        Cmder, Notepad++</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Laragon Services Card -->
-                <div class="flex-shrink-0 w-[322px] snap-center">
+                <div class="flex-shrink-0 w-[280px] sm:w-[322px] snap-center">
                     <div class="w-full h-full flex flex-col px-6 py-10 bg-white relative rounded-xl border-[1.5px] border-[#00E676]
                             shadow-[0_77.333px_21.333px_rgba(43,140,238,0.00),
                                     0_49.333px_20px_rgba(43,140,238,0.01),
                                     0_28px_17.333px_rgba(43,140,238,0.05),
                                     0_12px_12px_rgba(43,140,238,0.09),
                                     0_2.667px_6.667px_rgba(43,140,238,0.10)]">
-                    <div
-                        class="flex justify-center items-center gap-1.5 py-1.5 px-4 rounded-tr-xl rounded-bl-xl bg-[#00E676] absolute right-0 top-0">
-                        <span class="text-xs font-semibold text-white">
-                            For Business
-                        </span>
-                    </div>
-                    <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
-                        Laragon Services
-                    </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
-                        Custom development & optimization services by Laragon experts.
+                        <div
+                            class="flex justify-center items-center gap-1.5 py-1.5 px-4 rounded-tr-xl rounded-bl-xl bg-[#00E676] absolute right-0 top-0">
+                            <span class="text-xs font-semibold text-white">
+                                For Business
+                            </span>
+                        </div>
+                        <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
+                            Laragon Services
+                        </h3>
+                        <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
+                            Custom development & optimization services by Laragon experts.
 
-                    </p>
+                        </p>
 
-                    <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#00E676] hover:bg-white hover:border-[#00E676] border border-[#00E676] text-black font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
-                            <path
-                                d="M9.99969 8.99994L6.99969 11.9999L9.99969 14.9999M13.9997 14.9999L16.9997 11.9999L13.9997 8.99994M2.99169 16.3419C3.13873 16.7129 3.17147 17.1193 3.08569 17.5089L2.02069 20.7989C1.98638 20.9658 1.99525 21.1386 2.04647 21.3011C2.09769 21.4635 2.18955 21.6102 2.31336 21.7272C2.43716 21.8442 2.5888 21.9276 2.75389 21.9696C2.91898 22.0115 3.09205 22.0106 3.25669 21.9669L6.66969 20.9689C7.03741 20.896 7.41822 20.9279 7.76869 21.0609C9.90408 22.0582 12.3231 22.2691 14.5988 21.6567C16.8746 21.0442 18.861 19.6476 20.2074 17.7133C21.5538 15.779 22.1738 13.4313 21.958 11.0845C21.7422 8.73763 20.7044 6.54241 19.0278 4.88613C17.3511 3.22986 15.1434 2.21898 12.7941 2.03183C10.4448 1.84469 8.10483 2.49332 6.18713 3.86328C4.26944 5.23323 2.89722 7.23648 2.31258 9.51958C1.72795 11.8027 1.96846 14.2189 2.99169 16.3419Z"
-                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="whitespace-nowrap">Chat With Us</span>
-                    </button>
+                        <button
+                            class="w-full flex items-center justify-center gap-2 bg-[#00E676] hover:bg-white hover:border-[#00E676] border border-[#00E676] text-black font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                <path
+                                    d="M9.99969 8.99994L6.99969 11.9999L9.99969 14.9999M13.9997 14.9999L16.9997 11.9999L13.9997 8.99994M2.99169 16.3419C3.13873 16.7129 3.17147 17.1193 3.08569 17.5089L2.02069 20.7989C1.98638 20.9658 1.99525 21.1386 2.04647 21.3011C2.09769 21.4635 2.18955 21.6102 2.31336 21.7272C2.43716 21.8442 2.5888 21.9276 2.75389 21.9696C2.91898 22.0115 3.09205 22.0106 3.25669 21.9669L6.66969 20.9689C7.03741 20.896 7.41822 20.9279 7.76869 21.0609C9.90408 22.0582 12.3231 22.2691 14.5988 21.6567C16.8746 21.0442 18.861 19.6476 20.2074 17.7133C21.5538 15.779 22.1738 13.4313 21.958 11.0845C21.7422 8.73763 20.7044 6.54241 19.0278 4.88613C17.3511 3.22986 15.1434 2.21898 12.7941 2.03183C10.4448 1.84469 8.10483 2.49332 6.18713 3.86328C4.26944 5.23323 2.89722 7.23648 2.31258 9.51958C1.72795 11.8027 1.96846 14.2189 2.99169 16.3419Z"
+                                    stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="whitespace-nowrap">Chat With Us</span>
+                        </button>
 
-                    <!-- PACKAGES INCLUDED Section -->
-                    <div class="w-full">
-                        <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
-                            Service Includes:
-                        </h4>
-                        <ul class="space-y-2.5 text-sm text-[#595959]">
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                        <!-- PACKAGES INCLUDED Section -->
+                        <div class="w-full">
+                            <h4 class=" text-[#595959] text-[14px]font-medium leading-[21px] uppercase mb-3">
+                                Service Includes:
+                            </h4>
+                            <ul class="space-y-2.5 text-sm text-[#595959]">
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
-                                    Custom Web Development
-                                </span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span
-                                    class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Performance
-                                    Optimization</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Server
-                                    Architecture Design</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">24/7
-                                    Priority Support</span>
-                            </li>
-                        </ul>
-                    </div>
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
+                                        Custom Web Development
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span
+                                        class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Performance
+                                        Optimization</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span
+                                        class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Server
+                                        Architecture Design</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">24/7
+                                        Priority Support</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Laragon Services Card (Right) -->
@@ -1075,7 +1095,7 @@
 
         <script>
             // Scroll to center card on mobile load
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const scrollContainer = document.getElementById('mobile-cards-scroll');
                 if (scrollContainer && window.innerWidth < 768) {
                     const centerCard = document.getElementById('mobile-card-center');
@@ -1089,7 +1109,7 @@
         </script>
 
         <!-- Desktop: Grid Layout -->
-        <div class="hidden md:grid grid-cols-3 gap-6 lg:gap-8 mx-auto sm:px-[189px] items-stretch">
+        <div class="hidden md:grid grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mx-auto max-w-7xl items-stretch">
             <!-- Laragon Full Card -->
             <div class="flex justify-center">
                 <div class="w-full max-w-[322px] h-full flex flex-col px-6 py-10 bg-white relative rounded-xl border-[1.5px] border-[#2B8CEE]
@@ -1107,13 +1127,14 @@
                     <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
                         Laragon-Install.exe
                     </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
+                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
                         Includes Apache 2.4, Nginx, MySQL 8/9, PHP 8.x, Node.js 22+, npm, git, yarn + Cmder.
                     </p>
 
                     <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#1a7cd4] text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                        class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#1a7cd4] text-white font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0">
                             <path
                                 d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
                                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1134,7 +1155,7 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
                                     Apache 2.4, Nginx, MySQL 8
                                 </span>
                             </li>
@@ -1145,7 +1166,7 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">PHP 8.4,
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">PHP 8.4,
                                     Node.js 23, npm</span>
                             </li>
                             <li class="flex items-center gap-2">
@@ -1155,7 +1176,7 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">git,
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">git,
                                     yarn, Redis, Memcached</span>
                             </li>
                             <li class="flex items-center gap-2">
@@ -1190,14 +1211,15 @@
                     <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
                         Laragon Services
                     </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
+                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
                         Custom development & optimization services by Laragon experts.
 
                     </p>
 
                     <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#00E676] hover:bg-white hover:border-[#00E676] border border-[#00E676] text-black font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                        class="w-full flex items-center justify-center gap-2 bg-[#00E676] hover:bg-white hover:border-[#00E676] border border-[#00E676] text-black font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0">
                             <path
                                 d="M9.99969 8.99994L6.99969 11.9999L9.99969 14.9999M13.9997 14.9999L16.9997 11.9999L13.9997 8.99994M2.99169 16.3419C3.13873 16.7129 3.17147 17.1193 3.08569 17.5089L2.02069 20.7989C1.98638 20.9658 1.99525 21.1386 2.04647 21.3011C2.09769 21.4635 2.18955 21.6102 2.31336 21.7272C2.43716 21.8442 2.5888 21.9276 2.75389 21.9696C2.91898 22.0115 3.09205 22.0106 3.25669 21.9669L6.66969 20.9689C7.03741 20.896 7.41822 20.9279 7.76869 21.0609C9.90408 22.0582 12.3231 22.2691 14.5988 21.6567C16.8746 21.0442 18.861 19.6476 20.2074 17.7133C21.5538 15.779 22.1738 13.4313 21.958 11.0845C21.7422 8.73763 20.7044 6.54241 19.0278 4.88613C17.3511 3.22986 15.1434 2.21898 12.7941 2.03183C10.4448 1.84469 8.10483 2.49332 6.18713 3.86328C4.26944 5.23323 2.89722 7.23648 2.31258 9.51958C1.72795 11.8027 1.96846 14.2189 2.99169 16.3419Z"
                                 stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1218,7 +1240,7 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
 
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
                                     Custom Web Development
                                 </span>
                             </li>
@@ -1238,7 +1260,7 @@
                                     <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Server
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">Server
                                     Architecture Design</span>
                             </li>
                             <li class="flex items-center gap-2">
@@ -1247,34 +1269,37 @@
                                     <path d="M15 4.5L6.75 12.75L3 9" stroke="#00E676" stroke-width="1.5"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">24/7
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">24/7
                                     Priority Support</span>
                             </li>
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
-              <!--Laragon Portable Card -->
-              <div class="flex justify-center">
+            <!--Laragon Portable Card -->
+            <div class="flex justify-center">
                 <div class="w-full max-w-[322px] h-full flex flex-col px-6 py-10 bg-white relative rounded-xl border-[1.5px] border-[#999A9D]
                         shadow-[0_77.333px_21.333px_rgba(43,140,238,0.00),
                                 0_49.333px_20px_rgba(43,140,238,0.01),
                                 0_28px_17.333px_rgba(43,140,238,0.05),
                                 0_12px_12px_rgba(43,140,238,0.09),
                                 0_2.667px_6.667px_rgba(43,140,238,0.10)]">
-                
+
                     <h3 class="  text-[#2C2C2C] text-start text-[24px] font-medium leading-[36px] mb-2">
                         Laragon Portable
                     </h3>
-                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8">
+                    <p class="text-sm lg:text-base text-[#595959] mb-6 text-start mb-8 flex-grow">
                         Self-contained. Copy folder to USB or Cloud. No installation required.
                     </p>
 
                     <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#EDEFF4] hover:bg-white hover:border-[#EDEFF4] border border-[#EDEFF4] hover:bg-[#EDEFF4] text-black font-semibold py-3 px-4 rounded-lg transition-colors mb-8 min-h-[52px] flex-shrink-0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
-                            <path d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        class="w-full flex items-center justify-center gap-2 bg-[#EDEFF4] hover:bg-white hover:border-[#EDEFF4] border border-[#EDEFF4] hover:bg-[#EDEFF4] text-black font-semibold py-3 px-4 rounded-lg transition-colors mt-auto mb-8 min-h-[52px] flex-shrink-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="flex-shrink-0">
+                            <path
+                                d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <span class="whitespace-nowrap">Download Portable</span>
                     </button>
@@ -1286,39 +1311,49 @@
                         </h4>
                         <ul class="space-y-2.5 text-sm text-[#595959]">
                             <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">
                                     Same content as Full
                                 </span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
-                                <span
-                                    class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Zero registry impact</span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <span class="text-start text-[#595959] text-[14px] font-normal leading-[22px]">Zero
+                                    registry impact</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Easy to move/backup</span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Easy to
+                                    move/backup</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
-                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Perfect for students/schools</span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 4.5L6.75 12.75L3 9" stroke="#97A4B2" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <span class="text-center text-[#595959] text-[14px] font-normal leading-[22px]">Perfect
+                                    for students/schools</span>
                             </li>
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -1383,9 +1418,11 @@
                         <path d="M5 20C5 22.9667 5.87973 25.8668 7.52796 28.3336C9.17618 30.8003 11.5189 32.7229 14.2597 33.8582C17.0006 34.9935 20.0166 35.2906 22.9264 34.7118C25.8361 34.133 28.5088 32.7044 30.6066 30.6066C32.7044 28.5088 34.133 25.8361 34.7118 22.9264C35.2906 20.0166 34.9935 17.0006 33.8582 14.2597C32.7229 11.5189 30.8003 9.17618 28.3336 7.52796C25.8668 5.87973 22.9667 5 20 5C15.8066 5.01578 11.7816 6.65204 8.76667 9.56667L5 13.3333M5 13.3333V5M5 13.3333H13.3333M20 11.6667V20L26.6667 23.3333" stroke="#2B8CEE" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         
-                    <h2 class="text-center text-3xl sm:text-4xl lg:text-5xl font-medium leading-normal text-[#2B8CEE]" style="font-family: 'Space Grotesk', sans-serif;">
+                        <h2 class="text-center text-xl sm:text-3xl lg:text-4xl font-medium leading-normal text-[#2B8CEE]"
+                        style="font-family: 'Space Grotesk', sans-serif;">
                         Release Notes
                     </h2>
+                    
                     <span class="flex justify-between items-center w-[74px] py-1 px-4 rounded-tr-xl rounded-bl-xl bg-[#00E676] text-white font-semibold text-sm">
                         Latest
                     </span>

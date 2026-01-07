@@ -228,48 +228,56 @@
     isUsageGuideActive() {
       return this.activeLink === 'usage-guide.html';
     }
-  }" class="flex items-center space-x-8">
-    <a href="/features.html" 
-       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <a href="/features.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Features
     </a>
-    <a href="/usage-guide.html" 
-       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/usage-guide.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Usage Guide
     </a>
-    <a href="/php-tutorial.html" 
-       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/php-tutorial.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       PHP Tutorial
     </a>
-    <a href="/review-cms.html" 
-       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/review-cms.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Review CMS
     </a>
-    <a href="/blog.html" 
-       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/blog.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Blog
     </a>
-    <a href="/contact.html" 
-       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/contact.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Contact
     </a>
+
   </nav>
-  
+
   <!-- Language Dropdown -->
-  <div x-data="{ open: false, lang: 'English' }" 
-       @click.outside="open = false"
-       class="relative">
+  <div x-data="{ open: false, lang: 'English' }" @click.outside="open = false" class="relative">
     <!-- Trigger Button -->
-    <button
-      @click="open = !open"
-      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-    >
+    <button @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition">
       <!-- Globe Icon -->
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -297,48 +305,34 @@
 
       <!-- Arrow Icon -->
       <svg width="10" height="6" viewBox="0 0 10 6">
-        <path
-          d="M1 1L5 5L9 1"
-          stroke="#9CA3AF"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M1 1L5 5L9 1" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
 
     <!-- Dropdown Menu -->
-    <div
-      x-show="open"
-      x-transition:enter="transition ease-out duration-100"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-75"
-      x-transition:leave-start="opacity-100 scale-100"
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
-      style="display: none;"
-    >
-      <button
-        @click="lang = 'English'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      style="display: none;">
+      <button @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         English
       </button>
-      <button
-        @click="lang = 'Vietnamese'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      <button @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         Vietnamese
       </button>
     </div>
   </div>
 
   <!-- Download Button -->
-  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
-    Download v8.4
-  </button>
-</a>
+  <a href="/download.html"><button
+      class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition truncate">
+      Download v8.4
+    </button>
+  </a>
 </div>
     </div>
   </div>
@@ -884,18 +878,16 @@
 
 
             <!-- Divider Line -->
-            <div class="hidden lg:flex items-stretch px-[80px] flex-shrink-0 self-stretch">
+            <div class="hidden md:flex items-stretch flex-shrink-0 self-stretch lg:hidden xl:flex xl:px-[80px]">
                 <div class="w-2 bg-[#E9F3FD]"></div>
             </div>
-
             <!-- Main Content Area -->
             <div class="flex-1 min-w-0 px-4 sm:px-0">
                 <!-- Search Bar -->
                 <div class="mb-8">
                     <form action="" method="GET" class="flex-1 mx-0 sm:mx-4 rounded-[12px]">
                         <div class="relative">
-                            <svg
-                                class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-5 h-5 sm:w-[28px] sm:h-[27px]"
+                            <svg class="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-5 h-5 sm:w-[28px] sm:h-[27px]"
                                 viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_dddd_965_3639)">
                                     <path
@@ -957,7 +949,7 @@
 
                 <!-- Page Title -->
                 <div class="mb-12 px-4 sm:px-0">
-                    <h1 class="text-3xl sm:text-5xl md:text-[64px] font-bold text-[#2C2C2C] text-start mb-[30px] sm:mb-8 leading-tight sm:leading-[60px] md:leading-[80px]"
+                    <h1 class="text-3xl sm:text-5xl md:text-[64px] lg:text-[48px] xl:text-[64px]  font-bold text-[#2C2C2C] text-start mb-[30px] sm:mb-8 leading-tight sm:leading-[60px] md:leading-[80px]"
                         style="font-family: 'Space Grotesk', sans-serif; font-weight: 700;">
                         Real-world Workflows
                     </h1>
@@ -975,7 +967,7 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900"
+                            <h2 class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 "
                                 style="font-family: 'Plus Jakarta Sans', sans-serif;">
                                 Create a New Laravel Project
                             </h2>
@@ -1172,79 +1164,83 @@
                         <div class="flex items-center self-stretch p-4 sm:p-6 gap-3 sm:gap-4">
                             <div
                                 class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#FFF7ED] flex items-center justify-center">
-                                <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="40" height="40" rx="6.42857" fill="#ED712D" fill-opacity="0.1"/>
-                                    <path d="M10.3574 20.0001C10.3574 17.4427 11.3734 14.99 13.1817 13.1816C14.9901 11.3732 17.4428 10.3572 20.0003 10.3572C22.696 10.3674 25.2835 11.4193 27.2217 13.293L29.6431 15.7144M29.6431 15.7144V10.3572M29.6431 15.7144H24.286M29.6431 20.0001C29.6431 22.5575 28.6272 25.0102 26.8188 26.8186C25.0104 28.627 22.5577 29.643 20.0003 29.643C17.3045 29.6328 14.717 28.5809 12.7789 26.7072L10.3574 24.2858M10.3574 24.2858H15.7146M10.3574 24.2858V29.643" stroke="#ED712D" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    
+                                <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6.42857" fill="#ED712D" fill-opacity="0.1" />
+                                    <path
+                                        d="M10.3574 20.0001C10.3574 17.4427 11.3734 14.99 13.1817 13.1816C14.9901 11.3732 17.4428 10.3572 20.0003 10.3572C22.696 10.3674 25.2835 11.4193 27.2217 13.293L29.6431 15.7144M29.6431 15.7144V10.3572M29.6431 15.7144H24.286M29.6431 20.0001C29.6431 22.5575 28.6272 25.0102 26.8188 26.8186C25.0104 28.627 22.5577 29.643 20.0003 29.643C17.3045 29.6328 14.717 28.5809 12.7789 26.7072L10.3574 24.2858M10.3574 24.2858H15.7146M10.3574 24.2858V29.643"
+                                        stroke="#ED712D" stroke-width="2.14286" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
                             </div>
-                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900"
+                            <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 lg:text-2xl xl:text-3xl"
                                 style="font-family: 'Plus Jakarta Sans', sans-serif;">
                                 Migrate from XAMPP to Laragon
                             </h2>
                         </div>
                     </div>
-                        <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0"
-                            style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                            Moving is easy. You just need to move your files and export/import your database.
-                        </p>
+                    <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0"
+                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Moving is easy. You just need to move your files and export/import your database.
+                    </p>
 
-                        <div class="space-y-4 sm:space-y-6 px-4 sm:px-0">
-                            <!-- Step 1 -->
-                            <div class="flex gap-3 sm:gap-4">
-                                <div
-                                    class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black text-sm sm:text-base">
-                                    1
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
-                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Move Files
-                                    </h3>
-                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
-                                        style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Copy folders from C:\xampp\htdocs to C:\laragon\www.
-                                    </p>
-                                </div>
+                    <div class="space-y-4 sm:space-y-6 px-4 sm:px-0">
+                        <!-- Step 1 -->
+                        <div class="flex gap-3 sm:gap-4">
+                            <div
+                                class="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black text-sm sm:text-base">
+                                1
                             </div>
-
-                            <!-- Step 2 -->
-                            <div class="flex gap-4">
-                                <div
-                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
-                                    2
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
                                     style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Export Database (in XAMPP)
-                                    </h3>
-                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                    Move Files
+                                </h3>
+                                <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
                                     style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Open phpMyAdmin in XAMPP, go to Export, and save the .sql file.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div class="flex gap-4">
-                                <div
-                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
-                                    3
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
-                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Import Database (in Laragon)
-                                    </h3>
-                                    <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
-                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
-                                        Start Laragon. Open HeidiSQL (Database button). Right click > Load SQL file.
-                                    </p>
-                                </div>
+                                    Copy folders from C:\xampp\htdocs to C:\laragon\www.
+                                </p>
                             </div>
                         </div>
-               
+
+                        <!-- Step 2 -->
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
+                                2
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Export Database (in XAMPP)
+                                </h3>
+                                <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Open phpMyAdmin in XAMPP, go to Export, and save the .sql file.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-[#F3F4F6] flex items-center justify-center text-black">
+                                3
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-medium text-[#2C2C2C] leading-5 sm:leading-6 mb-1 sm:mb-2"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Import Database (in Laragon)
+                                </h3>
+                                <p class="text-xs sm:text-sm font-normal text-[#595959] leading-5 sm:leading-[22px]"
+                                    style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                    Start Laragon. Open HeidiSQL (Database button). Right click > Load SQL file.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>

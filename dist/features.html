@@ -230,48 +230,56 @@
     isUsageGuideActive() {
       return this.activeLink === 'usage-guide.html';
     }
-  }" class="flex items-center space-x-8">
-    <a href="/features.html" 
-       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <a href="/features.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Features
     </a>
-    <a href="/usage-guide.html" 
-       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/usage-guide.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Usage Guide
     </a>
-    <a href="/php-tutorial.html" 
-       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/php-tutorial.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       PHP Tutorial
     </a>
-    <a href="/review-cms.html" 
-       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/review-cms.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Review CMS
     </a>
-    <a href="/blog.html" 
-       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/blog.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Blog
     </a>
-    <a href="/contact.html" 
-       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/contact.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Contact
     </a>
+
   </nav>
-  
+
   <!-- Language Dropdown -->
-  <div x-data="{ open: false, lang: 'English' }" 
-       @click.outside="open = false"
-       class="relative">
+  <div x-data="{ open: false, lang: 'English' }" @click.outside="open = false" class="relative">
     <!-- Trigger Button -->
-    <button
-      @click="open = !open"
-      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-    >
+    <button @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition">
       <!-- Globe Icon -->
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -299,48 +307,34 @@
 
       <!-- Arrow Icon -->
       <svg width="10" height="6" viewBox="0 0 10 6">
-        <path
-          d="M1 1L5 5L9 1"
-          stroke="#9CA3AF"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M1 1L5 5L9 1" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
 
     <!-- Dropdown Menu -->
-    <div
-      x-show="open"
-      x-transition:enter="transition ease-out duration-100"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-75"
-      x-transition:leave-start="opacity-100 scale-100"
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
-      style="display: none;"
-    >
-      <button
-        @click="lang = 'English'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      style="display: none;">
+      <button @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         English
       </button>
-      <button
-        @click="lang = 'Vietnamese'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      <button @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         Vietnamese
       </button>
     </div>
   </div>
 
   <!-- Download Button -->
-  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
-    Download v8.4
-  </button>
-</a>
+  <a href="/download.html"><button
+      class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition truncate">
+      Download v8.4
+    </button>
+  </a>
 </div>
     </div>
   </div>
@@ -761,28 +755,40 @@
 		<!-- Main Content Area -->
 		<main class="min-h-screen bg-white w-full ">
 			<!-- Banner Features Section -->
-			<section class="relative overflow-hidden bg-white py-[120px] ">
+			<section class="relative overflow-hidden bg-white py-[120px]">
     <!-- Background -->
     <div class="absolute inset-0 overflow-hidden">
-        <img src="assets/images/bannerFeatures.png" alt="" class="w-full h-full sm:h-auto object-cover" />
-        <div class="absolute w-full h-[550px] rounded-full bg-[#2377FD80]/10 blur-[250px] -translate-x-1/2" style="left: 100%; top: -0;"></div>
-        <div class="absolute w-full h-[550px] rounded-full bg-[#63ECFF80]/15 blur-[200px] -translate-x-1/2" style="left: 0; top: 100px;"></div>
-        <div class="absolute w-[1366px] h-[1366px] rounded-full bg-[#63ECFF33]/0.9 blur-[100px] -translate-x-1/2" style="left: 50%; top: 0px;"></div>
+        <img src="assets/images/bannerFeatures.png"
+            alt=""
+            class="w-full h-full sm:h-auto object-cover" />
+
+        <div class="absolute w-full h-[550px] rounded-full bg-[#2377FD80]/10 blur-[250px] -translate-x-1/2"
+            style="left: 100%; top: -0;"></div>
+
+        <div class="absolute w-full h-[550px] rounded-full bg-[#63ECFF80]/15 blur-[200px] -translate-x-1/2"
+            style="left: 0; top: 100px;"></div>
+
+        <div class="absolute w-[1366px] h-[1366px] rounded-full bg-[#63ECFF33]/0.9 blur-[100px] -translate-x-1/2"
+            style="left: 50%; top: 0px;"></div>
     </div>
 
-    <div class="relative container  mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Content -->
+    <div class="relative container mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div class="text-center mb-6 sm:mb-8">
-            <div class="mt-12 inline-flex items-center gap-2 bg-[#E9F3FD] text-[#2B8CEE] text-sm px-4 py-2 rounded-lg mb-6">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="8.00558" cy="8.0054" r="7" transform="rotate(-171.034 8.00558 8.0054)" fill="#2B8CEE"
-                        fill-opacity="0.1" />
-                    <circle cx="8.00518" cy="8.00542" r="3" transform="rotate(-171.034 8.00518 8.00542)"
-                        fill="#2B8CEE" />
+            <!-- Badge -->
+            <div class="mt-12 inline-flex items-center gap-2 bg-[#E9F3FD] text-[#2B8CEE] 
+                text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg mb-6">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+                    <circle cx="8" cy="8" r="7" fill="#2B8CEE" fill-opacity="0.1"/>
+                    <circle cx="8" cy="8" r="3" fill="#2B8CEE"/>
                 </svg>
-                <span class="font-medium font-semibold">DISCOVER STRENGTH</span>
+                <span class="font-semibold">DISCOVER STRENGTH</span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl md:text-[64px] font-bold text-black text-center mb-3 sm:mb-4 lg:leading-[80px]" style="font-family: 'Space Grotesk', sans-serif;">
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-[64px] font-bold text-black mb-3 sm:mb-4 
+                leading-snug md:leading-[80px]"
+                style="font-family: 'Space Grotesk', sans-serif;">
                 Under the Hood
                 <br />
                 <span class="bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] bg-clip-text text-transparent">
@@ -790,29 +796,37 @@
                 </span>
             </h1>
         </div>
-
-     
     </div>
-       <!-- Button -->
-       <div class="mt-6 relative z-10 pb-8">
+
+    <!-- Button -->
+    <div class="mt-6 relative z-10 pb-8">
         <button
-            class="flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#2178d4] text-white px-7 py-4 rounded-xl font-medium transition-all duration-200 mx-auto shadow-lg hover:shadow-xl hover:shadow-[#2B8CEE]/50">
+            class="flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#2178d4] 
+            text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl font-medium transition-all duration-200 
+            mx-auto shadow-lg hover:shadow-xl hover:shadow-[#2B8CEE]/50 text-sm sm:text-base">
+
             <span>Explore Features</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12L12 19M12 19L5 12M12 19L12 5" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" />
+
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                class="sm:w-[24px] sm:h-[24px]">
+                <path d="M19 12L12 19M12 19L5 12M12 19L12 5" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </button>
     </div>
 </section>
+
 			<section class="py-16 sm:py-20 bg-white w-full">
     <div class="container mx-auto px-4 sm:px-6">
         <!-- Section Header -->
-        <h2 class="w-full h-[61px] text-[48px] font-medium leading-[61px] text-center text-[#2C2C2C] mb-2 flex-none order-0 self-stretch flex-grow-0"
-            style="font-family: 'Space Grotesk', sans-serif;">Fast & Portable</h2>
-        <p class="text-center mb-12 text-[#595959] text-sm sm:text-base max-w-3xl mx-auto">
+        <h2 class="w-full text-center text-[#2C2C2C] font-medium mb-2 text-3xl sm:text-4xl lg:text-[48px] leading-tight sm:leading-snug lg:leading-[61px]" style="font-family: 'Space Grotesk', sans-serif;">
+            Fast & Portable
+        </h2>
+
+        <p class="text-center mb-12 text-[#595959]  text-sm sm:text-base  max-w-3xl mx-auto leading-relaxed">
             Optimized down to every byte to ensure maximum performance on all devices.
         </p>
+
 
         <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

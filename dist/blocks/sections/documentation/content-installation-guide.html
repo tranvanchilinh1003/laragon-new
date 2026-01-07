@@ -10,7 +10,9 @@
     </div>
 
     <div class="container mx-auto px-0 sm:px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-0 p-0 sm:p-6 lg:p-12 bg-white rounded-none sm:rounded-2xl lg:rounded-[48px] shadow-sm">
+        <div
+            class="flex flex-col md:flex-row gap-8 lg:gap-0 p-0 sm:p-6 lg:p-12 bg-white rounded-none sm:rounded-2xl lg:rounded-[48px] shadow-sm">
+
 
             <!-- Left Sidebar - Documentation Navigation -->
             <!-- Left Sidebar - Documentation Navigation -->
@@ -122,9 +124,10 @@
 
 
             <!-- Divider Line -->
-            <div class="hidden lg:flex items-stretch px-[80px] flex-shrink-0 self-stretch">
+            <div class="hidden md:flex items-stretch flex-shrink-0 self-stretch lg:hidden xl:flex xl:px-[80px]">
                 <div class="w-2 bg-[#E9F3FD]"></div>
             </div>
+
 
             <!-- Main Content Area -->
             <div class="flex-1 min-w-0 px-4 sm:px-0">
@@ -195,58 +198,68 @@
 
                 <!-- Page Title -->
                 <div class="mb-12 px-4 sm:px-0">
-                    <h1 class="text-4xl sm:text-5xl md:text-[64px] font-bold text-black text-start mb-8"
+                    <h1 class="text-4xl sm:text-5xl md:text-[64px] lg:text-[44px]  xl:text-[64px]  font-bold text-black text-start mb-8"
                         style="font-family: 'Space Grotesk', sans-serif;">
-                    Installation Guide
+                        Installation Guide
                     </h1>
 
                     <!-- Step-by-Step Guide -->
                     <div class="relative mb-16">
                         <!-- Vertical Line -->
-                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#05DF85] to-[#2B8CEE]"></div>
+                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#05DF85] to-[#2B8CEE]">
+                        </div>
 
                         <!-- Step 1 -->
                         <div class="relative flex gap-6 mb-8">
                             <div class="flex-shrink-0 relative z-10">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     1
                                 </div>
                             </div>
                             <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden">
-                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Download Laragon</h3>
+                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Download Laragon
+                                </h3>
                                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed p-4 sm:p-4">
-                                    Get the latest version from the official website. Choose "Full" for a complete stack (Apache, MySQL, PHP, Node.js) or "Lite" for a minimal setup.
+                                    Get the latest version from the official website. Choose "Full" for a complete stack
+                                    (Apache, MySQL, PHP, Node.js) or "Lite" for a minimal setup.
                                 </p>
                             </div>
-                    
+
                         </div>
-                         <!-- Step 2 -->
+                        <!-- Step 2 -->
                         <div class="relative flex gap-6 mb-8">
                             <div class="flex-shrink-0 relative z-10">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     2
                                 </div>
                             </div>
                             <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden">
-                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Run Installer</h3>
+                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Run Installer
+                                </h3>
                                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed p-4 sm:p-4">
-                                    Run the setup file and click Next. Choose an installation location (Avoid paths with special characters).
+                                    Run the setup file and click Next. Choose an installation location (Avoid paths with
+                                    special characters).
                                 </p>
                             </div>
-                    
+
                         </div>
 
                         <!-- Step 3 -->
                         <div class="relative flex gap-6">
                             <div class="flex-shrink-0">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-[#05DF85] to-[#2B8CEE] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     3
                                 </div>
                             </div>
                             <div class="flex-1 rounded-xl border border-gray-200 overflow-hidden">
-                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Configure Options</h3>
+                                <h3 class="text-xl font-semibold bg-[#2377FD80]/10  text-gray-900 p-6">Configure Options
+                                </h3>
                                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed p-4 sm:p-4">
-                                    Select "Run Laragon When Windows Starts" for convenience and "Auto Virtual Hosts" to get pretty URLs (e.g., app.test) automatically.
+                                    Select "Run Laragon When Windows Starts" for convenience and "Auto Virtual Hosts" to
+                                    get pretty URLs (e.g., app.test) automatically.
                                 </p>
                             </div>
                         </div>
@@ -254,24 +267,31 @@
 
                     <!-- Important Installation Notes Section -->
                     <div class="mb-8 sm:mb-12">
-                        <h2 class="mb-6 sm:mb-8 text-[#2C2C2C] font-bold text-2xl sm:text-[48px] lg:text-[64px] leading-tight sm:leading-[60px] lg:leading-[80px]"
+                        <h2 class="mb-6 sm:mb-8 text-[#2C2C2C] font-bold text-2xl sm:text-[48px] lg:text-[44px]  xl:text-[64px]  leading-tight sm:leading-[60px] lg:leading-[80px]"
                             style="font-family: 'Space Grotesk', sans-serif; font-weight: 700;">
                             Important Installation Notes
                         </h2>
 
                         <!-- Cards Grid -->
-                        <div class="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
                             <!-- System Requirements Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="20" height="20" class="sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-[36px] lg:h-[36px]" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="36" height="36" rx="2.4" fill="#E9F3FD"/>
-                                                <path d="M18 23V27M20.305 13.53L21.228 13.148M21.228 10.852L20.305 10.469M22.852 9.22796L22.469 8.30396M22.852 14.772L22.469 15.695M25.148 9.22796L25.531 8.30396M25.53 15.696L25.148 14.772M26.772 10.852L27.696 10.469M26.772 13.148L27.696 13.531M28 19V21C28 21.5304 27.7893 22.0391 27.4142 22.4142C27.0391 22.7892 26.5304 23 26 23H10C9.46957 23 8.96086 22.7892 8.58579 22.4142C8.21071 22.0391 8 21.5304 8 21V11C8 10.4695 8.21071 9.96081 8.58579 9.58574C8.96086 9.21067 9.46957 8.99996 10 8.99996H17M14 27H22M27 12C27 13.6568 25.6569 15 24 15C22.3431 15 21 13.6568 21 12C21 10.3431 22.3431 8.99996 24 8.99996C25.6569 8.99996 27 10.3431 27 12Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="20" height="20"
+                                                class="sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-[36px] lg:h-[36px]"
+                                                viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="36" height="36" rx="2.4" fill="#E9F3FD" />
+                                                <path
+                                                    d="M18 23V27M20.305 13.53L21.228 13.148M21.228 10.852L20.305 10.469M22.852 9.22796L22.469 8.30396M22.852 14.772L22.469 15.695M25.148 9.22796L25.531 8.30396M25.53 15.696L25.148 14.772M26.772 10.852L27.696 10.469M26.772 13.148L27.696 13.531M28 19V21C28 21.5304 27.7893 22.0391 27.4142 22.4142C27.0391 22.7892 26.5304 23 26 23H10C9.46957 23 8.96086 22.7892 8.58579 22.4142C8.21071 22.0391 8 21.5304 8 21V11C8 10.4695 8.21071 9.96081 8.58579 9.58574C8.96086 9.21067 9.46957 8.99996 10 8.99996H17M14 27H22M27 12C27 13.6568 25.6569 15 24 15C22.3431 15 21 13.6568 21 12C21 10.3431 22.3431 8.99996 24 8.99996C25.6569 8.99996 27 10.3431 27 12Z"
+                                                    stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
-                                        <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
+                                        <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-xl xl:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
                                             style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500;">
                                             System Requirements</h3>
                                     </div>
@@ -282,12 +302,18 @@
                             </div>
 
                             <!-- Full vs Lite Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9 13L11 15L15 11M20 20C20.5304 20 21.0391 19.7893 21.4142 19.4142C21.7893 19.0391 22 18.5304 22 18V8C22 7.46957 21.7893 6.96086 21.4142 6.58579C21.0391 6.21071 20.5304 6 20 6H12.1C11.7655 6.00328 11.4355 5.92261 11.1403 5.76538C10.8451 5.60815 10.594 5.37938 10.41 5.1L9.6 3.9C9.41789 3.62347 9.16997 3.39648 8.8785 3.2394C8.58702 3.08231 8.26111 3.00005 7.93 3H4C3.46957 3 2.96086 3.21071 2.58579 3.58579C2.21071 3.96086 2 4.46957 2 5V18C2 18.5304 2.21071 19.0391 2.58579 19.4142C2.96086 19.7893 3.46957 20 4 20H20Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9 13L11 15L15 11M20 20C20.5304 20 21.0391 19.7893 21.4142 19.4142C21.7893 19.0391 22 18.5304 22 18V8C22 7.46957 21.7893 6.96086 21.4142 6.58579C21.0391 6.21071 20.5304 6 20 6H12.1C11.7655 6.00328 11.4355 5.92261 11.1403 5.76538C10.8451 5.60815 10.594 5.37938 10.41 5.1L9.6 3.9C9.41789 3.62347 9.16997 3.39648 8.8785 3.2394C8.58702 3.08231 8.26111 3.00005 7.93 3H4C3.46957 3 2.96086 3.21071 2.58579 3.58579C2.21071 3.96086 2 4.46957 2 5V18C2 18.5304 2.21071 19.0391 2.58579 19.4142C2.96086 19.7893 3.46957 20 4 20H20Z"
+                                                    stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
@@ -296,17 +322,24 @@
                                     </div>
                                     <p class="text-[#595959] text-xs sm:text-[13px] md:text-sm leading-relaxed sm:leading-relaxed md:leading-[21px]"
                                         style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500;">
-                                        Use Full for instant setup. Use Lite if you prefer customizing tools yourself.</p>
+                                        Use Full for instant setup. Use Lite if you prefer customizing tools yourself.
+                                    </p>
                                 </div>
                             </div>
 
                             <!-- Location Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01"
+                                                    stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
@@ -320,12 +353,18 @@
                             </div>
 
                             <!-- Virtual Hosts Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01"
+                                                    stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
@@ -339,12 +378,18 @@
                             </div>
 
                             <!-- Auto-start Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M3.99999 14C3.81076 14.0007 3.62522 13.9476 3.46495 13.847C3.30467 13.7464 3.17623 13.6024 3.09454 13.4317C3.01286 13.261 2.98129 13.0706 3.00349 12.8827C3.0257 12.6948 3.10077 12.517 3.21999 12.37L13.12 2.17004C13.1943 2.08432 13.2955 2.0264 13.407 2.00577C13.5185 1.98515 13.6337 2.00305 13.7337 2.05654C13.8337 2.11004 13.9126 2.19594 13.9573 2.30015C14.0021 2.40436 14.0101 2.52069 13.98 2.63004L12.06 8.65004C12.0034 8.80156 11.9844 8.96456 12.0046 9.12505C12.0248 9.28553 12.0837 9.43872 12.1761 9.57147C12.2685 9.70421 12.3918 9.81256 12.5353 9.8872C12.6788 9.96185 12.8382 10.0006 13 10H20C20.1892 9.9994 20.3748 10.0525 20.535 10.1531C20.6953 10.2537 20.8238 10.3977 20.9054 10.5684C20.9871 10.7391 21.0187 10.9295 20.9965 11.1174C20.9743 11.3053 20.8992 11.4831 20.78 11.63L10.88 21.83C10.8057 21.9158 10.7045 21.9737 10.593 21.9943C10.4815 22.0149 10.3663 21.997 10.2663 21.9435C10.1663 21.89 10.0874 21.8041 10.0427 21.6999C9.99791 21.5957 9.98991 21.4794 10.02 21.37L11.94 15.35C11.9966 15.1985 12.0156 15.0355 11.9954 14.875C11.9752 14.7145 11.9163 14.5614 11.8239 14.4286C11.7315 14.2959 11.6082 14.1875 11.4647 14.1129C11.3212 14.0382 11.1617 13.9995 11 14H3.99999Z" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M3.99999 14C3.81076 14.0007 3.62522 13.9476 3.46495 13.847C3.30467 13.7464 3.17623 13.6024 3.09454 13.4317C3.01286 13.261 2.98129 13.0706 3.00349 12.8827C3.0257 12.6948 3.10077 12.517 3.21999 12.37L13.12 2.17004C13.1943 2.08432 13.2955 2.0264 13.407 2.00577C13.5185 1.98515 13.6337 2.00305 13.7337 2.05654C13.8337 2.11004 13.9126 2.19594 13.9573 2.30015C14.0021 2.40436 14.0101 2.52069 13.98 2.63004L12.06 8.65004C12.0034 8.80156 11.9844 8.96456 12.0046 9.12505C12.0248 9.28553 12.0837 9.43872 12.1761 9.57147C12.2685 9.70421 12.3918 9.81256 12.5353 9.8872C12.6788 9.96185 12.8382 10.0006 13 10H20C20.1892 9.9994 20.3748 10.0525 20.535 10.1531C20.6953 10.2537 20.8238 10.3977 20.9054 10.5684C20.9871 10.7391 21.0187 10.9295 20.9965 11.1174C20.9743 11.3053 20.8992 11.4831 20.78 11.63L10.88 21.83C10.8057 21.9158 10.7045 21.9737 10.593 21.9943C10.4815 22.0149 10.3663 21.997 10.2663 21.9435C10.1663 21.89 10.0874 21.8041 10.0427 21.6999C9.99791 21.5957 9.98991 21.4794 10.02 21.37L11.94 15.35C11.9966 15.1985 12.0156 15.0355 11.9954 14.875C11.9752 14.7145 11.9163 14.5614 11.8239 14.4286C11.7315 14.2959 11.6082 14.1875 11.4647 14.1129C11.3212 14.0382 11.1617 13.9995 11 14H3.99999Z"
+                                                    stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
@@ -358,12 +403,18 @@
                             </div>
 
                             <!-- MySQL Backup Card -->
-                            <div class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
+                            <div
+                                class="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-6 hover:shadow-lg transition-shadow">
                                 <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
-                                    <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 md:gap-4">
-                                        <div class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
-                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.1004 5.70012C20.1004 7.19129 16.4739 8.40012 12.0004 8.40012C7.52688 8.40012 3.90039 7.19129 3.90039 5.70012M20.1004 5.70012C20.1004 4.20895 16.4739 3.00012 12.0004 3.00012C7.52688 3.00012 3.90039 4.20895 3.90039 5.70012M20.1004 5.70012V18.3001C20.1004 19.0162 19.247 19.703 17.728 20.2093C16.2089 20.7157 14.1486 21.0001 12.0004 21.0001C9.85214 21.0001 7.79187 20.7157 6.27283 20.2093C4.75378 19.703 3.90039 19.0162 3.90039 18.3001V5.70012M3.90039 12.0001C3.90039 12.7162 4.75378 13.403 6.27283 13.9093C7.79187 14.4157 9.85214 14.7001 12.0004 14.7001C14.1486 14.7001 16.2089 14.4157 17.728 13.9093C19.247 13.403 20.1004 12.7162 20.1004 12.0001" stroke="#2B8CEE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="flex flex-col xl:flex-row items-start gap-2 sm:gap-3 md:gap-4">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg bg-[#E9F3FD] flex items-center justify-center">
+                                            <svg width="16" height="16" class="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20.1004 5.70012C20.1004 7.19129 16.4739 8.40012 12.0004 8.40012C7.52688 8.40012 3.90039 7.19129 3.90039 5.70012M20.1004 5.70012C20.1004 4.20895 16.4739 3.00012 12.0004 3.00012C7.52688 3.00012 3.90039 4.20895 3.90039 5.70012M20.1004 5.70012V18.3001C20.1004 19.0162 19.247 19.703 17.728 20.2093C16.2089 20.7157 14.1486 21.0001 12.0004 21.0001C9.85214 21.0001 7.79187 20.7157 6.27283 20.2093C4.75378 19.703 3.90039 19.0162 3.90039 18.3001V5.70012M3.90039 12.0001C3.90039 12.7162 4.75378 13.403 6.27283 13.9093C7.79187 14.4157 9.85214 14.7001 12.0004 14.7001C14.1486 14.7001 16.2089 14.4157 17.728 13.9093C19.247 13.403 20.1004 12.7162 20.1004 12.0001"
+                                                    stroke="#2B8CEE" stroke-width="1.8" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <h3 class="mb-0 text-[#2C2C2C] text-sm sm:text-base md:text-xl lg:text-2xl leading-tight sm:leading-normal md:leading-[36px]"
@@ -382,4 +433,3 @@
         </div>
     </div>
 </section>
-

@@ -230,48 +230,56 @@
     isUsageGuideActive() {
       return this.activeLink === 'usage-guide.html';
     }
-  }" class="flex items-center space-x-8">
-    <a href="/features.html" 
-       :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <a href="/features.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Features
     </a>
-    <a href="/usage-guide.html" 
-       :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/usage-guide.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Usage Guide
     </a>
-    <a href="/php-tutorial.html" 
-       :class="activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/php-tutorial.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'php-tutorial.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       PHP Tutorial
     </a>
-    <a href="/review-cms.html" 
-       :class="activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/review-cms.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm',
+     activeLink === 'review-cms.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Review CMS
     </a>
-    <a href="/blog.html" 
-       :class="activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/blog.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'blog.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Blog
     </a>
-    <a href="/contact.html" 
-       :class="activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-       class="cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg">
+
+    <a href="/contact.html" :class="[
+     'cursor-pointer transition-colors duration-200 hover:bg-[#E9F3FD] py-2 px-3 rounded-lg text-[16px] lg:text-sm ',
+     activeLink === 'contact.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'
+   ]">
       Contact
     </a>
+
   </nav>
-  
+
   <!-- Language Dropdown -->
-  <div x-data="{ open: false, lang: 'English' }" 
-       @click.outside="open = false"
-       class="relative">
+  <div x-data="{ open: false, lang: 'English' }" @click.outside="open = false" class="relative">
     <!-- Trigger Button -->
-    <button
-      @click="open = !open"
-      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition"
-    >
+    <button @click="open = !open"
+      class="flex items-center gap-2 px-4 h-[36px] bg-gray-100 rounded-lg hover:bg-gray-200 transition">
       <!-- Globe Icon -->
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -299,48 +307,34 @@
 
       <!-- Arrow Icon -->
       <svg width="10" height="6" viewBox="0 0 10 6">
-        <path
-          d="M1 1L5 5L9 1"
-          stroke="#9CA3AF"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+        <path d="M1 1L5 5L9 1" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
 
     <!-- Dropdown Menu -->
-    <div
-      x-show="open"
-      x-transition:enter="transition ease-out duration-100"
-      x-transition:enter-start="opacity-0 scale-95"
-      x-transition:enter-end="opacity-100 scale-100"
-      x-transition:leave="transition ease-in duration-75"
-      x-transition:leave-start="opacity-100 scale-100"
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
       class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden z-50 "
-      style="display: none;"
-    >
-      <button
-        @click="lang = 'English'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      style="display: none;">
+      <button @click="lang = 'English'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         English
       </button>
-      <button
-        @click="lang = 'Vietnamese'; open = false"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-      >
+      <button @click="lang = 'Vietnamese'; open = false"
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
         Vietnamese
       </button>
     </div>
   </div>
 
   <!-- Download Button -->
-  <a href="/download.html"><button class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition">
-    Download v8.4
-  </button>
-</a>
+  <a href="/download.html"><button
+      class="bg-[#2B8CEE] text-white lg:h-[41px] px-5 rounded-lg font-medium hover:bg-[#2178d4] transition truncate">
+      Download v8.4
+    </button>
+  </a>
 </div>
     </div>
   </div>
@@ -774,40 +768,48 @@
     <!-- Content -->
     <div class="relative container mx-auto px-6 py-24 text-center">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-[#E9F3FD] text-[#2B8CEE] text-sm px-4 py-2 rounded-lg mb-6">
-            <!-- icon -->
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-                <circle cx="8" cy="8" r="7" fill="#2B8CEE" fill-opacity="0.1" />
-                <circle cx="8" cy="8" r="3" fill="#2B8CEE" />
-            </svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_47_408)">
-                <path d="M4.12543 9.61481L3.72099 10.0193C3.5279 10.2123 3.5279 10.5252 3.72099 10.718L5.28173 12.2788C5.47481 12.4718 5.78765 12.4718 5.98049 12.2788L6.38494 11.8743L4.12518 9.61456L4.12543 9.61481Z" fill="#3966A5"/>
-                <path d="M15.9999 0C10.9718 0.617037 6.31718 5.58642 6.31718 5.58642L6.31471 5.58395L3.20459 8.69407L7.30558 12.7951L10.4157 9.68494L10.4132 9.68247C10.4132 9.68247 15.3829 5.02815 15.9999 0Z" fill="#C4C2C2"/>
-                <path d="M6.31506 5.58394C6.31506 5.58394 4.01778 4.15012 1.33926 6.82864L0 8.16789L0.606667 8.77456C0.606667 8.77456 2.68074 6.88345 3.84815 8.05086L6.31506 5.58394Z" fill="#C72B2C"/>
-                <path d="M10.416 9.68494C10.416 9.68494 11.8498 11.9822 9.17127 14.6607L7.83201 16L7.22534 15.3933C7.22534 15.3933 9.11645 13.3193 7.94905 12.1519L10.416 9.68494Z" fill="#C72B2C"/>
-                <path d="M10.0047 7.9368C11.077 7.9368 11.9462 7.06757 11.9462 5.99531C11.9462 4.92306 11.077 4.05383 10.0047 4.05383C8.93246 4.05383 8.06323 4.92306 8.06323 5.99531C8.06323 7.06757 8.93246 7.9368 10.0047 7.9368Z" fill="#ECECEC"/>
-                <path d="M10.0046 7.46964C10.8188 7.46964 11.4789 6.80956 11.4789 5.99532C11.4789 5.18107 10.8188 4.521 10.0046 4.521C9.19035 4.521 8.53027 5.18107 8.53027 5.99532C8.53027 6.80956 9.19035 7.46964 10.0046 7.46964Z" fill="#3966A5"/>
-                <path d="M5.14539 6.75348L4.69092 7.20795L8.79196 11.309L9.24643 10.8545L5.14539 6.75348Z" fill="#ECECEC"/>
-                <path d="M5.28178 12.279L4.50129 11.4985L3.7208 10.718C3.7208 10.718 1.34277 11.4951 1.4608 14.539C4.50475 14.657 5.28178 12.279 5.28178 12.279Z" fill="#F2CB30"/>
-                <path d="M5.02349 12.021L4.50127 11.4988L3.97905 10.9765C3.97905 10.9765 2.38769 11.4965 2.46645 13.5336C4.50349 13.6126 5.02349 12.021 5.02349 12.021Z" fill="#D66D2E"/>
-                <path d="M13.868 5.42173C14.8705 3.8358 15.7613 1.94617 16.0001 0C14.0539 0.238765 12.1643 1.12988 10.5784 2.1321L13.8678 5.42148L13.868 5.42173Z" fill="#C72B2C"/>
-                <path d="M10.416 9.68493L10.4135 9.68246C10.4135 9.68246 11.336 8.81802 12.4352 7.43283C8.24586 9.95011 5.27376 9.71728 3.85376 9.3432L7.30586 12.7953L10.416 9.68518V9.68493Z" fill="#B8B7B5"/>
-                <path d="M6.97364 9.49062L8.79191 11.3089L9.24623 10.8546L7.74993 9.35828C7.4808 9.41408 7.22178 9.45778 6.97339 9.49062H6.97364Z" fill="#DBDAD8"/>
-                <path d="M11.0352 2.21927C11.0352 2.21927 13.7008 0.44939 15.6668 0.333588C15.6668 0.333588 13.2307 1.15606 11.471 2.65507L11.0352 2.21927Z" fill="#CE3E3D"/>
-                <path d="M11.3917 6.4953C10.7011 6.78592 9.62502 7.15283 8.73169 6.73925C8.79416 6.84592 8.87095 6.94641 8.96231 7.03777C9.53811 7.61357 10.4714 7.61357 11.0472 7.03777C11.2058 6.87925 11.3206 6.69333 11.3917 6.49555V6.4953Z" fill="#2D5585"/>
-                <path d="M5.2816 12.279C5.47469 12.4721 5.78752 12.4721 5.98036 12.279L6.38481 11.8746C6.38481 11.8746 5.12086 11.7785 3.62012 10.5721C3.64407 10.6252 3.67715 10.6748 3.72061 10.7185L5.28135 12.2793L5.2816 12.279Z" fill="#2D5585"/>
-                <path d="M9.17127 14.6607C9.26361 14.5684 9.35077 14.4766 9.43349 14.3852C8.7004 14.7973 7.95942 15.0701 7.34905 15.2479C7.27324 15.3407 7.22534 15.3933 7.22534 15.3933L7.83201 16L9.17127 14.6607Z" fill="#B8252B"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_47_408">
-                <rect width="16" height="16" fill="white"/>
-                </clipPath>
-                </defs>
-                </svg>
-                
-            <span class="font-medium">NEW: SUPPORT PHP 8.4 & NODE 23</span>
-        </div>
+        <div class="inline-flex items-center 
+        gap-2 sm:gap-3 
+        bg-[#E9F3FD] text-[#2B8CEE] 
+        text-[10px] sm:text-xs md:text-sm 
+        px-3 sm:px-4 py-1.5 sm:py-2 
+        rounded-lg mb-6">
+
+<!-- icon 1 -->
+<svg width="14" height="14" class="sm:w-[17px] sm:h-[17px]" viewBox="0 0 17 17" fill="none">
+    <circle cx="8" cy="8" r="7" fill="#2B8CEE" fill-opacity="0.1" />
+    <circle cx="8" cy="8" r="3" fill="#2B8CEE" />
+</svg>
+
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_47_408)">
+  <path d="M4.12543 9.61481L3.72099 10.0193C3.5279 10.2123 3.5279 10.5252 3.72099 10.718L5.28173 12.2788C5.47481 12.4718 5.78765 12.4718 5.98049 12.2788L6.38494 11.8743L4.12518 9.61456L4.12543 9.61481Z" fill="#3966A5"/>
+  <path d="M15.9999 0C10.9718 0.617037 6.31718 5.58642 6.31718 5.58642L6.31471 5.58395L3.20459 8.69407L7.30558 12.7951L10.4157 9.68494L10.4132 9.68247C10.4132 9.68247 15.3829 5.02815 15.9999 0Z" fill="#C4C2C2"/>
+  <path d="M6.31506 5.58394C6.31506 5.58394 4.01778 4.15012 1.33926 6.82864L0 8.16789L0.606667 8.77456C0.606667 8.77456 2.68074 6.88345 3.84815 8.05086L6.31506 5.58394Z" fill="#C72B2C"/>
+  <path d="M10.416 9.68494C10.416 9.68494 11.8498 11.9822 9.17127 14.6607L7.83201 16L7.22534 15.3933C7.22534 15.3933 9.11645 13.3193 7.94905 12.1519L10.416 9.68494Z" fill="#C72B2C"/>
+  <path d="M10.0047 7.9368C11.077 7.9368 11.9462 7.06757 11.9462 5.99531C11.9462 4.92306 11.077 4.05383 10.0047 4.05383C8.93246 4.05383 8.06323 4.92306 8.06323 5.99531C8.06323 7.06757 8.93246 7.9368 10.0047 7.9368Z" fill="#ECECEC"/>
+  <path d="M10.0046 7.46964C10.8188 7.46964 11.4789 6.80956 11.4789 5.99532C11.4789 5.18107 10.8188 4.521 10.0046 4.521C9.19035 4.521 8.53027 5.18107 8.53027 5.99532C8.53027 6.80956 9.19035 7.46964 10.0046 7.46964Z" fill="#3966A5"/>
+  <path d="M5.14539 6.75348L4.69092 7.20795L8.79196 11.309L9.24643 10.8545L5.14539 6.75348Z" fill="#ECECEC"/>
+  <path d="M5.28178 12.279L4.50129 11.4985L3.7208 10.718C3.7208 10.718 1.34277 11.4951 1.4608 14.539C4.50475 14.657 5.28178 12.279 5.28178 12.279Z" fill="#F2CB30"/>
+  <path d="M5.02349 12.021L4.50127 11.4988L3.97905 10.9765C3.97905 10.9765 2.38769 11.4965 2.46645 13.5336C4.50349 13.6126 5.02349 12.021 5.02349 12.021Z" fill="#D66D2E"/>
+  <path d="M13.868 5.42173C14.8705 3.8358 15.7613 1.94617 16.0001 0C14.0539 0.238765 12.1643 1.12988 10.5784 2.1321L13.8678 5.42148L13.868 5.42173Z" fill="#C72B2C"/>
+  <path d="M10.416 9.68493L10.4135 9.68246C10.4135 9.68246 11.336 8.81802 12.4352 7.43283C8.24586 9.95011 5.27376 9.71728 3.85376 9.3432L7.30586 12.7953L10.416 9.68518V9.68493Z" fill="#B8B7B5"/>
+  <path d="M6.97364 9.49062L8.79191 11.3089L9.24623 10.8546L7.74993 9.35828C7.4808 9.41408 7.22178 9.45778 6.97339 9.49062H6.97364Z" fill="#DBDAD8"/>
+  <path d="M11.0352 2.21927C11.0352 2.21927 13.7008 0.44939 15.6668 0.333588C15.6668 0.333588 13.2307 1.15606 11.471 2.65507L11.0352 2.21927Z" fill="#CE3E3D"/>
+  <path d="M11.3917 6.4953C10.7011 6.78592 9.62502 7.15283 8.73169 6.73925C8.79416 6.84592 8.87095 6.94641 8.96231 7.03777C9.53811 7.61357 10.4714 7.61357 11.0472 7.03777C11.2058 6.87925 11.3206 6.69333 11.3917 6.49555V6.4953Z" fill="#2D5585"/>
+  <path d="M5.2816 12.279C5.47469 12.4721 5.78752 12.4721 5.98036 12.279L6.38481 11.8746C6.38481 11.8746 5.12086 11.7785 3.62012 10.5721C3.64407 10.6252 3.67715 10.6748 3.72061 10.7185L5.28135 12.2793L5.2816 12.279Z" fill="#2D5585"/>
+  <path d="M9.17127 14.6607C9.26361 14.5684 9.35077 14.4766 9.43349 14.3852C8.7004 14.7973 7.95942 15.0701 7.34905 15.2479C7.27324 15.3407 7.22534 15.3933 7.22534 15.3933L7.83201 16L9.17127 14.6607Z" fill="#B8252B"/>
+  </g>
+  <defs>
+  <clipPath id="clip0_47_408">
+  <rect width="16" height="16" fill="white"/>
+  </clipPath>
+  </defs>
+  </svg>
+
+<span class="font-medium">NEW: SUPPORT PHP 8.4 & NODE 23</span>
+</div>
+
 
         <!-- Heading -->
         <h1 class="text-4xl sm:text-5xl md:text-[64px] font-bold text-black text-center mb-3 sm:mb-4 lg:leading-[80px]" style="font-family: 'Space Grotesk', sans-serif">
@@ -875,14 +877,16 @@
         </div>
     </div>
 </section>
-			<section class="px-4 py-12 md:px-0 md:py-20 bg-white container">
-    <div class=" mx-auto">
+			<section class="px-4 py-12 md:px-0 md:py-20 bg-white">
+    <div class=" mx-auto container">
         <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 items-start">
             <div class="px-4 md:px-0">
-                <h2 class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center md:text-left text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0" style="font-family: 'Space Grotesk', sans-serif;">
+                <h2 class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center md:text-left text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0"
+                    style="font-family: 'Space Grotesk', sans-serif;">
                     Outstanding Performance
                 </h2>
-                <p class="text-gray-600 max-w-[680px] mb-8 md:mb-12 leading-relaxed text-center md:text-left text-sm sm:text-base">
+                <p
+                    class="text-gray-600 max-w-[680px] mb-8 md:mb-12 leading-relaxed text-center md:text-left text-sm sm:text-base">
                     No more waiting when starting the server. Laragon is fully optimized to ensure your workflow is
                     never interrupted.
                 </p>
@@ -928,7 +932,7 @@
                             </span>
 
                             <p class="max-w-[260px] text-sm sm:text-base text-gray-600 leading-relaxed ">
-                               
+
                             </p>
                         </div>
                     </div>
@@ -1540,7 +1544,7 @@
     </div>
   </div>
 </section>
-			<section class="py-20 container">
+			<section class="pb-20 container">
   <!-- Title -->
   <div class=" mx-auto px-6">
     <!-- Section Header -->
@@ -2343,7 +2347,7 @@
     </div>
 </section>
 			<section class="py-16 sm:py-20 lg:py-24 container">
-  <div class=" mx-auto px-4 sm:px-6">
+  <div class=" mx-auto sm:px-6">
     <!-- Section Title -->
     <h2 class="w-full text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0 px-4" style="font-family: 'Space Grotesk', sans-serif;">
       See How Laragon Works
@@ -2416,25 +2420,46 @@
 </section>
 			<section class="mx-auto px-4 py-16 container">
     <div class=" mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-4 px-4 md:px-0">
-        
-        <div class=" md:text-left">
-            <h2 class="w-full container text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center md:text-left text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0" style="font-family: 'Space Grotesk', sans-serif;">
-            Latest Updates & Tutorials
-            </h2>
-            <p class="text-gray-500 mt-3 sm:mt-2 text-xs sm:text-sm md:text-base leading-relaxed">
-                Learn how to get the most out of Laragon
-            </p>
-        </div>
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-4  md:px-0">
 
-        <a href="#" class="flex items-center justify-center md:justify-start text-[#2B8CEE] font-medium hover:underline md:mt-0 mt-2 text-sm sm:text-base">
-            View Full Guide
-            <svg class="ml-1" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 6L15 12L9 18" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-        </a>
-    </div>
+            <!-- Left -->
+            <div class="text-center md:text-left">
+                <h2 class="
+                    text-[26px] leading-[34px]
+                    sm:text-[32px] sm:leading-[40px]
+                    md:text-[40px] md:leading-[52px]
+                    lg:text-[48px] lg:leading-[61px]
+                    font-medium text-[#2C2C2C] mb-2
+                " style="font-family: 'Space Grotesk', sans-serif;">
+                    Latest Updates & Tutorials
+                </h2>
+        
+                <p class="
+                    text-gray-500
+                    text-xs sm:text-sm md:text-base
+                    leading-relaxed
+                    mt-2
+                ">
+                    Learn how to get the most out of Laragon
+                </p>
+            </div>
+        
+            <!-- Right -->
+            <a href="#"
+                class="
+                    flex items-center justify-center md:justify-start
+                    text-[#2B8CEE] font-medium hover:underline
+                    text-sm sm:text-base
+                ">
+                View Full Guide
+                <svg class="ml-1" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 6L15 12L9 18" stroke="#2B8CEE" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        
+        </div>
+        
 
     <!-- Content -->
     <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 sm:grid-cols-1 ">
@@ -2587,561 +2612,23 @@
 
     <div class="container mx-auto px-4 sm:px-6">
         <!-- Section Title -->
-        <div class="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 px-4">
-            <h2 class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0" style="font-family: 'Space Grotesk', sans-serif;">
+        <div class="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 ">
+            <h2 class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0"
+                style="font-family: 'Space Grotesk', sans-serif;">
                 Laragon Academy
             </h2>
-            <p class="text-gray-500 mt-3 sm:mt-2 md:mt-3 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            <p
+                class="text-gray-500 mt-3 sm:mt-2 md:mt-3 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
                 Free Project-Based Learning Paths. From Zero to Hero.
             </p>
         </div>
         <div class="relative">
             <!-- Mobile: Horizontal Scroll Slider -->
             <div class="block sm:hidden">
-                <div id="academy-slider-mobile" class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 px-4 pb-4 scroll-smooth">
+                <div id="academy-slider-mobile"
+                    class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 px-4 pb-4 scroll-smooth">
                     <div
                         class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                            <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                                <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                    <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                        viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#00E676"
-                                            fill-opacity="0.2" />
-                                        <path
-                                            d="M45.2779 26.9446V36.1113M20.8334 30.7641V36.1113C20.8334 37.3269 21.7992 38.4926 23.5183 39.3522C25.2374 40.2117 27.5689 40.6946 30.0001 40.6946C32.4312 40.6946 34.7628 40.2117 36.4819 39.3522C38.201 38.4926 39.1668 37.3269 39.1668 36.1113V30.7641M44.3918 28.3532C44.6653 28.2326 44.8974 28.0343 45.0593 27.7831C45.2212 27.5318 45.3059 27.2385 45.3028 26.9396C45.2997 26.6407 45.209 26.3493 45.0419 26.1014C44.8748 25.8535 44.6387 25.6601 44.3627 25.5452L31.2682 19.5807C30.8701 19.3991 30.4376 19.3052 30.0001 19.3052C29.5626 19.3052 29.1301 19.3991 28.732 19.5807L15.639 25.5391C15.367 25.6582 15.1356 25.854 14.9731 26.1025C14.8107 26.3511 14.7241 26.6416 14.7241 26.9385C14.7241 27.2354 14.8107 27.5259 14.9731 27.7745C15.1356 28.023 15.367 28.2188 15.639 28.3379L28.732 34.3085C29.1301 34.4901 29.5626 34.584 30.0001 34.584C30.4376 34.584 30.8701 34.4901 31.2682 34.3085L44.3918 28.3532Z"
-                                            stroke="#00E676" stroke-width="3.05556" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                </div>
-                                <div class="mb-2 sm:mb-3 flex justify-between">
-                                    <h4 class="text-md font-semibold hover:text-[#2B8CEE]">PHP Basics</h4>
-                                    <span
-                                        class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#00E676]">
-                                        NEWBIE
-                                    </span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
-
-                                    <li class="flex items-center "><svg
-                                            class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                            class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 1: Env Setup & Hello World
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 2: Variables & Types
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 3: Conditionals
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 4: Loops & Arrays
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 5: Functions
-                                        </span>
-                                    </li>
-                                    <button
-                                        class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                        See Documents
-                                    </button>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Card 2: Advanced PHP -->
-                        <div
-                            class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                            <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                                <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                    <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                        viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#9747FF"
-                                            fill-opacity="0.15" />
-                                        <path
-                                            d="M16.0974 21.75H21.5974M16.0974 27.25H21.5974M16.0974 32.75H21.5974M16.0974 38.25H21.5974M26.4099 24.5H33.2849M26.4099 30H35.3474M26.4099 35.5H32.5974M21.5974 16.25H38.0974C39.6162 16.25 40.8474 17.4812 40.8474 19V41C40.8474 42.5188 39.6162 43.75 38.0974 43.75H21.5974C20.0786 43.75 18.8474 42.5188 18.8474 41V19C18.8474 17.4812 20.0786 16.25 21.5974 16.25Z"
-                                            stroke="#9747FF" stroke-width="2.75" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="mb-2 sm:mb-3 flex justify-between">
-                                    <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Advanced PHP</h4>
-                                    <span
-                                        class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#9747FF]">
-                                        Intermediate
-                                    </span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
-
-                                    <li class="flex items-center "><svg
-                                            class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                            class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 1: OOP Concepts
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 2: MVC Pattern
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 3: Exceptions & Errors
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 4: Composer
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 5: Security (SQLi, XSS)
-                                        </span>
-                                    </li>
-                                    <button
-                                        class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                        See Documents
-                                    </button>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Card 3: Build News Site -->
-                        <div
-                            class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                            <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                                <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                    <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                        viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#ED661D"
-                                            fill-opacity="0.15" />
-                                        <path
-                                            d="M42.375 20.375C42.375 22.6532 36.8345 24.5 30 24.5C23.1655 24.5 17.625 22.6532 17.625 20.375M42.375 20.375C42.375 18.0968 36.8345 16.25 30 16.25C23.1655 16.25 17.625 18.0968 17.625 20.375M42.375 20.375V39.625C42.375 40.719 41.0712 41.7682 38.7504 42.5418C36.4297 43.3154 33.2821 43.75 30 43.75C26.7179 43.75 23.5703 43.3154 21.2496 42.5418C18.9288 41.7682 17.625 40.719 17.625 39.625V20.375M17.625 30C17.625 31.094 18.9288 32.1432 21.2496 32.9168C23.5703 33.6904 26.7179 34.125 30 34.125C33.2821 34.125 36.4297 33.6904 38.7504 32.9168C41.0712 32.1432 42.375 31.094 42.375 30"
-                                            stroke="#ED661D" stroke-width="2.75" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="mb-2 sm:mb-3 flex justify-between">
-                                    <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build News Site</h4>
-                                    <span
-                                        class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#ED661D]">
-                                        Project
-                                    </span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
-
-                                    <li class="flex items-center "><svg
-                                            class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                            class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 1: DB Design
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 2: Frontend & Views
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 3: Admin Dashboard
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 4: Authentication
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 5: Deployment
-                                        </span>
-                                    </li>
-                                    <button
-                                        class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                        See Documents
-                                    </button>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Card 4: Build E-Commerce -->
-                        <div
-                            class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                            <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                                <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                    <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                        viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#2B8CEE"
-                                            fill-opacity="0.2" />
-                                        <path
-                                            d="M35.5 27.25C35.5 28.7087 34.9205 30.1076 33.8891 31.1391C32.8576 32.1705 31.4587 32.75 30 32.75C28.5413 32.75 27.1424 32.1705 26.1109 31.1391C25.0795 30.1076 24.5 28.7087 24.5 27.25M17.7666 21.7967H42.2334M18.175 21.0171C17.818 21.4931 17.625 22.0721 17.625 22.6671V41C17.625 41.7293 17.9147 42.4288 18.4305 42.9445C18.9462 43.4603 19.6457 43.75 20.375 43.75H39.625C40.3543 43.75 41.0538 43.4603 41.5695 42.9445C42.0853 42.4288 42.375 41.7293 42.375 41V22.6671C42.375 22.0721 42.182 21.4931 41.825 21.0171L39.075 17.35C38.8188 17.0085 38.4867 16.7313 38.1048 16.5403C37.723 16.3494 37.3019 16.25 36.875 16.25H23.125C22.6981 16.25 22.277 16.3494 21.8952 16.5403C21.5133 16.7313 21.1812 17.0085 20.925 17.35L18.175 21.0171Z"
-                                            stroke="#2B8CEE" stroke-width="2.75" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-                                </div>
-                                <div class="mb-2 sm:mb-3 flex justify-between">
-                                    <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build E-Commerce</h4>
-                                    <span
-                                        class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#2B8CEE]">
-                                        NEWBIE
-                                    </span>
-                                </div>
-                                <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
-
-                                    <li class="flex items-center "><svg
-                                            class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                            class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 1: Cart Logic
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 2: Payment Integration
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 3: Order Management
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 4: REST API
-                                        </span>
-                                    </li>
-                                    <li class="flex items-center "><svg width="14" class="mr-2" height="14"
-                                            viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
-                                                stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span>
-                                            Part 5: Caching & Performance..
-                                        </span>
-                                    </li>
-                                    <button
-                                        class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                        See Documents
-                                    </button>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mobile Pagination Dots -->
-                <div class="flex justify-center items-center gap-2 mt-6 sm:hidden">
-                    <button onclick="prevAcademyMobile()" class="p-2 text-gray-400 hover:text-[#2B8CEE] transition">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <div class="flex gap-2">
-                        <button onclick="goToAcademyMobile(0)" class="academy-dot-mobile w-2 h-2 rounded-full bg-[#2B8CEE] transition-colors"></button>
-                        <button onclick="goToAcademyMobile(1)" class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
-                        <button onclick="goToAcademyMobile(2)" class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
-                        <button onclick="goToAcademyMobile(3)" class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
-                    </div>
-                    <button onclick="nextAcademyMobile()" class="p-2 text-gray-400 hover:text-[#2B8CEE] transition">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Desktop: Grid Layout -->
-            <div class="hidden sm:block">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
-                    <!-- Card 1: PHP Basics -->
-                    <div
-                        class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
                         <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
                             <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                                 <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
@@ -3153,6 +2640,7 @@
                                         stroke="#00E676" stroke-width="3.05556" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
+
                             </div>
                             <div class="mb-2 sm:mb-3 flex justify-between">
                                 <h4 class="text-md font-semibold hover:text-[#2B8CEE]">PHP Basics</h4>
@@ -3162,10 +2650,563 @@
                                 </span>
                             </div>
                             <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+
                                 <li class="flex items-center "><svg
                                         class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                        height="14" viewBox="0 0 14 14" fill="none"
+                                        class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 1: Env Setup & Hello World
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 2: Variables & Types
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 3: Conditionals
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 4: Loops & Arrays
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 5: Functions
+                                    </span>
+                                </li>
+                                <button
+                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
+                                    See Documents
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 2: Advanced PHP -->
+                    <div
+                        class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
+                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#9747FF"
+                                        fill-opacity="0.15" />
+                                    <path
+                                        d="M16.0974 21.75H21.5974M16.0974 27.25H21.5974M16.0974 32.75H21.5974M16.0974 38.25H21.5974M26.4099 24.5H33.2849M26.4099 30H35.3474M26.4099 35.5H32.5974M21.5974 16.25H38.0974C39.6162 16.25 40.8474 17.4812 40.8474 19V41C40.8474 42.5188 39.6162 43.75 38.0974 43.75H21.5974C20.0786 43.75 18.8474 42.5188 18.8474 41V19C18.8474 17.4812 20.0786 16.25 21.5974 16.25Z"
+                                        stroke="#9747FF" stroke-width="2.75" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="mb-2 sm:mb-3 flex justify-between">
+                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Advanced PHP</h4>
+                                <span
+                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#9747FF]">
+                                    Intermediate
+                                </span>
+                            </div>
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+
+                                <li class="flex items-center "><svg
+                                        class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
+                                        class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 1: OOP Concepts
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 2: MVC Pattern
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 3: Exceptions & Errors
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 4: Composer
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 5: Security (SQLi, XSS)
+                                    </span>
+                                </li>
+                                <button
+                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
+                                    See Documents
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 3: Build News Site -->
+                    <div
+                        class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
+                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#ED661D"
+                                        fill-opacity="0.15" />
+                                    <path
+                                        d="M42.375 20.375C42.375 22.6532 36.8345 24.5 30 24.5C23.1655 24.5 17.625 22.6532 17.625 20.375M42.375 20.375C42.375 18.0968 36.8345 16.25 30 16.25C23.1655 16.25 17.625 18.0968 17.625 20.375M42.375 20.375V39.625C42.375 40.719 41.0712 41.7682 38.7504 42.5418C36.4297 43.3154 33.2821 43.75 30 43.75C26.7179 43.75 23.5703 43.3154 21.2496 42.5418C18.9288 41.7682 17.625 40.719 17.625 39.625V20.375M17.625 30C17.625 31.094 18.9288 32.1432 21.2496 32.9168C23.5703 33.6904 26.7179 34.125 30 34.125C33.2821 34.125 36.4297 33.6904 38.7504 32.9168C41.0712 32.1432 42.375 31.094 42.375 30"
+                                        stroke="#ED661D" stroke-width="2.75" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="mb-2 sm:mb-3 flex justify-between">
+                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build News Site</h4>
+                                <span
+                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#ED661D]">
+                                    Project
+                                </span>
+                            </div>
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+
+                                <li class="flex items-center "><svg
+                                        class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
+                                        class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 1: DB Design
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 2: Frontend & Views
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 3: Admin Dashboard
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 4: Authentication
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 5: Deployment
+                                    </span>
+                                </li>
+                                <button
+                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
+                                    See Documents
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card 4: Build E-Commerce -->
+                    <div
+                        class="group min-w-[calc(100%-2rem)] flex-shrink-0 snap-start rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
+                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#2B8CEE"
+                                        fill-opacity="0.2" />
+                                    <path
+                                        d="M35.5 27.25C35.5 28.7087 34.9205 30.1076 33.8891 31.1391C32.8576 32.1705 31.4587 32.75 30 32.75C28.5413 32.75 27.1424 32.1705 26.1109 31.1391C25.0795 30.1076 24.5 28.7087 24.5 27.25M17.7666 21.7967H42.2334M18.175 21.0171C17.818 21.4931 17.625 22.0721 17.625 22.6671V41C17.625 41.7293 17.9147 42.4288 18.4305 42.9445C18.9462 43.4603 19.6457 43.75 20.375 43.75H39.625C40.3543 43.75 41.0538 43.4603 41.5695 42.9445C42.0853 42.4288 42.375 41.7293 42.375 41V22.6671C42.375 22.0721 42.182 21.4931 41.825 21.0171L39.075 17.35C38.8188 17.0085 38.4867 16.7313 38.1048 16.5403C37.723 16.3494 37.3019 16.25 36.875 16.25H23.125C22.6981 16.25 22.277 16.3494 21.8952 16.5403C21.5133 16.7313 21.1812 17.0085 20.925 17.35L18.175 21.0171Z"
+                                        stroke="#2B8CEE" stroke-width="2.75" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                            <div class="mb-2 sm:mb-3 flex justify-between">
+                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build E-Commerce</h4>
+                                <span
+                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#2B8CEE]">
+                                    NEWBIE
+                                </span>
+                            </div>
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+
+                                <li class="flex items-center "><svg
+                                        class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
+                                        class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 1: Cart Logic
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 2: Payment Integration
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 3: Order Management
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 4: REST API
+                                    </span>
+                                </li>
+                                <li class="flex items-center "><svg width="14" class="mr-2" height="14"
+                                        viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M11.7834 11.7836C12.9734 10.5995 11.7951 7.4903 9.15839 4.84197C6.51006 2.2053 3.40089 1.02697 2.21672 2.21697C1.02672 3.40113 2.20506 6.5103 4.84172 9.15863C7.49006 11.7953 10.5992 12.9736 11.7834 11.7836Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.15839 9.15863C11.7951 6.5103 12.9734 3.40113 11.7834 2.21697C10.5992 1.02697 7.49006 2.2053 4.84172 4.84197C2.20506 7.4903 1.02672 10.5995 2.21672 11.7836C3.40089 12.9736 6.51006 11.7953 9.15839 9.15863Z"
+                                            stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <span>
+                                        Part 5: Caching & Performance..
+                                    </span>
+                                </li>
+                                <button
+                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
+                                    See Documents
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Pagination Dots -->
+            <div class="flex justify-center items-center gap-2 mt-6 sm:hidden">
+                <button onclick="prevAcademyMobile()" class="p-2 text-gray-400 hover:text-[#2B8CEE] transition">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="flex gap-2">
+                    <button onclick="goToAcademyMobile(0)"
+                        class="academy-dot-mobile w-2 h-2 rounded-full bg-[#2B8CEE] transition-colors"></button>
+                    <button onclick="goToAcademyMobile(1)"
+                        class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+                    <button onclick="goToAcademyMobile(2)"
+                        class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+                    <button onclick="goToAcademyMobile(3)"
+                        class="academy-dot-mobile w-2 h-2 rounded-full bg-gray-300 transition-colors"></button>
+                </div>
+                <button onclick="nextAcademyMobile()" class="p-2 text-gray-400 hover:text-[#2B8CEE] transition">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Desktop: Grid Layout -->
+        <div class="hidden sm:block">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
+                <!-- Card 1: PHP Basics -->
+                <div
+                    class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+
+                    <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full flex flex-col">
+
+                        <!-- Icon -->
+                        <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#00E676"
+                                    fill-opacity="0.2" />
+                                <path
+                                    d="M45.2779 26.9446V36.1113M20.8334 30.7641V36.1113C20.8334 37.3269 21.7992 38.4926 23.5183 39.3522C25.2374 40.2117 27.5689 40.6946 30.0001 40.6946C32.4312 40.6946 34.7628 40.2117 36.4819 39.3522C38.201 38.4926 39.1668 37.3269 39.1668 36.1113V30.7641M44.3918 28.3532C44.6653 28.2326 44.8974 28.0343 45.0593 27.7831C45.2212 27.5318 45.3059 27.2385 45.3028 26.9396C45.2997 26.6407 45.209 26.3493 45.0419 26.1014C44.8748 25.8535 44.6387 25.6601 44.3627 25.5452L31.2682 19.5807C30.8701 19.3991 30.4376 19.3052 30.0001 19.3052C29.5626 19.3052 29.1301 19.3991 28.732 19.5807L15.639 25.5391C15.367 25.6582 15.1356 25.854 14.9731 26.1025C14.8107 26.3511 14.7241 26.6416 14.7241 26.9385C14.7241 27.2354 14.8107 27.5259 14.9731 27.7745C15.1356 28.023 15.367 28.2188 15.639 28.3379L28.732 34.3085C29.1301 34.4901 29.5626 34.584 30.0001 34.584C30.4376 34.584 30.8701 34.4901 31.2682 34.3085L44.3918 28.3532Z"
+                                    stroke="#00E676" stroke-width="3.05556" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Title + Badge -->
+                        <div class="mb-2 sm:mb-3 flex justify-between">
+                            <h4 class="text-md font-semibold hover:text-[#2B8CEE]">PHP Basics</h4>
+                            <span
+                                class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#00E676]">
+                                NEWBIE
+                            </span>
+                        </div>
+                        <!-- List + Button -->
+                        <div class="flex flex-col flex-1">
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600 flex-1 mb-12">
+                                <li class="flex items-center "><svg
+                                        class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
+                                        height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
@@ -3249,40 +3290,51 @@
                                     </svg>
                                     <span>Part 5: Functions</span>
                                 </li>
-                                <button
-                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                    See Documents
-                                </button>
                             </ul>
+
+                            <!-- Button luôn nằm dưới cùng -->
+                            <button
+                                class="w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 transition hover:bg-[#2B8CEE] hover:text-white">
+                                See Documents
+                            </button>
                         </div>
+
                     </div>
-                    <!-- Card 2: Advanced PHP -->
-                    <div
-                        class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#9747FF"
-                                        fill-opacity="0.15" />
-                                    <path
-                                        d="M16.0974 21.75H21.5974M16.0974 27.25H21.5974M16.0974 32.75H21.5974M16.0974 38.25H21.5974M26.4099 24.5H33.2849M26.4099 30H35.3474M26.4099 35.5H32.5974M21.5974 16.25H38.0974C39.6162 16.25 40.8474 17.4812 40.8474 19V41C40.8474 42.5188 39.6162 43.75 38.0974 43.75H21.5974C20.0786 43.75 18.8474 42.5188 18.8474 41V19C18.8474 17.4812 20.0786 16.25 21.5974 16.25Z"
-                                        stroke="#9747FF" stroke-width="2.75" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="mb-2 sm:mb-3 flex justify-between">
-                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Advanced PHP</h4>
-                                <span
-                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#9747FF]">
-                                    Intermediate
-                                </span>
-                            </div>
-                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+                </div>
+
+                <!-- Card 2: Advanced PHP -->
+                <div
+                    class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+
+                    <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full flex flex-col">
+
+                        <!-- Icon -->
+                        <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#9747FF"
+                                    fill-opacity="0.15" />
+                                <path
+                                    d="M16.0974 21.75H21.5974M16.0974 27.25H21.5974M16.0974 32.75H21.5974M16.0974 38.25H21.5974M26.4099 24.5H33.2849M26.4099 30H35.3474M26.4099 35.5H32.5974M21.5974 16.25H38.0974C39.6162 16.25 40.8474 17.4812 40.8474 19V41C40.8474 42.5188 39.6162 43.75 38.0974 43.75H21.5974C20.0786 43.75 18.8474 42.5188 18.8474 41V19C18.8474 17.4812 20.0786 16.25 21.5974 16.25Z"
+                                    stroke="#9747FF" stroke-width="2.75" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Title + Badge -->
+                        <div class="mb-2 sm:mb-3 flex justify-between">
+                            <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Advanced PHP</h4>
+                            <span
+                                class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#9747FF]">
+                                Intermediate
+                            </span>
+                        </div>
+                        <!-- List + Button -->
+                        <div class="flex flex-col flex-1">
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600 flex-1 mb-12">
                                 <li class="flex items-center "><svg
                                         class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                        height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
@@ -3366,40 +3418,51 @@
                                     </svg>
                                     <span>Part 5: Security (SQLi, XSS)</span>
                                 </li>
-                                <button
-                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                    See Documents
-                                </button>
                             </ul>
+
+                            <!-- Button luôn nằm dưới cùng -->
+                            <button
+                                class="w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 transition hover:bg-[#2B8CEE] hover:text-white">
+                                See Documents
+                            </button>
                         </div>
+
                     </div>
-                    <!-- Card 3: Build News Site -->
-                    <div
-                        class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#ED661D"
-                                        fill-opacity="0.15" />
-                                    <path
-                                        d="M42.375 20.375C42.375 22.6532 36.8345 24.5 30 24.5C23.1655 24.5 17.625 22.6532 17.625 20.375M42.375 20.375C42.375 18.0968 36.8345 16.25 30 16.25C23.1655 16.25 17.625 18.0968 17.625 20.375M42.375 20.375V39.625C42.375 40.719 41.0712 41.7682 38.7504 42.5418C36.4297 43.3154 33.2821 43.75 30 43.75C26.7179 43.75 23.5703 43.3154 21.2496 42.5418C18.9288 41.7682 17.625 40.719 17.625 39.625V20.375M17.625 30C17.625 31.094 18.9288 32.1432 21.2496 32.9168C23.5703 33.6904 26.7179 34.125 30 34.125C33.2821 34.125 36.4297 33.6904 38.7504 32.9168C41.0712 32.1432 42.375 31.094 42.375 30"
-                                        stroke="#ED661D" stroke-width="2.75" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="mb-2 sm:mb-3 flex justify-between">
-                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build News Site</h4>
-                                <span
-                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#ED661D]">
-                                    Project
-                                </span>
-                            </div>
-                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+                </div>
+                <!-- Card 3: Build News Site -->
+                <div
+                    class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+
+                    <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full flex flex-col">
+
+                        <!-- Icon -->
+                        <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#ED661D"
+                                    fill-opacity="0.15" />
+                                <path
+                                    d="M42.375 20.375C42.375 22.6532 36.8345 24.5 30 24.5C23.1655 24.5 17.625 22.6532 17.625 20.375M42.375 20.375C42.375 18.0968 36.8345 16.25 30 16.25C23.1655 16.25 17.625 18.0968 17.625 20.375M42.375 20.375V39.625C42.375 40.719 41.0712 41.7682 38.7504 42.5418C36.4297 43.3154 33.2821 43.75 30 43.75C26.7179 43.75 23.5703 43.3154 21.2496 42.5418C18.9288 41.7682 17.625 40.719 17.625 39.625V20.375M17.625 30C17.625 31.094 18.9288 32.1432 21.2496 32.9168C23.5703 33.6904 26.7179 34.125 30 34.125C33.2821 34.125 36.4297 33.6904 38.7504 32.9168C41.0712 32.1432 42.375 31.094 42.375 30"
+                                    stroke="#ED661D" stroke-width="2.75" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Title + Badge -->
+                        <div class="mb-2 sm:mb-3 flex justify-between">
+                            <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build News Site</h4>
+                            <span
+                                class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#ED661D]">
+                                Project
+                            </span>
+                        </div>
+
+                        <!-- List + Button -->
+                        <div class="flex flex-col flex-1">
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600 flex-1 mb-12">
                                 <li class="flex items-center "><svg
                                         class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                        height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                        height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
@@ -3483,39 +3546,52 @@
                                     </svg>
                                     <span>Part 5: Deployment</span>
                                 </li>
-                                <button
-                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                    See Documents
-                                </button>
                             </ul>
+
+                            <!-- Button luôn nằm dưới cùng -->
+                            <button
+                                class="w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 transition hover:bg-[#2B8CEE] hover:text-white">
+                                See Documents
+                            </button>
                         </div>
+
                     </div>
-                    <!-- Card 4: Build E-Commerce -->
-                    <div
-                        class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
-                        <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full">
-                            <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                                <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
-                                    viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#2B8CEE"
-                                        fill-opacity="0.2" />
-                                    <path
-                                        d="M35.5 27.25C35.5 28.7087 34.9205 30.1076 33.8891 31.1391C32.8576 32.1705 31.4587 32.75 30 32.75C28.5413 32.75 27.1424 32.1705 26.1109 31.1391C25.0795 30.1076 24.5 28.7087 24.5 27.25M17.7666 21.7967H42.2334M18.175 21.0171C17.818 21.4931 17.625 22.0721 17.625 22.6671V41C17.625 41.7293 17.9147 42.4288 18.4305 42.9445C18.9462 43.4603 19.6457 43.75 20.375 43.75H39.625C40.3543 43.75 41.0538 43.4603 41.5695 42.9445C42.0853 42.4288 42.375 41.7293 42.375 41V22.6671C42.375 22.0721 42.182 21.4931 41.825 21.0171L39.075 17.35C38.8188 17.0085 38.4867 16.7313 38.1048 16.5403C37.723 16.3494 37.3019 16.25 36.875 16.25H23.125C22.6981 16.25 22.277 16.3494 21.8952 16.5403C21.5133 16.7313 21.1812 17.0085 20.925 17.35L18.175 21.0171Z"
-                                        stroke="#2B8CEE" stroke-width="2.75" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="mb-2 sm:mb-3 flex justify-between">
-                                <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build E-Commerce</h4>
-                                <span
-                                    class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl  text-gray-500  transition  group-hover:text-[#2B8CEE]">
-                                    NEWBIE
-                                </span>
-                            </div>
-                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600">
+                </div>
+
+                <!-- Card 4: Build E-Commerce -->
+                <div
+                    class="group w-full max-w-sm rounded-xl transition-all duration-300 border border-gray-200 hover:border-transparent hover:bg-gradient-to-r hover:from-[#05DF85] hover:to-[#2B8CEE] flex flex-col hover:text-[#2B8CEE]">
+
+                    <div class="space-y-6 bg-white rounded-xl p-4 sm:p-5 md:p-6 transition w-full h-full flex flex-col">
+
+                        <!-- Icon -->
+                        <div class="overflow-hidden flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                            <svg class="duration-500 ease-out hover:scale-110" width="60" height="60"
+                                viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.5" y="2.5" width="55" height="55" rx="5.5" fill="#2B8CEE"
+                                    fill-opacity="0.2" />
+                                <path
+                                    d="M35.5 27.25C35.5 28.7087 34.9205 30.1076 33.8891 31.1391C32.8576 32.1705 31.4587 32.75 30 32.75C28.5413 32.75 27.1424 32.1705 26.1109 31.1391C25.0795 30.1076 24.5 28.7087 24.5 27.25M17.7666 21.7967H42.2334M18.175 21.0171C17.818 21.4931 17.625 22.0721 17.625 22.6671V41C17.625 41.7293 17.9147 42.4288 18.4305 42.9445C18.9462 43.4603 19.6457 43.75 20.375 43.75H39.625C40.3543 43.75 41.0538 43.4603 41.5695 42.9445C42.0853 42.4288 42.375 41.7293 42.375 41V22.6671C42.375 22.0721 42.182 21.4931 41.825 21.0171L39.075 17.35C38.8188 17.0085 38.4867 16.7313 38.1048 16.5403C37.723 16.3494 37.3019 16.25 36.875 16.25H23.125C22.6981 16.25 22.277 16.3494 21.8952 16.5403C21.5133 16.7313 21.1812 17.0085 20.925 17.35L18.175 21.0171Z"
+                                    stroke="#2B8CEE" stroke-width="2.75" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Title + Badge -->
+                        <div class="mb-2 sm:mb-3 flex justify-between">
+                            <h4 class="text-md font-semibold hover:text-[#2B8CEE]">Build E-Commerce</h4>
+                            <span
+                                class="text-[11px] bg-[#E9F3FD]/50 p-2 rounded-xl text-gray-500 transition group-hover:text-[#2B8CEE]">
+                                Advanced
+                            </span>
+                        </div>
+
+                        <!-- List + Button -->
+                        <div class="flex flex-col flex-1">
+                            <ul class="space-y-2 sm:space-y-3 text-sm text-gray-600 flex-1 mb-12">
                                 <li class="flex items-center "><svg
                                         class="mr-2 text-gray-400 transition group-hover:text-[#2B8CEE]" width="14"
-                                        height="14" viewBox="0 0 14 14" fill="none"
+                                        class="mr-2" height="14" viewBox="0 0 14 14" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M7.00006 7.58363C7.32222 7.58363 7.58339 7.32247 7.58339 7.0003C7.58339 6.67813 7.32222 6.41697 7.00006 6.41697C6.67789 6.41697 6.41672 6.67813 6.41672 7.0003C6.41672 7.32247 6.67789 7.58363 7.00006 7.58363Z"
@@ -3530,7 +3606,9 @@
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Part 1: Cart Logic</span>
+                                    <span>
+                                        Part 1: Cart Logic
+                                    </span>
                                 </li>
                                 <li class="flex items-center "><svg width="14" class="mr-2" height="14"
                                         viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3547,7 +3625,9 @@
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Part 2: Payment Integration</span>
+                                    <span>
+                                        Part 2: Payment Integration
+                                    </span>
                                 </li>
                                 <li class="flex items-center "><svg width="14" class="mr-2" height="14"
                                         viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3564,7 +3644,9 @@
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Part 3: Order Management</span>
+                                    <span>
+                                        Part 3: Order Management
+                                    </span>
                                 </li>
                                 <li class="flex items-center "><svg width="14" class="mr-2" height="14"
                                         viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3581,7 +3663,9 @@
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Part 4: REST API</span>
+                                    <span>
+                                        Part 4: REST API
+                                    </span>
                                 </li>
                                 <li class="flex items-center "><svg width="14" class="mr-2" height="14"
                                         viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3598,66 +3682,72 @@
                                             stroke="#595959" stroke-width="1.16667" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span>Part 5: Caching & Performance..</span>
+                                    <span>
+                                        Part 5: Caching & Performance..
+                                    </span>
                                 </li>
-                                <button
-                                    class=" w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium  transition hover:bg-[#2B8CEE] hover:text-white">
-                                    See Documents
-                                </button>
                             </ul>
+
+                            <!-- Button luôn nằm dưới cùng -->
+                            <button
+                                class="w-full border font-semibold mt-auto py-2.5 rounded-lg bg-gray-100 text-gray-700 transition hover:bg-[#2B8CEE] hover:text-white">
+                                See Documents
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+    </div>
 </section>
 
 <script>
-// Academy Mobile Slider
-let academyMobileIndex = 0;
-const totalAcademyCards = 4;
+    // Academy Mobile Slider
+    let academyMobileIndex = 0;
+    const totalAcademyCards = 4;
 
-function updateAcademyMobileDots() {
-    const dots = document.querySelectorAll('.academy-dot-mobile');
-    dots.forEach((dot, i) => {
-        dot.className = `academy-dot-mobile w-2 h-2 rounded-full ${i === academyMobileIndex ? 'bg-[#2B8CEE]' : 'bg-gray-300'} transition-colors`;
-    });
-}
-
-function goToAcademyMobile(index) {
-    const slider = document.getElementById('academy-slider-mobile');
-    if (slider) {
-        academyMobileIndex = Math.max(0, Math.min(index, totalAcademyCards - 1));
-        const cardWidth = slider.offsetWidth;
-        slider.scrollTo({ left: academyMobileIndex * cardWidth, behavior: 'smooth' });
-        updateAcademyMobileDots();
+    function updateAcademyMobileDots() {
+        const dots = document.querySelectorAll('.academy-dot-mobile');
+        dots.forEach((dot, i) => {
+            dot.className = `academy-dot-mobile w-2 h-2 rounded-full ${i === academyMobileIndex ? 'bg-[#2B8CEE]' : 'bg-gray-300'} transition-colors`;
+        });
     }
-}
 
-function nextAcademyMobile() {
-    academyMobileIndex = (academyMobileIndex + 1) % totalAcademyCards;
-    goToAcademyMobile(academyMobileIndex);
-}
-
-function prevAcademyMobile() {
-    academyMobileIndex = (academyMobileIndex - 1 + totalAcademyCards) % totalAcademyCards;
-    goToAcademyMobile(academyMobileIndex);
-}
-
-// Update dots when scrolling
-const academySliderMobile = document.getElementById('academy-slider-mobile');
-if (academySliderMobile) {
-    academySliderMobile.addEventListener('scroll', () => {
-        const cardWidth = academySliderMobile.offsetWidth;
-        const newIndex = Math.round(academySliderMobile.scrollLeft / cardWidth);
-        if (newIndex !== academyMobileIndex && newIndex >= 0 && newIndex < totalAcademyCards) {
-            academyMobileIndex = newIndex;
+    function goToAcademyMobile(index) {
+        const slider = document.getElementById('academy-slider-mobile');
+        if (slider) {
+            academyMobileIndex = Math.max(0, Math.min(index, totalAcademyCards - 1));
+            const cardWidth = slider.offsetWidth;
+            slider.scrollTo({ left: academyMobileIndex * cardWidth, behavior: 'smooth' });
             updateAcademyMobileDots();
         }
-    });
-}
+    }
+
+    function nextAcademyMobile() {
+        academyMobileIndex = (academyMobileIndex + 1) % totalAcademyCards;
+        goToAcademyMobile(academyMobileIndex);
+    }
+
+    function prevAcademyMobile() {
+        academyMobileIndex = (academyMobileIndex - 1 + totalAcademyCards) % totalAcademyCards;
+        goToAcademyMobile(academyMobileIndex);
+    }
+
+    // Update dots when scrolling
+    const academySliderMobile = document.getElementById('academy-slider-mobile');
+    if (academySliderMobile) {
+        academySliderMobile.addEventListener('scroll', () => {
+            const cardWidth = academySliderMobile.offsetWidth;
+            const newIndex = Math.round(academySliderMobile.scrollLeft / cardWidth);
+            if (newIndex !== academyMobileIndex && newIndex >= 0 && newIndex < totalAcademyCards) {
+                academyMobileIndex = newIndex;
+                updateAcademyMobileDots();
+            }
+        });
+    }
 </script>
 			<section class="py-16 sm:py-20 lg:py-24">
   <div class="container mx-auto px-4 sm:px-6">
@@ -3777,91 +3867,84 @@ if (academySliderMobile) {
   </div>
 </section>
 			<section class="py-16 sm:py-20 lg:py-24 bg-[#E9F3FD]/50">
-
     <div class="container mx-auto px-4 sm:px-6">
-        <div class="text-center lg:mb-14 px-4">
-            <h2 class="w-full  text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-center text-[#2C2C2C] mb-3 sm:mb-2 flex-none order-0 self-stretch flex-grow-0" style="font-family: 'Space Grotesk', sans-serif;">
-                Choose Your Edition
-            </h2>
+      <div class="text-center lg:mb-14 px-4">
+        <h2 class="w-full text-[30px] sm:text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight sm:leading-snug md:leading-[61px] text-[#2C2C2C] mb-3 sm:mb-2" style="font-family: 'Space Grotesk', sans-serif;">
+          Choose Your Edition
+        </h2>
+      </div>
+  
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-8 lg:mt-12 items-end px-4 sm:px-6 lg:px-24">
+  
+        <!-- Card 1 -->
+        <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
+          <div class="relative bg-white rounded-lg w-full h-full p-6 sm:p-6 md:p-8 flex flex-col">
+            <h3 class="text-lg sm:text-xl lg:text-2xl text-gray-900 mb-3 text-center">
+              Laragon Portable.zip
+            </h3>
+            <p class="text-sm sm:text-base text-gray-600 mb-6 flex-grow text-center">
+              Self-contained. Copy folder to USB or Cloud. No installation required.
+            </p>
+            <button class="w-full flex items-center justify-center gap-2 border bg-gray-100 hover:border-[#2B8CEE] text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="#2C2C2C" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Download Portable</span>
+            </button>
+            <p class="text-xs text-gray-500 mt-4 text-center">
+              Windows 32/64 bit
+            </p>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-8 lg:mt-12 items-end px-[96px]">
-
-            <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
-                <div class="relative bg-white rounded-lg w-full h-full p-6 lg:p-8 flex flex-col">
-                    <h3 class="text-xl lg:text-2xl text-gray-900 mb-3 text-center">
-                        Laragon Portable.zip
-                    </h3>
-                    <p class="text-sm lg:text-base text-gray-600 mb-6 flex-grow text-center">
-                        Self-contained. Copy folder to USB or Cloud. No installation required.
-                    </p>
-                    <button
-                        class="w-full flex items-center border justify-center gap-2 bg-gray-100 hover:border-[#2B8CEE] text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
-                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-
-                        <span>Download Portable</span>
-                    </button>
-                    <p class="text-xs text-gray-500 mt-4 text-center">
-                        Windows 32/64 bit
-                    </p>
-                </div>
-
+  
+        <!-- Card 2 -->
+        <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
+          <div class="border-2 rounded-xl">
+            <div class="relative bg-[#E9F3FD] w-full h-full rounded-lg p-6 sm:p-6 md:p-8 flex flex-col pt-8 min-h-[300px] sm:min-h-[340px] md:min-h-[360px]">
+              <div class="text-center absolute left-1/2 -translate-x-1/2">
+                <span class="inline-block text-xs sm:text-sm font-medium px-4 sm:px-6 py-2 sm:py-3 bg-[#2B8CEE] text-white rounded-full">Recommended</span>
+              </div>
+              <h3 class="text-lg sm:text-xl lg:text-2xl text-gray-900 mb-3 text-center mt-16">
+                Laragon-Install.exe
+              </h3>
+              <p class="text-sm sm:text-base text-center text-gray-600 flex-grow leading-tight">
+                Includes Apache 2.4, Nginx, MySQL 8/9, PHP 8.x, Node.js 22+, npm, git, yarn + Cmder.
+              </p>
+              <button class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#2178d4] text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 mt-4">
+                <svg class="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Download Full (173MB)</span>
+              </button>
+              <p class="text-xs text-gray-500 mt-4 text-center">
+                Windows 32/64 bit
+              </p>
             </div>
-
-            <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
-            <div class="border-2  rounded-xl">
-                <div class="relative bg-[#E9F3FD] w-full h-full rounded-lg p-6 lg:p-8 flex flex-col pt-8 min-h-[320px] md:min-h-[360px]">
-                    <div class="text-center absolute left-1/2 -translate-x-1/2">
-                        <span class="inline-block text-xs font-medium px-6 py-3 bg-[#2B8CEE] text-white rounded-full">Recommended</span>
-                    </div>
-                    <h3 class="text-xl lg:text-2xl text-gray-900 mb-3 text-center mt-16">
-                        Laragon-Install.exe
-                    </h3>
-                    <p class="text-sm lg:text-base text-center text-gray-600 flex-grow leading-tight">
-                        Includes Apache 2.4, Nginx, MySQL 8/9, PHP 8.x, Node.js 22+, npm, git, yarn + Cmder.
-                    </p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 bg-[#2B8CEE] hover:bg-[#2178d4] text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 15V3M12 15L7 10M12 15L17 10M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
-                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>Download Full (173MB)</span>
-                    </button>
-                    <p class="text-xs text-gray-500 mt-4 text-center">
-                        Windows 32/64 bit
-                    </p>
-                </div>
-            </div>
-            </div>
-            <!-- Card 3: Outsource Service -->
-            <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
-                <div class="relative w-full h-full bg-white rounded-lg border-2 border-green-200 p-6 lg:p-8 flex flex-col">
-                    <h3 class="text-xl lg:text-2xl text-gray-900 mb-3 text-center">
-                        Outsource Service
-                    </h3>
-                    <p class="text-sm lg:text-base text-gray-600 mb-6 flex-grow text-center">
-                        Minimal setup. No Node.js/Git/Yarn pre-installed. Good for older machines.
-                    </p>
-                    <button
-                        class="w-full flex items-center border justify-center gap-2 bg-gray-100 hover:border-[#2B8CEE] text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.99994 8.99969L6.99994 11.9997L9.99994 14.9997M13.9999 14.9997L16.9999 11.9997L13.9999 8.99969M2.99194 16.3417C3.13897 16.7126 3.17171 17.119 3.08594 17.5087L2.02094 20.7987C1.98662 20.9655 1.99549 21.1384 2.04671 21.3008C2.09793 21.4633 2.1898 21.61 2.3136 21.727C2.43741 21.844 2.58904 21.9274 2.75413 21.9693C2.91923 22.0113 3.0923 22.0104 3.25694 21.9667L6.66994 20.9687C7.03765 20.8958 7.41846 20.9276 7.76894 21.0607C9.90432 22.0579 12.3233 22.2689 14.5991 21.6564C16.8749 21.0439 18.8612 19.6473 20.2076 17.7131C21.5541 15.7788 22.1741 13.4311 21.9582 11.0842C21.7424 8.73738 20.7046 6.54216 19.028 4.88589C17.3514 3.22962 15.1436 2.21873 12.7943 2.03159C10.445 1.84445 8.10507 2.49308 6.18738 3.86303C4.26968 5.23299 2.89747 7.23624 2.31283 9.51933C1.72819 11.8024 1.9687 14.2186 2.99194 16.3417Z" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                                                   
-                        <span>Chat With Us</span>
-                    </button>
-                </div>
-            </div>
+          </div>
         </div>
-
-
+  
+        <!-- Card 3 -->
+        <div class="p-[1.5px] bg-gradient-to-r from-[#05DF85] to-[#2B8CEE] rounded-xl">
+          <div class="relative w-full h-full bg-white rounded-lg border-2 border-green-200 p-6 sm:p-6 md:p-8 flex flex-col">
+            <h3 class="text-lg sm:text-xl lg:text-2xl text-gray-900 mb-3 text-center">
+              Outsource Service
+            </h3>
+            <p class="text-sm sm:text-base text-gray-600 mb-6 flex-grow text-center">
+              Minimal setup. No Node.js/Git/Yarn pre-installed. Good for older machines.
+            </p>
+            <button class="w-full flex items-center border justify-center gap-2 bg-gray-100 hover:border-[#2B8CEE] text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="#2C2C2C" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.99994 8.99969L6.99994 11.9997L9.99994 14.9997M13.9999 14.9997L16.9999 11.9997L13.9999 8.99969M2.99194 16.3417C3.13897 16.7126 3.17171 17.119 3.08594 17.5087L2.02094 20.7987C1.98662 20.9655 1.99549 21.1384 2.04671 21.3008C2.09793 21.4633 2.1898 21.61 2.3136 21.727C2.43741 21.844 2.58904 21.9274 2.75413 21.9693C2.91923 22.0113 3.0923 22.0104 3.25694 21.9667L6.66994 20.9687C7.03765 20.8958 7.41846 20.9276 7.76894 21.0607C9.90432 22.0579 12.3233 22.2689 14.5991 21.6564C16.8749 21.0439 18.8612 19.6473 20.2076 17.7131C21.5541 15.7788 22.1741 13.4311 21.9582 11.0842C21.7424 8.73738 20.7046 6.54216 19.028 4.88589C17.3514 3.22962 15.1436 2.21873 12.7943 2.03159C10.445 1.84445 8.10507 2.49308 6.18738 3.86303C4.26968 5.23299 2.89747 7.23624 2.31283 9.51933C1.72819 11.8024 1.9687 14.2186 2.99194 16.3417Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Chat With Us</span>
+            </button>
+          </div>
+        </div>
+  
+      </div>
     </div>
-</section>
+  </section>
+  
 
 	
 
